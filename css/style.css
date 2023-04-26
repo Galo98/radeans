@@ -71,8 +71,8 @@ footer .contacto{
 }
 
 footer .ubicacion{
-    width: 60%;
-    height: 50%;
+    width: 50vw;
+    height: 20vh;
 }
 
 /* Estilos puntuales */
@@ -160,21 +160,23 @@ footer .ubicacion{
     nav ul li {
         margin-bottom: 10px;
     }
-}
 
-@media screen and (max-width: 550px) {
-
-    footer{
+    footer {
         flex-direction: column;
     }
+
     footer .contacto{
     width: 100%;
     }
 
-    footer .ubicacion{
-        width: 100%;
-        height: 80%;
-    }
+        footer .ubicacion {
+            width: 80vw;
+            height: 40vh;
+        }
+}
+
+@media screen and (max-width: 550px) {
+
     .slider img,
     .slider2 img {
         width: 100%;
