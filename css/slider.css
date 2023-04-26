@@ -33,7 +33,7 @@
     right: -23px;
 }
 
-.contenedorSlider .slider,.contenedorSlider2 .slider2 {
+.slider,.slider2 {
     font-size: 0px;
     cursor: pointer;
     overflow: hidden;
@@ -41,7 +41,7 @@
     scroll-behavior: smooth;
 }
 
-.slider.dragging, .slider2.dragging{
+.slider .dragging, .slider2 .dragging{
     cursor: grab;
     scroll-behavior: auto;
 }
@@ -53,7 +53,7 @@
 .slider img,.slider2 img {
     height: 340px;
     object-fit: cover;
-    margin-left: 10px;
+    margin-left: 14px;
     width: calc(100% / 2);
 }
 
@@ -66,7 +66,7 @@
 }
 
 @media screen and (max-width: 550px) {
-    .slider img,.slider2 img {
+    .slider img, .slider2 img {
         width: 100%;
     }
 }
