@@ -55,7 +55,7 @@ const arrastrar = (e) => {
     e.preventDefault();
     isDraggin = true;
     slider.classList.add("dragging");
-    positionDiff = (e.pageX || e.touches[0].pagex) - prevPageX;
+    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
     slider.scrollLeft = prevScrollLeft - positionDiff;
     showHideIcons()
 }
