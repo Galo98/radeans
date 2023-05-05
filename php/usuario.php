@@ -1,3 +1,15 @@
+<?php 
+$servername="";
+$username="root";
+$password="";
+$dbname="";
+
+$conn=mysqli_connect($servername,$username,$password,$dbname)or die ("No se pudo conectar a la $bd");
+
+
+
+?>
+
 <?php
 Class Usuarios {
 
@@ -24,7 +36,7 @@ public function registracion(){
 
 $consulta=" insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,usu_rol) values ('$this->nombre','$this->apellido','$this->correo','$this->tel','$this->pass',$this->rol);";
 
-mysqli_query(,$consulta);
+mysqli_query($conn,$consulta);
 
 
 
@@ -38,4 +50,4 @@ mysqli_query(,$consulta);
 }
 
 
-?>{}
+?>
