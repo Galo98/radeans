@@ -9,7 +9,7 @@ private $tel;
 private $pass;
 private $rol;
 
-public __construct($id,$nomb,$ape,$correo,$tel,$pass,$rol){
+public function __construct($id,$nomb,$ape,$correo,$tel,$pass,$rol){
 $this->id=$id;
 $this->nombre=$nomb;
 $this->apellido=$ape;
@@ -38,4 +38,5 @@ mysqli_query(,$consulta);
 }
 
 
-?>{}
+?>
+
