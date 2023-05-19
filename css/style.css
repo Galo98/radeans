@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
 
-:root{
-    --color-header : #00020E;
-    --color-fondo : #fff;
+:root {
+    --color-header: #00020E;
+    --color-fondo: #fff;
     --color-footer: #091830;
     --color-titulos: #e67f0d;
     --color-fuentes: #fff;
@@ -21,38 +21,20 @@
 }
 
 /* Estilos globales */
-.titulos{
+.titulos {
     color: var(--color-titulos);
     font-weight: 700;
-    text-decoration:underline;
+    text-decoration: underline;
 }
-.right,.left{
-    font-weight: 700;
-} 
 
-header > .logo{
+.logo {
     background-image: url(../img/radeans.svg);
     width: 150px;
     height: 60px;
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* Estilos del encabezado */
-body{
-    background-color: var(--color-fondo);
-}
 
-main{
-    scroll-behavior: 10vh;
-    min-height: 90vh;
-    max-width: 90%;
-    padding: 20px;
-    margin: 0 auto;
-}
-
-main > section:first-child{
-    margin-top: 80px;
-}
 
 header {
     width: 100%;
@@ -68,9 +50,11 @@ header {
     position: fixed;
     z-index: 1;
 }
-nav{
+
+nav {
     width: 40%;
 }
+
 nav ul {
     display: flex;
     justify-content: space-between;
@@ -79,7 +63,8 @@ nav ul {
     padding: 0;
 }
 
-nav ul li a, .log{
+nav ul li a,
+.log {
     text-decoration: none;
     font-weight: 700;
 }
@@ -88,21 +73,6 @@ nav ul li a:hover {
     color: var(--color-titulos);
 }
 
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    margin-bottom: 20px;
-}
-
-p {
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-/* Estilos del contenido principal */
-
-/* Estilos del pie de página */
 footer {
     max-width: 100vw;
     display: flex;
@@ -115,37 +85,32 @@ footer {
     text-align: center;
 }
 
-footer .contacto{
+footer .contacto {
     width: 40%;
 }
 
-footer .ubicacion{
+footer .ubicacion {
     width: 50vw;
     height: 20vh;
 }
 
-/* Estilos puntuales */
-
 /* Slides index */
-.cajaSlider,
-.cajaSlider2 {
+.cajaSlider{
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
-.contenedorSlider,
-.contenedorSlider2 {
+.contenedorSlider{
     background-color: var(--color-ventanas);
     border-radius: var(--border-raduis);
     padding: 24px;
-    width: 90%;
+    width: 100%;
     position: relative;
 }
 
-.contenedorSlider i,
-.contenedorSlider2 i {
+.contenedorSlider i {
     top: 50%;
     height: 46px;
     width: 46px;
@@ -159,19 +124,16 @@ footer .ubicacion{
     transform: translateY(-50%);
 }
 
-.contenedorSlider i:first-child,
-.contenedorSlider2 i:first-child {
+.contenedorSlider i:first-child {
     left: -23px;
     display: none;
 }
 
-.contenedorSlider i:last-child,
-.contenedorSlider2 i:last-child {
+.contenedorSlider i:last-child{
     right: -23px;
 }
 
-.slider,
-.slider2 {
+.slider {
     font-size: 0px;
     cursor: pointer;
     overflow: hidden;
@@ -179,19 +141,16 @@ footer .ubicacion{
     scroll-behavior: smooth;
 }
 
-.slider .dragging,
-.slider2 .dragging {
+.slider .dragging{
     cursor: grab;
     scroll-behavior: auto;
 }
 
-.slider.dragging img,
-.slider2.dragging img {
+.slider.dragging img{
     pointer-events: none;
 }
 
-.slider img,
-.slider2 img {
+.slider img {
     height: 340px;
     object-fit: cover;
     margin-left: 14px;
@@ -199,25 +158,27 @@ footer .ubicacion{
     border-radius: var(--border-raduis);
 }
 
-.slider img:first-child,
-.slider2 img:first-child {
+.slider img:first-child{
     margin-left: 0px;
 }
+
 
 /* Media queries */
 @media screen and (max-width: 900px) {}
 
 @media screen and (max-width: 768px) {
-    .logo  {
+    .logo {
         display: none;
     }
-    header{
+
+    header {
         flex-direction: column;
         padding: 10px;
         justify-content: start;
         align-items: start;
         gap: 10px;
     }
+
     nav ul {
         flex-direction: column;
     }
@@ -230,8 +191,8 @@ footer .ubicacion{
         flex-direction: column;
     }
 
-    footer .contacto{
-    width: 100%;
+    footer .contacto {
+        width: 100%;
     }
 
     footer .ubicacion {
@@ -239,7 +200,8 @@ footer .ubicacion{
         height: 40vh;
     }
 
-    .contenedorSlider,.contenedorSlider2 {
+    .contenedorSlider,
+    .contenedorSlider2 {
         background-color: transparent;
         border-radius: 0;
         padding: 0;
