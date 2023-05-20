@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./img/g12.svg">
 </head>
 
 <body>
     <header>
-        <a href="index.html"><div class="logo">Logo</div></a>
+        <a href="index.html">
+            <div class="logo">Logo</div>
+        </a>
         <nav>
             <ul>
                 <li><a href="#">Inicio</a></li>
@@ -31,7 +34,10 @@
                 <section class="contLogin-Caja">
                     <div>
                         <label for="mail">
-                            <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" >
+                            <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com"
+                                required
+                                pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
+                                title="Complete correctamente su correo">
                         </label>
                     </div>
                     <div>
@@ -45,15 +51,7 @@
 
     </main>
     <footer>
-        <div class="contacto">
-            <h2>Contacto y ubicación</h2>
-            <p>Teléfono: 555-1234</p>
-            <p>Correo electrónico: radeans.com.ar@gmail.com</p>
-            <p>Dirección: Cramer 470, Bernal, Provincia de Buenos Aires</p>
-        </div>
-        <div>
-            <iframe class="ubicacion" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.8738128276195!2d-58.28272092345258!3d-34.708362563033624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32e000c596143%3A0x39c06363967302ea!2sI.S.F.D.%20y%20T.%2024%20-%20Dr.%20Bernardo%20Houssay%20-%20Bernal%20-%20Quilmes!5e0!3m2!1ses!2sar!4v1682535906777!5m2!1ses!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <?php require_once "footer.php";?>
     </footer>
 </body>
 
