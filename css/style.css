@@ -4,8 +4,8 @@
     --color-header: #00020E;
     --color-fondo: #fff;
     --color-footer: #091830;
-    --color-titulos: #FF5D00;
-    --color-subTitulos: #4D51BF;
+    --color-titulos: #4D51BF;
+    --color-subTitulos: #FF5D00;
     --color-fuentes: #fff;
     --color-ventanas: #1E2028;
     --border-raduis: 16px;
@@ -20,6 +20,7 @@
     font-family: 'Exo 2', sans-serif;
     color: var(--color-fuentes);
     font-weight: 300;
+    color: var(--color-footer);
 }
 
 section{
@@ -29,6 +30,11 @@ section{
 /* ---------------------------------------------Estilos globales--------------------------------------------- */
 
 .titulos {
+    color: var(--color-titulos);
+    font-weight: 600;
+}
+
+.subtitulos{
     color: var(--color-subTitulos);
     font-weight: 600;
 }
@@ -218,6 +224,22 @@ footer .ubicacion {
     height: 50vh;
 }
 
+/* ---------------------------------------------Login--------------------------------------------- */
+
+.log{
+    height: 70vh;
+    width: 100vw;
+    padding-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+
+
 /* ---------------------------------------------Media queries--------------------------------------------- */
 @media screen and (max-width: 900px) {}
 
@@ -229,12 +251,12 @@ footer .ubicacion {
         gap: 0;
     }
 
-    nav ul {
-        flex-direction: row;
+    nav ul li{
+        display: none;
     }
 
-    nav ul li {
-        padding: 10px 0;
+    .logo{
+        display: none;
     }
 
     footer {
@@ -257,6 +279,10 @@ footer .ubicacion {
         padding: 0;
         max-width: none;
         width: 100%;
+    }
+
+    .logReg, .logAcc{
+        display: none;
     }
 
 }

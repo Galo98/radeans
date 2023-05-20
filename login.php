@@ -18,11 +18,13 @@
     </header>
 
     <main>
-        <section>
+        <section class="log">
+            <h2 class="titulos">Iniciar Sesion</h2>
             <form method="POST" action="#" class="contLogin">
                 <section class="contLogin-Caja">
                     <div>
                         <label for="mail">
+                            correo
                             <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com"
                                 required
                                 pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
@@ -31,11 +33,29 @@
                     </div>
                     <div>
                         <label for="pass">
+                            contraseña
                             <input id="pass" type="password">
                         </label>
                     </div>
                 </section>
+                <div>
+                    <p><a href="">¿Has olvidado la contraseña?</a></p>
+                </div>
+                <div>
+                    <button type="submit">Acceder</button>
+                </div>
             </form>
+            <article>
+                <div>
+                    <div class="logoR"></div>
+                    <div>
+                        <p>¿Aún no tienes cuenta?</p>
+                    </div>
+                    <div>
+                        <a href="">Registrarse</a>
+                    </div>
+                </div>
+            </article>
         </section>
 
     </main>
