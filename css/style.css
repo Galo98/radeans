@@ -222,20 +222,15 @@ footer .ubicacion {
 @media screen and (max-width: 900px) {}
 
 @media screen and (max-width: 768px) {
-    .logo {
-        display: none;
-    }
 
     header {
-        flex-direction: column;
-        padding: 10px;
-        justify-content: start;
-        align-items: start;
-        gap: 10px;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3,180px);
+        gap: 0;
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     nav ul li {
