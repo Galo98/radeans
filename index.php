@@ -33,15 +33,30 @@
         </section>
 
         <section class="nosotros" id="nosotros">
+
             <h2 class="titulos">Sobre nosotros</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus
-                est a massa pellentesque consectetur. Sed consequat augue eu faucibus
-                pharetra. Sed sit amet mi at nibh commodo dignissim id vitae est. Nam
-                quis leo eros. Morbi imperdiet varius luctus. Ut dignissim justo eget
-                dolor placerat, vel commodo elit commodo. Praesent bibendum vitae elit
-                eget facilisis. Donec ac ornare ex.
+
+            <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
+                molestias a
+                iste neque
+                aperiam nulla cupiditate saepe nostrum corrupti odio quidem minus quaerat quibusdam? Aliquam molestias
+                quo vero.
+                Laudantium nulla aspernatur quas, repudiandae earum facere eveniet laborum ex aut pariatur officiis in
+                error cumque, id ipsum. Dolorum, praesentium voluptatibus! Facere reiciendis laborum dolorum non velit
+                magni voluptatibus necessitatibus?
+                Enim quisquam quae ipsa ex repellat. Ducimus quos omnis architecto amet adipisci deleniti illo,
+                reprehenderit nam pariatur magni eligendi dolores fugiat placeat animi minus ut molestias quaerat odio
+                libero aliquam.
+                blanditiis voluptas incidunt.
             </p>
+            <p class="nosotrosTexto">
+                Fugit, in tempore. Repudiandae quas excepturi, magnam dolorum quaerat nam, sequi debitis hic sint eaque
+                harum laborum. Explicabo repudiandae in nulla quos vel fugit, ex assumenda impedit placeat! Beatae,
+                expedita.
+                Mollitia nostrum explicabo laboriosam. Neque at saepe omnis alias asperiores quae excepturi? Corporis
+                quae, non et suscipit ex inventore labore odio reiciendis architecto aspernatur esse harum quas
+            </p>
+
         </section>
 
     </main>
