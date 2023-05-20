@@ -14,18 +14,7 @@
 
 <body>
     <header>
-        <a href="index.html">
-            <div class="logo">Logo</div>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="log">Acceder</div>
+        <?php require_once "header.php"; ?>
     </header>
 
     <main>

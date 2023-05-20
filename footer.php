@@ -1,4 +1,4 @@
-<div class="contacto">
+<div class="contacto" id="contacto">
     <h2>Contacto y ubicación</h2>
     <p>Teléfono: 555-1234</p>
     <p>Correo electrónico: radeans.com.ar@gmail.com</p>
