@@ -33,8 +33,8 @@
                     </div>
                     <div>
                         <label for="pass">
-                            contraseña
-                            <input id="pass" type="password">
+                            Contraseña
+                            <input id="pass" type="password" name="pass" required>
                         </label>
                     </div>
                 </section>
