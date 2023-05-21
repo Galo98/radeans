@@ -19,8 +19,11 @@
 
     <main>
         <section class="reg">
-            <h2 class="titulos">Registración</h2>
+            <div class="divVacio"></div>
             <form method="POST" action="#" class="contLogin">
+                <div class="logT">
+                    <h2 class="subtitulos">Registración</h2>
+                </div>
                 <section class="contLogin-Caja">
                     <div>
                         <label for="nombre">
@@ -78,25 +81,26 @@
                     </div>
                 </section>
                 <div>
-                    <p><input type="checkbox" name="confirmacion" required><a href="">He leido y acepto los términos y
-                            condiciones</a>
-                    </p>
+                    <input type="checkbox" name="confirmacion" required>
+                    <a class="contLogin-Contra" href="">He leido y acepto los términos y
+                        condiciones</a>
                 </div>
                 <div>
-                    <button type="submit">Registrarse</button>
+                    <button class="accederBTN regbtn" type="submit">Registrarse</button>
                 </div>
             </form>
-            <article>
-                <div>
+            <article class="contlog2">
+                <div class="contlog2-Caja">
                     <div class="logoR"></div>
                     <div>
-                        <p>¿Ya tienes cuenta?</p>
+                        <p class="contlog2-msj">¿Ya tienes cuenta?</p>
                     </div>
                     <div>
-                        <a href="">Iniciar Sesión</a>
+                        <a class="contLogin-Contra2" href="login.php">Iniciar Sesión</a>
                     </div>
                 </div>
             </article>
+            <div class="divVacio"></div>
         </section>
         </section>
 

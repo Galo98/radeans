@@ -365,6 +365,10 @@ footer .ubicacion {
     color: var(--color-titulos);
 }
 
+.regbtn{
+    width: 140px;
+}
+
 /* ---------------------------------------------Media queries--------------------------------------------- */
 @media screen and (max-width: 1632px) {
     header {

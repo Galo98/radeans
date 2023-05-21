@@ -57,7 +57,7 @@
                         <p class="contlog2-msj">¿Aún no tienes cuenta?</p>
                     </div>
                     <div>
-                        <p><a class="contLogin-Contra2" href="">Registrarse</a></p>
+                        <p><a class="contLogin-Contra2" href="registro.php">Registrarse</a></p>
                     </div>
                 </div>
             </article>
