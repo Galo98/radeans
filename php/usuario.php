@@ -1,20 +1,8 @@
-<?php 
-function conectar(){
-$servername="localhost";  // cual ?
-$username="root";
-$password="";
-$dbname="radeans";
-
-$conn=mysqli_connect($servername,$username,$password,$dbname)or die ("No se pudo conectar a la $bdname");
-
-return $conn;
-}
-
-?>
-
 <?php
+
 Class Usuarios{
 
+#region Atributos
 private $id;
 private $nombre;
 private $apellido;
@@ -24,7 +12,9 @@ private $tel;
 private $pass;
 private $pass2;
 private $rol;
+#endregion
 
+#region Constructor
 public function __construct($id,$nomb,$ape,$correo,$correo2,$tel,$pass,$pass2,$rol){
 $this->id=$id;
 $this->nombre=$nomb;
@@ -35,9 +25,10 @@ $this->tel=$tel;
 $this->pass=$pass;
 $this->pass2=$pass2;
 $this->rol=$rol;
-
 }
+#endregion
 
+#region Registracion
 public function registracion(){
 
     $mensaje="";
@@ -49,7 +40,7 @@ $conexion=conectar();
 
 mysqli_query($conexion,$consulta);
 
-if (mysqli_affected_row($conexion)>0){
+if (mysqli_affected_rows($conexion)>0){
 
     $mensaje="Hola Bienvenida a Radeans".$this->nombre."  ".$this->apellido."  "."a sido Registrada con Éxito";
 
@@ -60,35 +51,28 @@ else{
 return $mensaje;
 
 }
+#endregion
 
+#region Validacion
 public function validacion(){
 
     if ($this->correo === $this->correo2){
 
-if( $this->pass === $this->pass2){
-    $conn=conectar();
-   mysqli_query( $conn,"select usu_correo from usuarios where usu_correo='$this->correo';");
-   if (mysqli_affected_row($conn)>0){
+        if( $this->pass === $this->pass2){
+            $conn=conectar();
+            mysqli_query( $conn,"select usu_correo from usuarios where usu_correo='$this->correo';");
+            if (mysqli_affected_rows($conn)>0){
+                $mensaje="El correo ya existe";
+            } else{
+                $mensaje= $this->registracion();
+            }
+        }
 
-    $mensaje="El correo ya existe";
-}
-else{
-    $mensaje= $this->registracion();
-}
-
-}
-
-    }
-    else{
+    }else{
         echo "Los correos no coinciden";
     }
 }
-
-
-
-
+#endregion
 
 
 }
-
-
