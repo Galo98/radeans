@@ -32,23 +32,16 @@ create table profesionales (
 	primary key (pro_id)
 );
 
--- create table categoria(
--- 	cat_id int auto_increment not null unique,
---    cat_nombre varchar(30),
---    cat_observaciones varchar (255),
---    primary key (cat_id)
--- );
-
 create table servicios(
-    ser_id int(9),
+	ser_id int auto_increment not null unique,
     ser_nombre varchar(30),
-    ser_precio float(9.2),
-    primary key (ser_id) 
+    ser_observaciones varchar (255),
+    primary key (ser_id)
 );
 
 create table estados (
 	est_id int(1) auto_increment not null unique,
-    est_desc varchar(1),
+    est_desc varchar(20),
     primary key (est_id)
 );
 
@@ -67,36 +60,3 @@ create table turnos(
     foreign key (ser_id) references servicios (ser_id),
     foreign key (est_id) references estados (est_id)
 );
-
-create table facturasCabecera(
-	fac_id int auto_increment not null unique,
-    fac_Total float(9.2),
-    fac_fecha date,
-    usu_id int,
-    pro_id int,
-    tur_id int,
-    primary key(fac_id,usu_id),
-    foreign key (usu_id) references usuarios (usu_id),
-    foreign key (pro_id) references profesionales (pro_id),
-    foreign key (tur_id) references turnos (tur_id)
-);
-
-create table facturasDetalle(
-	fac_id int,
-    ser_id int(9),
-    fac_precioSer float (9,2),
-    primary key (fac_id,ser_id),
-    foreign key (fac_id) references facturasCabecera(fac_id),
-    foreign key (ser_id) references servicios (ser_id)
-);
-
-create table contabilidad(
-    con_id int auto_increment,
-    fac_id int,
-    ser_id int(9),
-    primary key (con_id,fac_id),
-    foreign key (fac_id) references facturasDetalle(fac_id),
-    foreign key (ser_id) references facturasDetalle(ser_id)
-);
-
-
