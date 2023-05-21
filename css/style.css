@@ -18,9 +18,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Exo 2', sans-serif;
-    color: var(--color-fuentes);
     font-weight: 300;
-    color: var(--color-footer);
 }
 
 section{
@@ -51,7 +49,6 @@ header {
     background-color: var(--color-header);
     opacity: 80%;
     padding: 10px 32px;
-    color: var(--color-fuentes);
     display: grid;
     grid-template-columns: 10% 68% 20% ;
     grid-gap: 10px;
@@ -87,11 +84,13 @@ nav ul li:first-child{
 nav ul li a,
 .navLog, .navLog > a {
     text-decoration: none;
+    font-size: 22px;
     font-weight: 700;
+    color: var(--color-fuentes);
 }
 
 nav ul li a:hover, .logAcc:hover {
-    color: var(--color-titulos);
+    color: var(--color-subTitulos);
 }
 
 header .navLog{
@@ -104,15 +103,14 @@ header .navLog{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-titulos);
-    width: 120px;
-    height: 36px;
-    border-radius: 16px;
-    font-size: 18px;
+    background-color: var(--color-subTitulos);
+    width: 145px;
+    height: 40px;
+    border-radius: 22px;
 }
 
 .logReg:hover{
-    background-color: var(--color-subTitulos);
+    background-color: var(--color-titulos);
 }
 
 /* ---------------------------------------------Slides index--------------------------------------------- */
@@ -191,6 +189,7 @@ header .navLog{
     align-items: center;
     margin: 30px 0;
     gap: 24px;
+    color: var(--color-header);
 }
 
 .nosotrosTexto {
@@ -227,21 +226,175 @@ footer .ubicacion {
 /* ---------------------------------------------Login y Registro--------------------------------------------- */
 
 .log,.reg{
-    height: 70vh;
-    width: 100vw;
+    min-height: 80vh;
+    width: 100%;
     padding-top: 110px;
+    display: grid;
+    grid-template-columns: 10% 70% 10% 10%;
+    margin-bottom: 30px;
+}
+
+.logT{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logT > h2, .reg > h2{
+    font-size: 32px;
+}
+
+.contLogin{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
 }
 
+.contLogin-Caja{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
+.contLogin-Caja > div{
+    width: 100%;
+    height: 100%;
+}
 
+.contLogin-Caja > div > label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    color: var(--color-header);
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.contLogin-Caja > div > label > input{
+    width: 320px;
+    height: 38px;
+    padding: 6px 8px;
+    border: 3px solid var(--color-titulos);
+    border-radius: 16px;
+    outline: none;
+    font-size: 22px;
+    font-weight: 400;
+    transition: 500ms;
+}
+
+.contLogin-Caja > div > label > input:focus{
+    border-color: var(--color-subTitulos);
+}
+
+.contLogin-Botonera{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contLogin-Contra, .contLogin-Contra2{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--color-header);
+}
+
+.contLogin-Contra:hover{
+    color: var(--color-titulos);
+}
+
+.accederBTN{
+    background-color: var(--color-titulos);
+    border: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 24px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.accederBTN:hover{
+    background-color: var(--color-subTitulos);
+}
+
+.contlog2{
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.contlog2-Caja{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.logoR{
+    width: 120px;
+    height: 120px;
+    background-image: url(../img/g12.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.contlog2-msj{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--color-header);
+}
+
+.contLogin-Contra2{
+    color: var(--color-subTitulos);
+}
+
+.contLogin-Contra2:hover{
+    color: var(--color-titulos);
+}
 
 /* ---------------------------------------------Media queries--------------------------------------------- */
-@media screen and (max-width: 900px) {}
+@media screen and (max-width: 1632px) {
+    header {
+            grid-template-columns: 10% 58% 30%;
+        }
+
+    .log, .reg {
+        grid-template-columns: 65% 35%;
+        gap: 0;
+    }
+
+    .divVacio{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .log, .reg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+    }
+    
+    .contlog2{
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 @media screen and (max-width: 768px) {
 
@@ -292,5 +445,10 @@ footer .ubicacion {
     .slider img,
     .slider2 img {
         width: 100%;
+    }
+
+    .contLogin-Caja > div > label{
+        flex-direction: column;
+        gap: 12px;
     }
 }

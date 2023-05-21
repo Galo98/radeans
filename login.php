@@ -19,12 +19,15 @@
 
     <main>
         <section class="log">
-            <h2 class="titulos">Iniciar Sesion</h2>
+            <div class="divVacio"></div>
             <form method="POST" action="#" class="contLogin">
+                <div class="logT">
+                    <h2 class="subtitulos">Iniciar Sesion</h2>
+                </div>
                 <section class="contLogin-Caja">
                     <div>
                         <label for="mail">
-                            correo
+                            Correo
                             <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com"
                                 required
                                 pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
@@ -39,23 +42,26 @@
                     </div>
                 </section>
                 <div>
-                    <p><a href="">¿Has olvidado la contraseña?</a></p>
-                </div>
-                <div>
-                    <button type="submit">Acceder</button>
+                    <div class="contLogin-Botonera">
+                        <p><a class="contLogin-Contra" href="">¿Has olvidado la contraseña?</a></p>
+                        <div>
+                            <button class="accederBTN" type="submit">Acceder</button>
+                        </div>
+                    </div>
                 </div>
             </form>
-            <article>
-                <div>
+            <article class="contlog2">
+                <div class="contlog2-Caja">
                     <div class="logoR"></div>
                     <div>
-                        <p>¿Aún no tienes cuenta?</p>
+                        <p class="contlog2-msj">¿Aún no tienes cuenta?</p>
                     </div>
                     <div>
-                        <a href="">Registrarse</a>
+                        <p><a class="contLogin-Contra2" href="">Registrarse</a></p>
                     </div>
                 </div>
             </article>
+            <div class="divVacio"></div>
         </section>
 
     </main>
