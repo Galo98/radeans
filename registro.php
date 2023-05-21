@@ -1,3 +1,18 @@
+
+<?php 
+
+require "./php/usuario.php";
+
+if(isset($_POST['confirmacion'])){
+
+$cliente=new Usuarios(null,$_POST['nombre'],$_POST['apellido'],$_POST['telefono'],$_POST['mail'],$_POST['mail2'],$_POST['pass'],$_POST['pass2'],2);
+
+$mensaje="";
+
+$mensaje=$cliente->validacion();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
