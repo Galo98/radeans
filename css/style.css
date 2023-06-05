@@ -67,7 +67,7 @@ header {
 }
 
 .logo {
-    background-image: url(../img/radeans.svg);
+    background-image: url(../img/radeans.png);
     height: 60px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -355,7 +355,7 @@ footer .ubicacion {
 .logoR{
     width: 120px;
     height: 120px;
-    background-image: url(../img/g12.svg);
+    background-image: url(../img/g12.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
