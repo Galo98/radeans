@@ -66,10 +66,15 @@ public function validacion(){
             } else{
                 $mensaje= $this->registracion();
             }
+
+        }else{
+              //echo "Las constraseñas no coinciden";
+        header("location: registro.php?error1");
         }
 
     }else{
-        echo "Los correos no coinciden";
+        //echo "Los correos no coinciden";
+    header ("location: registro.php?error2");
     }
 }
 #endregion

@@ -79,7 +79,13 @@ $mensaje=$cliente->validacion();
                                 pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
                                 title="Complete correctamente su correo">
                         </label>
+                        <?php 
+                    if(isset($_GET['error2'])){
+                        echo "Los correos no coinciden ";
+                    }
+                   ?>
                     </div>
+                    
                     <div>
                         <label for="pass">
                             Contraseña
@@ -93,6 +99,11 @@ $mensaje=$cliente->validacion();
                             <input id="pass2" type="password" name="pass2" required
                                 title="Verifique que sus contraseñas coincidan" minlength="8" maxlength="30">
                         </label>
+                        <?php 
+                        if(isset($_GET['error1'])){
+                            echo "Las contraseñas no coinciden";
+                        }
+                        ?>
                     </div>
                 </section>
                 <div>
@@ -104,6 +115,7 @@ $mensaje=$cliente->validacion();
                     <button class="accederBTN regbtn" type="submit">Registrarse</button>
                 </div>
             </form>
+
             <article class="contlog2">
                 <div class="contlog2-Caja">
                     <div class="logoR"></div>
