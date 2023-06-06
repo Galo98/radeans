@@ -60,3 +60,5 @@ create table turnos(
     foreign key (ser_id) references servicios (ser_id),
     foreign key (est_id) references estados (est_id)
 );
+
+drop database radeans;
