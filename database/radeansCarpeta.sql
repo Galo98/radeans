@@ -44,7 +44,7 @@ create table estados (
     est_desc varchar(20),
     primary key (est_id)
 );
-
+	
 create table turnos(
 	tur_id int auto_increment not null unique,
     tur_fecha date,
@@ -66,8 +66,8 @@ create table facturasCabecera(
 	fac_id int auto_increment not null unique,
     fac_Total float(9.2),
     fac_fecha date,
-    usu_id int,
-    tur_id int,
+    usu_id int, -- Si la facturacion se va a guiar por el turno como se hablo anteriormente, el usu id deberia desaparecer ya que esta puesto en la tabla turnos
+    tur_id int, -- Con tur_id se podria hacer una clave primaria compuesta
     primary key(fac_id,usu_id),
     foreign key (usu_id) references usuarios (usu_id),
     foreign key (tur_id) references turnos (tur_id)
@@ -90,3 +90,5 @@ create table contabilidad(
     foreign key (fac_id) references facturasDetalle(fac_id),
     foreign key (ser_id) references facturasDetalle(ser_id)
 );
+
+-- objetivos limites alcances, der, contexto, nivel 0 y nivel 1
