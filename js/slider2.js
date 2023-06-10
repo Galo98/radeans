@@ -1,7 +1,7 @@
-const slider2 = document.querySelector(".slider2"),
-    firstImg2 = slider2.querySelectorAll("img")[0];
+const slider2 = document.querySelector(".punt-cards"),
+    firstImg2 = slider2.querySelectorAll("card")[0];
 
-flechas2 = document.querySelectorAll(".contenedorSlider2 i");
+flechas2 = document.querySelectorAll(".punt-cards i");
 
 let drag2 = false, isDraggin2, prevPageX2, prevScrollLeft2, positionDiff2;
 let firstImg2Width = firstImg2.clientWidth + 14; // Agarramos el width de la primera imagen y le agregamos 14 px de margen

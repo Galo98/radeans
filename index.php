@@ -63,7 +63,41 @@
             <div class="punt-tit">
                 <h2 class="titulos">conoce a nuestros profesionales</h2>
             </div>
-            <div class="punt-cards">
+            <div class="sliderCards">
+                <div class="slider-containerCards">
+                    <div class="card active">
+                        <div class="cajaContenidosCard">
+                            <h2 class="nombreP"> Galo Olguin </h2>
+                            <div class="fotoP" style="background-image: url('');"></div>
+                            <p class="servP">Peluquero</p>
+                            <p class="puntP"> 7 / 10</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 class="nombreP"> Galo </h2>
+                        <div class="fotoP"></div>
+                        <p class="servP">Peluquero</p>
+                        <p class="puntP"> 7 / 10</p>
+                    </div>
+                    <div class="card">
+                        <h2 class="nombreP"> Olguin </h2>
+                        <div class="fotoP"></div>
+                        <p class="servP">Peluquero</p>
+                        <p class="puntP"> 7 / 10</p>
+                    </div>
+                    <div class="card">
+                        <h2 class="nombreP"> Luciano </h2>
+                        <div class="fotoP"></div>
+                        <p class="servP">Peluquero</p>
+                        <p class="puntP"> 7 / 10</p>
+                    </div>
+                    <!-- Agrega más tarjetas según sea necesario -->
+                </div>
+                <div class="prev"><i class="fa-solid fa-angle-left" onclick="prevSlide()"></i></div>
+                <div class="next"><i class="fa-solid fa-angle-right" onclick="nextSlide()"></i></div>
+
+            </div>
+            <!-- <div class="punt-cards">
                 <i id="left" class="fa-solid fa-angle-left"></i>
                 <div class="card">
                     <h2 class="nombreP"> Galo Olguin </h2>
@@ -72,7 +106,7 @@
                     <p class="puntP"> 7 / 10</p>
                 </div>
                 <i id="right" class="fa-solid fa-angle-right"></i>
-            </div>
+            </div> -->
         </section>
 
     </main>
@@ -80,6 +114,7 @@
         <?php require_once "footer.php"; ?>
     </footer>
     <script src="./js/slider.js"></script>
+    <script src="./js/slidecards.js"></script>
 </body>
 
 </html>
