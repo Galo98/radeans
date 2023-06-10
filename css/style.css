@@ -2,7 +2,7 @@
 
 :root {
     --color-header: #00020E;
-    --color-fondo: #fff;
+    --color-fondo: rgba(115,134,204,0.4);
     --color-footer: #091830;
     --color-titulos: #4D51BF;
     --color-subTitulos: #FF5D00;
@@ -47,6 +47,10 @@ body::-webkit-scrollbar-thumb {
 .subtitulos{
     color: var(--color-subTitulos);
     font-weight: 600;
+}
+
+body{
+    background-color: var(--color-fondo);
 }
 
 main{
@@ -213,7 +217,8 @@ header .navLog{
 
 /* ---------------------------------------------Cards--------------------------------------------- */
 
-.punt{
+.punt {
+    position: relative;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -223,16 +228,23 @@ header .navLog{
     margin-bottom: 32px;
 }
 
-.punt-cards{
+.slidercards {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-containerCards {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    transition: transform 0.3s ease;
 }
 
 .card{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     align-items: center;
     width: 260px;
@@ -241,17 +253,56 @@ header .navLog{
     border-radius: 12px;
 }
 
-.fotoP{
+.card:nth-child(even){
+    border-color: var(--color-subTitulos);
+}
+
+.cajaContenidosCard{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombreP {
 
 }
 
-.nombreP{
+.fotoP{
 
 }
 
 .puntP{
 
 }
+
+.prev,
+.next {
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    top: 50%;
+    font-size: 2.5rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev {
+    left: 400px;
+}
+
+.next {
+    right: 400px;
+}
+
 /* ---------------------------------------------Footer--------------------------------------------- */
 
 footer {
