@@ -11,8 +11,8 @@ function nextSlide() {
 
 function showSlide(n) {
     const cards = document.getElementsByClassName("card");
-    const prevButton = document.getElementsByClassName("prev")[0];
-    const nextButton = document.getElementsByClassName("next")[0];
+    const prevButton = document.getElementsByClassName("prev-slide");
+    const nextButton = document.getElementsByClassName("next-slide");
 
     if (n < 0) {
         slideIndex = cards.length - 1;

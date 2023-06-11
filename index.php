@@ -93,20 +93,10 @@
                     </div>
                     <!-- Agrega más tarjetas según sea necesario -->
                 </div>
-                <div class="prev"><i class="fa-solid fa-angle-left" onclick="prevSlide()"></i></div>
-                <div class="next"><i class="fa-solid fa-angle-right" onclick="nextSlide()"></i></div>
+                <i class="prev-slide fa-solid fa-angle-left" style="display:flex;" onclick="prevSlide()"></i>
+                <i class="next-slide fa-solid fa-angle-right" style="display:flex;" onclick="nextSlide()"></i>
 
             </div>
-            <!-- <div class="punt-cards">
-                <i id="left" class="fa-solid fa-angle-left"></i>
-                <div class="card">
-                    <h2 class="nombreP"> Galo Olguin </h2>
-                    <div class="fotoP"></div>
-                    <p class="servP">Peluquero</p>
-                    <p class="puntP"> 7 / 10</p>
-                </div>
-                <i id="right" class="fa-solid fa-angle-right"></i>
-            </div> -->
         </section>
 
     </main>

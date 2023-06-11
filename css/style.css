@@ -228,12 +228,10 @@ header .navLog{
     margin-bottom: 32px;
 }
 
-.slidercards {
+.sliderCards {
     position: relative;
-    width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .slider-containerCards {
@@ -278,8 +276,8 @@ header .navLog{
 
 }
 
-.prev,
-.next {
+.prev-slide,
+.next-slide {
     width: 46px;
     height: 46px;
     position: absolute;
@@ -295,12 +293,12 @@ header .navLog{
     justify-content: center;
 }
 
-.prev {
-    left: 400px;
+.prev-slide {
+    left: -60px;
 }
 
-.next {
-    right: 400px;
+.next-slide {
+    right: -60px;
 }
 
 /* ---------------------------------------------Footer--------------------------------------------- */
