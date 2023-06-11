@@ -215,6 +215,24 @@ header .navLog{
     font-weight: 600;
 }
 
+/* ---------------------------------------------Servicios--------------------------------------------- */
+
+.servicios{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 0 60px 0;
+    gap: 20px;
+}
+.servicios div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 /* ---------------------------------------------Cards--------------------------------------------- */
 
 .punt {

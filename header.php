@@ -4,9 +4,9 @@
 <nav>
     <ul>
         <li><a href="index.php">inicio</a></li>
-        <li><a href="#nosotros">nosotros</a></li>
-        <li><a href="#">servicios</a></li>
-        <li><a href="#puntuaciones">puntuacion</a></li>
+        <li><a href="index.php#nosotros">nosotros</a></li>
+        <li><a href="servicios.php">servicios</a></li>
+        <li><a href="index.php#puntuaciones">puntuacion</a></li>
         <li><a href="#contacto">contacto</a></li>
     </ul>
 </nav>
