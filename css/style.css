@@ -42,11 +42,13 @@ body::-webkit-scrollbar-thumb {
 .titulos {
     color: var(--color-titulos);
     font-weight: 600;
+    font-size: 2.2rem;
 }
 
 .subtitulos{
     color: var(--color-subTitulos);
     font-weight: 600;
+    font-size: 1.7rem;
 }
 
 body{
