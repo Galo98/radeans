@@ -23,7 +23,12 @@
 
             <div>
                 <h2 class="titulos">Peluqueria</h2>
-                
+
+                <div>
+                    <h3 class="subtitulos">titulos</h3>
+                    <p class="nosotrosTexto">texto</p>
+                </div>
+
                 <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
                     molestias a
                     iste neque

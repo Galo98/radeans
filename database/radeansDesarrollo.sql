@@ -8,6 +8,8 @@ create table roles(
     primary key (rol_id)
 );
 
+insert into roles (rol_desc) values ('administrador'),('cliente');
+
 create table usuarios(
 	usu_id int auto_increment not null unique,
     usu_nombre varchar (30),
@@ -19,6 +21,8 @@ create table usuarios(
     primary key (usu_id),
     foreign key (rol_id) references roles (rol_id)
 );
+
+insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id) values('admin','admin','radeans.com.ar@gmail.com','1112345678','1234',1);
 
 create table profesionales (
 	pro_id int auto_increment not null unique,
@@ -35,15 +39,23 @@ create table profesionales (
 create table servicios(
 	ser_id int auto_increment not null unique,
     ser_nombre varchar(30),
-    ser_observaciones varchar (255),
+    ser_desc varchar (255),
     primary key (ser_id)
 );
+
+insert into servicios (ser_nombre,ser_desc) values 
+('peluqueria','peinado'), ('peluqueria','tintura'), ('peluqueria','alisado'), ('peluqueria','corte'), ('peluqueria','nutricion'),
+('barberia','tradicional'),('barberia','corte'),('barberia','nutricion'),('barberia','color'),('barberia','perfil'), 
+('manicura','kapping acrilico'),('manicura','esmaltado permanente'),('manicura','kapping gel'),('manicura','semi permanente'),('manicura','uñas esculpidas'),
+('pedicura','tradicional'),('pedicura','sin esmaltado'),('pedicura','shellac'),('pedicura','vinilux'),('pedicura','spa');
 
 create table estados (
 	est_id int(1) auto_increment not null unique,
     est_desc varchar(20),
     primary key (est_id)
 );
+
+insert into estados (est_desc) values ('libre'), ('reservado'), ('cancelado'), ('ausente'), ('atendido');
 
 create table turnos(
 	tur_id int auto_increment not null unique,
@@ -61,4 +73,7 @@ create table turnos(
     foreign key (est_id) references estados (est_id)
 );
 
-drop database radeans;
+alter table turnos drop column tur_puntuacion;
+select * from turnos;
+
+-- drop database radeans;

@@ -99,4 +99,5 @@ create table contabilidad(
     foreign key (ser_id) references facturasDetalle(ser_id)
 );
 
-
+use radeans;
+select * from servicios;
