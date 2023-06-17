@@ -11,7 +11,8 @@
     </ul>
 </nav>
 <div class="navLog">
-    <?php switch ($_SESSION['rol']) {
+    <?php if (isset($_SESSION['rol'])){
+    switch ($_SESSION['rol']) {
         default: ?>
             <a href="login.php" class="logAcc">iniciar sesion</a>
             <a href="registro.php" class="logReg">registrarse</a>
@@ -38,7 +39,8 @@
                 </div>
             </div>
     <?php break;
-    } ?>
+    }
+    }?>
 
 
 
