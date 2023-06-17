@@ -100,14 +100,14 @@ nav ul li:first-child{
 }
 
 nav ul li a,
-.navLog, .navLog > a {
+.navLog, .navLog > a , .menuBTN, .cajaMenu > a{
     text-decoration: none;
     font-size: 22px;
     font-weight: 700;
     color: var(--color-fuentes);
 }
 
-nav ul li a:hover, .logAcc:hover {
+nav ul li a:hover, .logAcc:hover , .menuBTN:hover, .cajaMenu > a:hover{
     color: var(--color-subTitulos);
 }
 
@@ -131,6 +131,36 @@ header .navLog{
     background-color: var(--color-titulos);
 }
 
+.dropmenu{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.menuBTN {
+}
+
+.cajaMenu{
+    width: 100%;
+    background-color: var(--color-header);
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 8px;
+    top: 80px;
+    left: 75%;
+}
+
+.menuBTN:hover + .cajaMenu{
+    display: flex;
+}
+
+.cajaMenu:hover{
+    display: flex;
+}
 /* ---------------------------------------------Slides index--------------------------------------------- */
 
 .cajaSlider{
@@ -514,6 +544,7 @@ footer .ubicacion {
     .divVacio{
         display: none;
     }
+
 }
 
 @media screen and (max-width: 990px) {
@@ -528,6 +559,10 @@ footer .ubicacion {
     .contlog2{
         justify-content: center;
         align-items: center;
+    }
+
+    .cajaMenu{
+        left: 65%;
     }
 }
 
