@@ -100,14 +100,14 @@ nav ul li:first-child{
 }
 
 nav ul li a,
-.navLog, .navLog > a , .menuBTN, .cajaMenu > a{
+.navLog, .navLog > a , .pmenuBTN, .cajaMenu > a{
     text-decoration: none;
     font-size: 22px;
     font-weight: 700;
     color: var(--color-fuentes);
 }
 
-nav ul li a:hover, .logAcc:hover , .menuBTN:hover, .cajaMenu > a:hover{
+nav ul li a:hover, .logAcc:hover , .pmenuBTN:hover, .cajaMenu > a:hover{
     color: var(--color-subTitulos);
 }
 
@@ -141,8 +141,10 @@ header .navLog{
 
 .menuBTN {
     height: 100%;
+    width: 35%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .cajaMenu{
