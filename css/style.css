@@ -133,12 +133,16 @@ header .navLog{
 
 .dropmenu{
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
 }
 
 .menuBTN {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .cajaMenu{
@@ -149,8 +153,8 @@ header .navLog{
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    padding: 8px;
-    top: 80px;
+    padding: 18px 8px 8px 8px;
+    top: 70px;
     left: 75%;
 }
 

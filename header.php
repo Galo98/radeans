@@ -12,7 +12,9 @@
 </nav>
     <?php if (isset($_SESSION['rol'])) { ?>
         <div class="dropmenu">
-            <div class="menuBTN">menu <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="menuBTN"><p class="pmenuBTN">
+                menu <i class="fa-solid fa-chevron-down"></i>
+            </p></div>
             <div class="cajaMenu">
                 <?php switch ($_SESSION['rol']) {
                     case 1: /* Administrador */ ?>
