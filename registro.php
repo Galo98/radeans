@@ -43,58 +43,57 @@ if (isset($_POST['confirmacion'])) {
                     <div>
                         <label for="nombre">
                             Nombre
-                            <input class="input" type="text" name="nombre" id="nombre" placeholder="Nombre" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                        echo $_POST['nombre'];
-                                                                                                                                                                                                    } ?>">
+                            <input class="input" type="text" name="nombre" id="nombre" placeholder="Nombre" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" 
+                            value="<?php if (isset($_POST['confirmacion'])) { echo $_POST['nombre'];} ?>" >
                         </label>
                     </div>
                     <div>
                         <label for="apellido">
                             Apellido
-                            <input class="input" type="text" name="apellido" id="apellido" placeholder="Apellido" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                            echo $_POST['apellido'];
-                                                                                                                                                                                                        } ?>">
+                            <input class="input" type="text" name="apellido" id="apellido" placeholder="Apellido" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" 
+                            value="<?php if (isset($_POST['confirmacion'])) { echo $_POST['apellido'];} ?>"
+                            >
                         </label>
                     </div>
                     <div>
                         <label for="telefono">
                             Telefono
-                            <input class="input" type="text" name="telefono" id="telefono" placeholder="1512341234" required pattern="[0-9]+" minlength="10" maxlength="10" title="El telefono solo puede contener numero" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                                                        echo $_POST['telefono'];
-                                                                                                                                                                                                                                    } ?>">
+                            <input class="input" type="text" name="telefono" id="telefono" placeholder="1512341234" required pattern="[0-9]+" minlength="10" maxlength="10" title="El telefono solo puede contener numero" 
+                            value="<?php if (isset($_POST['confirmacion'])){ echo $_POST['telefono'];} ?>"
+                            >
                         </label>
                     </div>
                     <div>
                         <label for="mail">
                             Email
-                            <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                                                                                                                                                echo $_POST['mail'];
-                                                                                                                                                                                                                                                                                                                            } ?>">
+                            <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" 
+                            value="<?php if (isset($_POST['confirmacion'])) { echo $_POST['mail']; } ?>"
+                            >
                         </label>
                     </div>
                     <div>
                         <label for="mail2">
                             Repetir Email
-                            <input class="input" type="mail" name="mail2" id="mail2" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                                                                                                                                                    echo $_POST['mail2'];
-                                                                                                                                                                                                                                                                                                                                } ?>">
+                            <input class="input" type="mail" name="mail2" id="mail2" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" 
+                            value="<?php if (isset($_POST['confirmacion'])) {echo $_POST['mail2'];} ?>"
+                            >
                         </label>
                     </div>
 
                     <div>
                         <label for="pass">
                             Contraseña
-                            <input id="pass" type="password" name="pass" required title="Ingrese mas de 8 caracteres" minlength="8" maxlength="30" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                echo $_POST['pass'];
-                                                                                                                                                            } ?>">
+                            <input id="pass" type="password" name="pass" required title="Ingrese mas de 8 caracteres" minlength="8" maxlength="30" 
+                            value="<?php if (isset($_POST['confirmacion'])) { echo $_POST['pass'];} ?>"
+                            >
                         </label>
                     </div>
                     <div>
                         <label for="pass2">
                             Repetir Contraseña
-                            <input id="pass2" type="password" name="pass2" required title="Verifique que sus contraseñas coincidan" minlength="8" maxlength="30" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                            echo $_POST['pass2'];
-                                                                                                                                                                        } ?>">
+                            <input id="pass2" type="password" name="pass2" required title="Verifique que sus contraseñas coincidan" minlength="8" maxlength="30" 
+                            value="<?php if (isset($_POST['confirmacion'])) { echo $_POST['pass2'];} ?>"
+                            >
                         </label>
                     </div>
                 </section>
@@ -105,11 +104,13 @@ if (isset($_POST['confirmacion'])) {
                 <div>
                     <button class="accederBTN regbtn" type="submit">Registrarse</button>
                 </div>
-                <?php
-                if (isset($mensaje)) {
-                    echo $mensaje;
-                }
-                ?>
+                <?php if (isset($mensaje)) { ?>
+                <div class="cajaMensaje">
+                    <p class="mensajeError">
+                        <?php echo $mensaje; ?>
+                    </p>
+                </div>
+                <?php } ?>
             </form>
 
             <article class="contlog2">
