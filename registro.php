@@ -67,7 +67,7 @@ if (isset($_POST['confirmacion'])) {
                     <div>
                         <label for="mail">
                             Email
-                            <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
+                            <input class="input" type="email" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
                                                                                                                                                                                                                                                                                                                                 echo $_POST['mail'];
                                                                                                                                                                                                                                                                                                                             } ?>">
                         </label>
@@ -75,7 +75,7 @@ if (isset($_POST['confirmacion'])) {
                     <div>
                         <label for="mail2">
                             Repetir Email
-                            <input class="input" type="mail" name="mail2" id="mail2" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
+                            <input class="input" type="email" name="mail2" id="mail2" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
                                                                                                                                                                                                                                                                                                                                     echo $_POST['mail2'];
                                                                                                                                                                                                                                                                                                                                 } ?>">
                         </label>
