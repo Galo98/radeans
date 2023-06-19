@@ -55,7 +55,7 @@ create table estados (
     primary key (est_id)
 );
 
-insert into estados (est_desc) values ('libre'), ('reservado'), ('cancelado'), ('ausente'), ('atendido');
+insert into estados (est_desc) values ('libre'), ('reservado'), ('cancelado'), ('ausente'), ('atendido'), ('caducado');
 
 create table turnos(
 	tur_id int auto_increment not null unique,

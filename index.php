@@ -1,5 +1,5 @@
 <?php 
- // $_SESSION['rol'] = 1;
+  $_SESSION['rol'] = 2;
 ?>
 
 <!DOCTYPE html>
