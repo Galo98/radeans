@@ -54,23 +54,48 @@ class Usuarios
     #region Validacion
     public function validacion()
     {
-
-        if ($this->correo === $this->correo2) {
-
-            if ($this->pass === $this->pass2) {
-                $conn = conectar();
-                mysqli_query($conn, "select usu_correo from usuarios where usu_correo='$this->correo';");
-                if (mysqli_affected_rows($conn) > 0) {
-                    $mensaje = "El correo ya existe";
+        if($this->correo2 !== null){
+            if ($this->correo === $this->correo2) {
+                if ($this->pass === $this->pass2) {
+                    $conn = conectar();
+                    mysqli_query($conn, "select usu_correo from usuarios where usu_correo='$this->correo';");
+                    if (mysqli_affected_rows($conn) > 0) {
+                        $mensaje = "El correo ya existe";
+                    } else {
+                        $mensaje = $this->registracion();
+                    }
                 } else {
-                    $mensaje = $this->registracion();
+                    $mensaje = "Las contraseñas no coinciden";
                 }
             } else {
-                $mensaje = "Las contraseñas no coinciden";
+                $mensaje = "Los correos no coinciden";
             }
-        } else {
-            $mensaje = "Los correos no coinciden";
+        } else{
+            $conn = conectar();
+            $select = mysqli_query($conn,"select * from usuarios where usu_correo = '$this->correo';");
+            if(mysqli_affected_rows($conn) > 0){
+                $datos = mysqli_fetch_assoc($select);
+                if($datos['usu_pass'] == $this->pass){
+                    session_start();
+                    $_SESSION['id'] = $datos['usu_id'];
+                    $_SESSION['nom'] = $datos['usu_nombre'];
+                    $_SESSION['ape'] = $datos['usu_apellido'];
+                    $_SESSION['correo'] = $datos['usu_correo'];
+                    $_SESSION['tel'] = $datos['usu_tel'];
+                    $_SESSION['rol'] = $datos['rol_id'];
+
+                    header('location: index.php');
+                    exit();
+
+                } else{
+                    $mensaje = "Contraseña erronea";
+                }
+            }else{
+                $mensaje = "Correo no registrado";
+            }
         }
+
+
         return $mensaje;
     }
     #endregion

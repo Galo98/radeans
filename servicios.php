@@ -1,3 +1,8 @@
+<?php
+
+require_once "./sesiones.php";
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,7 +51,7 @@
 
             <div>
                 <h2 class="titulos">Barberia</h2>
-                
+
                 <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
                     molestias a
                     iste neque
@@ -64,7 +69,7 @@
 
             <div>
                 <h2 class="titulos">Manicura</h2>
-                
+
                 <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
                     molestias a
                     iste neque
@@ -82,7 +87,7 @@
 
             <div>
                 <h2 class="titulos">Pedicura</h2>
-                
+
                 <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
                     molestias a
                     iste neque

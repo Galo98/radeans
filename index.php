@@ -1,5 +1,7 @@
 <?php 
-  $_SESSION['rol'] = 2;
+
+    require_once "./sesiones.php";
+
 ?>
 
 <!DOCTYPE html>

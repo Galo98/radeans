@@ -1,3 +1,19 @@
+<?php
+
+
+if (isset($_POST['mail'])) {
+    require_once "./php/cone.php";
+    require_once "./php/usuario.php";
+
+    $usuario = new Usuarios(null, $_POST['nombre'], $_POST['apellido'], $_POST['mail'], null, null, $_POST['pass'],null, null);
+
+    $mensaje = "";
+
+    $mensaje = $usuario->validacion();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,10 +44,7 @@
                     <div>
                         <label for="mail">
                             Correo
-                            <input class="input" type="mail" name="mail" id="mail" placeholder="correo@correo.com"
-                                required
-                                pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
-                                title="Complete correctamente su correo">
+                            <input class="input" type="email" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo">
                         </label>
                     </div>
                     <div>
@@ -50,23 +63,32 @@
                     </div>
                 </div>
             </form>
+
             <article class="contlog2">
                 <div class="contlog2-Caja">
-                    <div class="logoR"></div>
-                    <div>
-                        <p class="contlog2-msj">¿Aún no tienes cuenta?</p>
+                    <?php if (isset($mensaje)) { ?>
+                        <div class="cajaMensaje">
+                            <p class="subtitulos">
+                                <?php echo $mensaje; ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                    <div class="contlog2-Caja">
+                        <div class="logoR"></div>
+                        <div>
+                            <p class="contlog2-msj">¿Aún no tienes cuenta?</p>
+                        </div>
+                        <div>
+                            <p><a class="contLogin-Contra2" href="registro.php">Registrarse</a></p>
+                        </div>
                     </div>
-                    <div>
-                        <p><a class="contLogin-Contra2" href="registro.php">Registrarse</a></p>
-                    </div>
-                </div>
             </article>
             <div class="divVacio"></div>
         </section>
 
     </main>
     <footer>
-        <?php require_once "footer.php";?>
+        <?php require_once "footer.php"; ?>
     </footer>
 </body>
 
