@@ -40,27 +40,20 @@
 
         <section class="nosotros" id="nosotros">
 
-            <h2 class="titulos">Sobre nosotros</h2>
+            <h2 class="titulos">Nosotros</h2>
 
-            <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
-                molestias a
-                iste neque
-                aperiam nulla cupiditate saepe nostrum corrupti odio quidem minus quaerat quibusdam? Aliquam molestias
-                quo vero.
-                Laudantium nulla aspernatur quas, repudiandae earum facere eveniet laborum ex aut pariatur officiis in
-                error cumque, id ipsum. Dolorum, praesentium voluptatibus! Facere reiciendis laborum dolorum non velit
-                magni voluptatibus necessitatibus?
-                Enim quisquam quae ipsa ex repellat. Ducimus quos omnis architecto amet adipisci deleniti illo,
-                reprehenderit nam pariatur magni eligendi dolores fugiat placeat animi minus ut molestias quaerat odio
-                libero aliquam.
-                blanditiis voluptas incidunt.
-            </p>
             <p class="nosotrosTexto">
-                Fugit, in tempore. Repudiandae quas excepturi, magnam dolorum quaerat nam, sequi debitis hic sint eaque
-                harum laborum. Explicabo repudiandae in nulla quos vel fugit, ex assumenda impedit placeat! Beatae,
-                expedita.
-                Mollitia nostrum explicabo laboriosam. Neque at saepe omnis alias asperiores quae excepturi? Corporis
-                quae, non et suscipit ex inventore labore odio reiciendis architecto aspernatur esse harum quas
+                Somos un Salón de Belleza con 10 años de experiencia que cuenta con un selecto grupo de profesionales altamente capacitados para ofrecer el mejor servicio a nuestros Clientes. Contamos con un lugar mágico donde obtienes la atención, asesoría y calidad que garantizan nuestros expertos en peluqueria, manicura y pedicura,  peinados y barbería.
+                Además Trabajamos con productos de máxima calidad y con equipos de última generación. 
+
+            </p>
+            <h3 class="titulos">Misión</h3>
+            <p class="nosotrosTexto">
+            Satisfacer las necesidades de belleza de nuestros clientes mediante servicios de la mejor calidad, brindado por nuestro personal altamente calificado que inspira confianza y seriedad, permitiéndonos superar las expectativas de nuestros clientes.
+            </p>
+            <h4 class="titulos">Visión</h4>
+            <p class="nosotrosTexto">
+            Convertirnos en una cadena de salones caracterizados por brindar un excelente servicio personalizado en un ambiente cálido y acogedor.
             </p>
 
         </section>
