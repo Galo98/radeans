@@ -1,6 +1,6 @@
 <?php
 
-require_once "./sesiones.php";
+    require_once "./php/sesiones.php";
 
 ?>
 <!DOCTYPE html>

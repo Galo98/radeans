@@ -99,7 +99,7 @@ if (isset($_POST['confirmacion'])) {
                     </div>
                 </section>
                 <div>
-                    <input type="checkbox" name="confirmacion" required>
+                    <input type="checkbox" name="confirmacion" class="checkReg" required>
                     <a class="contLogin-Contra" href="">He leido y acepto los términos y condiciones</a>
                 </div>
                 <div>

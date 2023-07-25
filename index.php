@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-    require_once "./sesiones.php";
+    require_once "./php/sesiones.php";
 
 ?>
 
@@ -58,7 +58,7 @@
 
         </section>
 
-        <section class="punt" id="puntuaciones">
+<!--         <section class="punt" id="puntuaciones">
             <div class="punt-tit">
                 <h2 class="titulos">conoce a nuestros profesionales</h2>
             </div>
@@ -90,13 +90,12 @@
                         <p class="servP">Peluquero</p>
                         <p class="puntP"> 7 / 10</p>
                     </div>
-                    <!-- Agrega más tarjetas según sea necesario -->
                 </div>
                 <i class="prev-slide fa-solid fa-angle-left" style="display:flex;" onclick="prevSlide()"></i>
                 <i class="next-slide fa-solid fa-angle-right" style="display:flex;" onclick="nextSlide()"></i>
 
             </div>
-        </section>
+        </section> -->
 
     </main>
     <footer>

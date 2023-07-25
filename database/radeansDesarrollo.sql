@@ -22,19 +22,35 @@ create table usuarios(
     foreign key (rol_id) references roles (rol_id)
 );
 
-insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id) values('admin','admin','radeans.com.ar@gmail.com','1112345678','1234',1);
+insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id) values
+-- ('admin','admin','radeans.com.ar@gmail.com','1112345678','1234',1),
+('juan','vega','juan@gmail.com','1112345678','1234',2),
+('raul','lopez','raul@gmail.com','1112345678','1234',2);
 
 create table profesionales (
 	pro_id int auto_increment not null unique,
     pro_nombre varchar (30),
     pro_apellido varchar (30),
     pro_foto varchar(50),
-    pro_correo varchar (30),
-    pro_cuit varchar(12),
+    pro_correo varchar (30) not null unique,
+    pro_cuit varchar(12) not null unique,
     pro_domicilio varchar(60),
     pro_tel varchar(11),
 	primary key (pro_id)
 );
+
+insert into profesionales (pro_nombre,pro_apellido,pro_foto,pro_correo,pro_cuit,pro_domicilio,pro_tel) values
+('lautaro','hurigue','ruta/ruta','lauhu@gmail.com','20309089872','cuzco 116','1186789586'),
+('sasha','nuñez','ruta/ruta','sashez@gmail.com','20409089872','rivadavia 1546','11265895796'),
+('fernando','torres','ruta/ruta','ferres@gmail.com','20329069772','vergara 2039','1176859685'),
+('juan','lopez','ruta/ruta','jlo@gmail.com','20309089872','belgrano 1667','1586950684'),
+('daiana','sosa','ruta/ruta','daiso@gmail.com','20309089872','brasil 789','1184037930'),
+('agustina','gimenez','ruta/ruta','aginez@gmail.com','20309089872','mexico 2932','1562238934'),
+('romina','rodriguez','ruta/ruta','minaro@gmail.com','20309089872','calle 14 1980','1520395105'),
+('roma','gomez','ruta/ruta','zerom@gmail.com','20309089872','centenario 512','1583948572'),
+('silvia','sanchez','ruta/ruta','chezvia@gmail.com','20309089872','varela 216','1123439549');
+
+
 
 create table servicios(
 	ser_id int auto_increment not null unique,
