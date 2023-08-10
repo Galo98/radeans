@@ -21,7 +21,7 @@ insert into servicios (serv_nombre,serv_desc) values
 ('pedicura','tradicional'),('pedicura','sin esmaltado'),('pedicura','shellac'),('pedicura','vinilux'),('pedicura','spa');
 insert into estados (est_desc) values ('libre'), ('reservado'), ('cancelado'), ('ausente'), ('atendido'), ('caducado');
 show tables;
-select * from servicios;
+select * from profesionales;
 
 select DISTINCT serv_nombre from servicios;
 select ser_desc from servicios where serv_nombre = "peluqueria";
