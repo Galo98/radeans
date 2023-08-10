@@ -1,4 +1,3 @@
-drop database radeans;
 
 create database radeans;
 
@@ -42,7 +41,7 @@ create table servicios(
 );
 
 create table estados (
-	est_id int(1) auto_increment not null unique,
+	est_id int auto_increment not null unique,
     est_desc varchar(20),
     primary key (est_id)
 );
@@ -50,10 +49,10 @@ create table estados (
 create table turnos(
 	tur_id int auto_increment not null unique,
     tur_fecha TIMESTAMP,
-    est_id int(1),
-    usu_id int(9) DEFAULT 0,
-    prof_id int(9),
-    serv_id int(9),
+    est_id int,
+    usu_id int DEFAULT 0,
+    prof_id int,
+    serv_id int,
     primary key (tur_id,prof_id,serv_id),
     foreign key (usu_id) references usuarios (usu_id),
     foreign key (prof_id) references profesionales (prof_id),
