@@ -11,18 +11,18 @@ class Objetos
 
 ?>
         <p>Seleccione la categoria</p>
-        <select name="cat" id="SLTCAT">
+        <select required name="cat" id="SLTCAT">
             <option value="<?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
-                                echo $_POST['cat'];
-                            } else {
-                                echo "---";
-                            }
-                            ?>"><?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
-                                    echo $_POST['cat'];
-                                } else {
-                                    echo "---";
-                                }
-                                ?></option>
+                                        echo $_POST['cat'];
+                                    } else {
+                                        echo "---";
+                                    }
+                                    ?>"><?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
+                                            echo $_POST['cat'];
+                                        } else {
+                                            echo "---";
+                                        }
+                                        ?></option>
             <?php while ($data = mysqli_fetch_assoc($query)) { ?>
                 <option value="<?php echo $data['serv_nombre']; ?>"><?php echo $data['serv_nombre']; ?></option>
             <?php } ?>
@@ -40,7 +40,7 @@ class Objetos
 
     ?>
         <p>Seleccione el servicio</p>
-        <select name="serv" id="SLTSRV">
+        <select required name="serv" id="SLTSRV">
             <option value="<?php
                             if (isset($_POST['serv']) && $_POST['serv'] != " ") {
                                 echo $_POST['serv'];
@@ -72,7 +72,7 @@ class Objetos
 
     ?>
         <p>Seleccione al profesional</p>
-        <select name="profs" id="SLTSRV">
+        <select required name="profs" id="SLTSRV">
             <?php while ($data3 = mysqli_fetch_assoc($query3)) { ?>
                 <option value="<?php echo $data3['prof_id']; ?>"><?php echo $data3['prof_nombre'] . " " . $data3['prof_apellido']; ?></option>
             <?php } ?>
@@ -91,7 +91,7 @@ class Objetos
 
     ?>
         <p>Seleccione una semana</p>
-        <select name="semana" id="SLTSRV">
+        <select required name="semana" id="SLTSRV">
             <?php foreach ($fechas as $semana) { ?>
                 <option value="<?php echo $semana; ?>"><?php echo $semana; ?></option>
             <?php } ?>
@@ -102,15 +102,15 @@ class Objetos
     }
     #endregion
 
-    #region Select Semana
+    #region Select Horarios
     static public function horarios($fecha)
     {
 
         $semana = Fechas::generarSemana($fecha);
 
     ?>
-        <p>Marque los horarios segun la semana del <?php echo $fecha;?></p>
-        <select name="semana" id="SLTSRV">
+        <p>Marque los horarios segun la semana del <?php echo $fecha; ?></p>
+        <select required name="semana" id="SLTSRV">
             <?php foreach ($semana as $dias) { ?>
                 <option value="<?php echo $dias; ?>"><?php echo $dias; ?></option>
             <?php } ?>
