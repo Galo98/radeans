@@ -22,6 +22,8 @@ require_once "php/objetos.php";
         if(isset($_POST['limpiar'])){
             $_POST['cat'] = " ";
             $_POST['serv'] = " ";
+            $_POST['profs'] = " ";
+            $_POST['semana'] = " ";
         }
 
         Objetos::categoria();
