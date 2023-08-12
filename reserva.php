@@ -2,6 +2,7 @@
 
 require_once "./php/cone.php";
 require_once "./php/sesiones.php";
+require_once "./php/sesvaliu.php";
 require_once "./php/objetos.php";
 
 ?>

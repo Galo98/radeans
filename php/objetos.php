@@ -102,7 +102,7 @@ class Objetos
     }
     #endregion
 
-    #region Select Semana
+    #region Select Horarios
     static public function horarios($fecha)
     {
 
