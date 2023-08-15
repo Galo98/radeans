@@ -13,16 +13,16 @@ class Objetos
         <p>Seleccione la categoria</p>
         <select required name="cat" id="SLTCAT">
             <option value="<?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
-                                        echo $_POST['cat'];
-                                    } else {
-                                        echo "---";
-                                    }
-                                    ?>"><?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
-                                            echo $_POST['cat'];
-                                        } else {
-                                            echo "---";
-                                        }
-                                        ?></option>
+                                echo $_POST['cat'];
+                            } else {
+                                echo "---";
+                            }
+                            ?>"><?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
+                                    echo $_POST['cat'];
+                                } else {
+                                    echo "---";
+                                }
+                                ?></option>
             <?php while ($data = mysqli_fetch_assoc($query)) { ?>
                 <option value="<?php echo $data['serv_nombre']; ?>"><?php echo $data['serv_nombre']; ?></option>
             <?php } ?>
@@ -102,23 +102,68 @@ class Objetos
     }
     #endregion
 
-    #region Select Horarios
-    static public function horarios($fecha)
+    #region Horarios
+    public static function horarios($fecha)
     {
 
         $semana = Fechas::generarSemana($fecha);
 
     ?>
-        <p>Marque los horarios segun la semana del <?php echo $fecha; ?></p>
-        <select required name="semana" id="SLTSRV">
-            <?php foreach ($semana as $dias) { ?>
-                <option value="<?php echo $dias; ?>"><?php echo $dias; ?></option>
-            <?php } ?>
-        </select>
-<?php
+                <table>
+                    <tr>
+                        <th> Horario </th>
+                        <th> Martes </th>
+                        <th> Miercoles </th>
+                        <th> Jueves </th>
+                        <th> Viernes </th>
+                        <th> Sabado </th>
+                    </tr>
+                    <tr>
+                        <td>8:00 A 10:00</td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|8:00|10:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|8:00|10:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|8:00|10:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|8:00|10:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|8:00|10:00" ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>10:00 A 12:00</td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|10:00|12:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|10:00|12:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|10:00|12:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|10:00|12:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|10:00|12:00" ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>12:00 A 14:00</td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|12:00|14:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|12:00|14:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|12:00|14:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|12:00|14:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|12:00|14:00" ?>"></td>
 
+                    </tr>
+                    <tr>
+                        <td>14:00 A 16:00</td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|14:00|16:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|14:00|16:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|14:00|16:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|14:00|16:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|14:00|16:00" ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>16:00 A 18:00</td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|16:00|18:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|16:00|18:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|16:00|18:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|16:00|18:00" ?>"></td>
+                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|16:00|18:00" ?>"></td>
+                    </tr>
+                </table>
 
+        <?php
     }
+
     #endregion
 
 }
@@ -173,7 +218,7 @@ class Fechas
         $fechaObj = new DateTime($fecha);
 
         // Iterar para obtener siete días previos
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $sieteDiasPrevios[] = $fechaObj->format('Y-m-d');
             $fechaObj->modify('-1 day'); // Mover al día anterior
         }
@@ -185,4 +230,4 @@ class Fechas
 
 }
 
-?>
+        ?>

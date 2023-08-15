@@ -24,6 +24,7 @@ require_once "php/objetos.php";
             $_POST['serv'] = " ";
             $_POST['profs'] = " ";
             $_POST['semana'] = " ";
+            $_POST['horario'] = " ";
         }
 
         Objetos::categoria();
@@ -46,13 +47,17 @@ require_once "php/objetos.php";
             Objetos::horarios($_POST['semana']);
         }
 
+        var_dump($_POST['horario']);
 
+        echo "<input type='checkbox' name='limpiar'>Limpiar Campos";
+        if(isset($_POST['semana'])&& $_POST['semana'] != " "){
+            echo "<button type='submit'>Generar Turnos</button>";
+        }else{
+            echo "<button type='submit'>Siguiente</button>";
+        }
         ?>
 
-        <br>
-        <input type="checkbox" name="limpiar">Limpiar
-        <br>
-        <button type="submit">continuar</button>
+
 
     </form>
 </body>
