@@ -12,12 +12,12 @@ class Objetos
 ?>
         <p>Seleccione la categoria</p>
         <select required name="cat" id="SLTCAT">
-            <option value="<?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
+            <option value="<?php if (isset($_POST['cat']) && $_POST['cat'] != "---") {
                                 echo $_POST['cat'];
                             } else {
                                 echo "---";
                             }
-                            ?>"><?php if (isset($_POST['cat']) && $_POST['cat'] != " ") {
+                            ?>"><?php if (isset($_POST['cat']) && $_POST['cat'] != "---") {
                                     echo $_POST['cat'];
                                 } else {
                                     echo "---";
@@ -42,20 +42,27 @@ class Objetos
         <p>Seleccione el servicio</p>
         <select required name="serv" id="SLTSRV">
             <option value="<?php
-                            if (isset($_POST['serv']) && $_POST['serv'] != " ") {
+                            if (isset($_POST['serv']) && $_POST['serv'] != "---") {
                                 echo $_POST['serv'];
                             } else {
                                 echo "---";
                             }
                             ?>"><?php
-                                if (isset($_POST['serv']) && $_POST['serv'] != " ") {
-                                    echo $_POST['serv'];
+                                if (isset($_POST['serv']) && $_POST['serv'] != "---") {
+                                    while ($data2 = mysqli_fetch_assoc($query2)) {
+                                        if ($data2['serv_id'] == $_POST['serv']) {
+                                            echo $data2['serv_desc'];
+                                            break;
+                                        }
+                                    }
                                 } else {
                                     echo "---";
                                 }
                                 ?></option>
             <?php while ($data2 = mysqli_fetch_assoc($query2)) { ?>
-                <option value="<?php echo $data2['serv_desc']; ?>"><?php echo $data2['serv_desc']; ?></option>
+                <option value="<?php echo $data2['serv_id']; ?>">
+                    <?php echo $data2['serv_desc']; ?>
+                </option>
             <?php } ?>
         </select>
     <?php
@@ -73,6 +80,24 @@ class Objetos
     ?>
         <p>Seleccione al profesional</p>
         <select required name="profs" id="SLTSRV">
+            <option value="<?php
+                            if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+                                echo $_POST['profs'];
+                            } else {
+                                echo "---";
+                            }
+                            ?>"><?php
+                                if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+                                    while ($data3 = mysqli_fetch_assoc($query3)) {
+                                        if ($data3['prof_id'] == $_POST['profs']) {
+                                            echo $data3['prof_nombre'] . " " . $data3['prof_apellido'];
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    echo "---";
+                                }
+                                ?></option>
             <?php while ($data3 = mysqli_fetch_assoc($query3)) { ?>
                 <option value="<?php echo $data3['prof_id']; ?>"><?php echo $data3['prof_nombre'] . " " . $data3['prof_apellido']; ?></option>
             <?php } ?>
@@ -92,7 +117,22 @@ class Objetos
     ?>
         <p>Seleccione una semana</p>
         <select required name="semana" id="SLTSRV">
-            <?php foreach ($fechas as $semana) { ?>
+            <option value="<?php
+                            if (isset($_POST['semana']) && $_POST['semana'] != "---") {
+                                echo $_POST['semana'];
+                            } else {
+                                echo "---";
+                            }
+                            ?>"><?php
+                                if (isset($_POST['semana']) && $_POST['semana'] != "---") {
+                                    echo $_POST['semana'];
+                                } else {
+                                    echo "---";
+                                }
+                                ?></option>
+            <?php foreach ($fechas as $semana) {
+            ?>
+
                 <option value="<?php echo $semana; ?>"><?php echo $semana; ?></option>
             <?php } ?>
         </select>
@@ -109,59 +149,59 @@ class Objetos
         $semana = Fechas::generarSemana($fecha);
 
     ?>
-                <table>
-                    <tr>
-                        <th> Horario </th>
-                        <th> Martes </th>
-                        <th> Miercoles </th>
-                        <th> Jueves </th>
-                        <th> Viernes </th>
-                        <th> Sabado </th>
-                    </tr>
-                    <tr>
-                        <td>8:00 A 10:00</td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|8:00|10:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|8:00|10:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|8:00|10:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|8:00|10:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|8:00|10:00" ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>10:00 A 12:00</td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|10:00|12:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|10:00|12:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|10:00|12:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|10:00|12:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|10:00|12:00" ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>12:00 A 14:00</td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|12:00|14:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|12:00|14:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|12:00|14:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|12:00|14:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|12:00|14:00" ?>"></td>
+        <table>
+            <tr>
+                <th> Horario </th>
+                <th> Martes </th>
+                <th> Miercoles </th>
+                <th> Jueves </th>
+                <th> Viernes </th>
+                <th> Sabado </th>
+            </tr>
+            <tr>
+                <td>08:00</td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . " 08:00:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . " 08:00:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . " 08:00:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . " 08:00:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . " 08:00:00" ?>"></td>
+            </tr>
+            <tr>
+                <td>10:00 A 12:00</td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "10:00 a 12:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "10:00 a 12:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "10:00 a 12:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "10:00 a 12:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "10:00 a 12:00" ?>"></td>
+            </tr>
+            <tr>
+                <td>12:00 A 14:00</td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "12:00 a 14:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "12:00 a 14:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "12:00 a 14:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "12:00 a 14:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "12:00 a 14:00" ?>"></td>
 
-                    </tr>
-                    <tr>
-                        <td>14:00 A 16:00</td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|14:00|16:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|14:00|16:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|14:00|16:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|14:00|16:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|14:00|16:00" ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>16:00 A 18:00</td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "|16:00|18:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "|16:00|18:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "|16:00|18:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "|16:00|18:00" ?>"></td>
-                        <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "|16:00|18:00" ?>"></td>
-                    </tr>
-                </table>
+            </tr>
+            <tr>
+                <td>14:00 A 16:00</td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "14:00 a 16:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "14:00 a 16:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "14:00 a 16:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "14:00 a 16:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "14:00 a 16:00" ?>"></td>
+            </tr>
+            <tr>
+                <td>16:00 A 18:00</td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[1] . "16:00 a 18:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[2] . "16:00 a 18:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[3] . "16:00 a 18:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[4] . "16:00 a 18:00" ?>"></td>
+                <td><input type="checkbox" name="horario[]" value="<?php echo $semana[5] . "16:00 a 18:00" ?>"></td>
+            </tr>
+        </table>
 
-        <?php
+<?php
     }
 
     #endregion
@@ -230,4 +270,4 @@ class Fechas
 
 }
 
-        ?>
+?>

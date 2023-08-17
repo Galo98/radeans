@@ -20,43 +20,43 @@ require_once "php/objetos.php";
         <?php
 
         if(isset($_POST['limpiar'])){
-            $_POST['cat'] = " ";
-            $_POST['serv'] = " ";
-            $_POST['profs'] = " ";
-            $_POST['semana'] = " ";
-            $_POST['horario'] = " ";
+            $_POST['cat'] = "---";
+            $_POST['serv'] = "---";
+            $_POST['profs'] = "---";
+            $_POST['semana'] = "---";
+            $_POST['horario'] = "---";
         }
 
         Objetos::categoria();
 
 
 
-        if(isset($_POST['cat']) && $_POST['cat'] != " "){
+        if(isset($_POST['cat']) && $_POST['cat'] != "---"){
             Objetos::servicio($_POST['cat']);
         }
 
-        if (isset($_POST['serv']) && $_POST['serv'] != " ") {
+        if (isset($_POST['serv']) && $_POST['serv'] != "---") {
             Objetos::profesional();
         }
 
-        if (isset($_POST['profs']) && $_POST['profs'] != " ") {
+        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
             Objetos::semana();
         }
 
-        if (isset($_POST['semana']) && $_POST['semana'] != " ") {
+        if (isset($_POST['semana']) && $_POST['semana'] != "---") {
             Objetos::horarios($_POST['semana']);
         }
 
         var_dump($_POST['horario']);
 
-        echo "<input type='checkbox' name='limpiar'>Limpiar Campos";
-        if(isset($_POST['semana'])&& $_POST['semana'] != " "){
+        echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
+        if(isset($_POST['semana'])&& $_POST['semana'] != "---"){
             echo "<button type='submit'>Generar Turnos</button>";
         }else{
             echo "<button type='submit'>Siguiente</button>";
         }
         ?>
-
+<label for="limpiar"></label>
 
 
     </form>
