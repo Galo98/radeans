@@ -3,7 +3,7 @@
 require_once "./php/cone.php";
 require_once "./php/sesiones.php";
 require_once "./php/sesvalia.php";
-require_once "./php/objetos.php";
+require_once "./php/formularios.php";
 
 ?>
 
@@ -30,9 +30,10 @@ require_once "./php/objetos.php";
 
         <section class="reservaciones">
             <h2 class="titulos">Reservaciones</h2>
+            <?php generarTurnos(); ?>
         </section>
         <section>
-            <?php Objetos::categoria(); ?>
+
         </section>
 
     </main>
