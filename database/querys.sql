@@ -30,6 +30,8 @@ select * from usuarios;
 select * from servicios;
 insert into turnos (tur_fecha,est_id,usu_id,prof_id,serv_id) values 
 ('2023-10-23 18:00:00',1,null,2,4);
+
+drop table turnos;
 delete from turnos where tur_fecha = '2023-10-23 10:00:00';
 
 select * from turnos where est_id = 1;

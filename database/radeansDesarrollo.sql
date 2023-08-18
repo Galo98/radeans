@@ -48,7 +48,7 @@ create table estados (
 
 create table turnos(
 	tur_id int auto_increment not null unique,
-    tur_fecha TIMESTAMP,
+    tur_fecha TIMESTAMP unique,
     est_id int,
     usu_id int DEFAULT 0,
     prof_id int,
