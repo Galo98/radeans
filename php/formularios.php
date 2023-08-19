@@ -198,7 +198,19 @@ function generarSemana($fecha)
 function horarios($fecha)
     {
         $horarios = array(' 08:00:00', ' 10:00:00', ' 12:00:00', ' 14:00:00', ' 16:00:00', ' 18:00:00');
+        $conn = conectar();
         $semana = generarSemana($fecha);
+        $iSemana = $semana[0] . $horarios[0];
+        $fSemana = $semana[count($semana) - 1]  .$horarios[5];
+        $tebd = array();
+        $qserv = $_POST['serv'];
+        $qprof = $_POST['profs'];
+        $sql = "select tur_fecha from turnos where prof_id = $qprof and serv_id = $qserv and tur_fecha BETWEEN '$iSemana' and '$fSemana';";
+        $query = mysqli_query($conn,$sql);
+        while($info = mysqli_fetch_assoc($query)){
+            array_push($tebd,$info['tur_fecha']);
+        }
+            
         echo "<table>";
         echo "<tr>";
         echo "<th>Horario</th>";
@@ -228,9 +240,21 @@ function horarios($fecha)
         foreach ($horarios as $hora) {
             echo "<tr>";
             echo "<td> $hora </td>";
-            foreach ($semana as $dia) {
-                echo "<td><input type='checkbox' name='horario[]' value='$dia$hora'></td>";
-            }
+                foreach ($semana as $dia) {
+                    foreach($tebd as $datos){
+                        if($datos == $dia . $hora){
+                            $hacer = 1;
+                            break;
+                        }else{
+                            $hacer = 0;
+                        }
+                    }
+                    if($hacer == 0){
+                        echo "<td><input type='checkbox' name='horario[]' value='$dia$hora'></td>";
+                    }else{
+                        echo "<td></td>";
+                    }
+                } 
             echo "</tr>";
         }
         echo "</table>";
@@ -269,11 +293,7 @@ function generarTurnos()
         horarios($_POST['semana']);
     }
 
-    var_dump($_POST['horario']);
-
     echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
-
-
 
     if (isset($_POST['semana']) && $_POST['semana'] != "---") {
         echo "<label><input type='checkbox' name='generar'>Generar turnos</label>";

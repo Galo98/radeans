@@ -48,12 +48,12 @@ create table estados (
 
 create table turnos(
 	tur_id int auto_increment not null unique,
-    tur_fecha TIMESTAMP unique,
+    tur_fecha TIMESTAMP,
     est_id int,
     usu_id int DEFAULT 0,
     prof_id int,
     serv_id int,
-    primary key (tur_id,prof_id,serv_id),
+    primary key (tur_id,prof_id,serv_id, tur_fecha),
     foreign key (usu_id) references usuarios (usu_id),
     foreign key (prof_id) references profesionales (prof_id),
     foreign key (serv_id) references servicios (serv_id),
