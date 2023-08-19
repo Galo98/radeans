@@ -28,6 +28,7 @@ select ser_desc from servicios where serv_nombre = "peluqueria";
 select * from turnos;
 select * from usuarios;
 select * from servicios;
+select * from estados;
 insert into turnos (tur_fecha,est_id,usu_id,prof_id,serv_id) values 
 ('2023-10-23 18:00:00',1,null,2,4);
 

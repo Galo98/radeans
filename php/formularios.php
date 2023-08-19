@@ -272,19 +272,53 @@ function generarTurnos()
     var_dump($_POST['horario']);
 
     echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
+
+
+
     if (isset($_POST['semana']) && $_POST['semana'] != "---") {
+        echo "<label><input type='checkbox' name='generar'>Generar turnos</label>";
         echo "<button type='submit'>Generar Turnos</button>";
     } else {
         echo "<button type='submit'>Siguiente</button>";
     }
 
-
-    echo "<label for='limpiar>'</label>";
     echo "</form>";
 }
 
 #endregion
 
+#region guardarTurnos
+
+function guardarTurnos($array,$prof,$serv){
+
+        $insert = "";
+        $con = conectar();
+
+        for ($i = 0; $i < count($array); $i++) {
+            $max = count($array) - 1;
+            if ($i == $max) {
+                $insert = $insert  . "('$array[$i]',1,null,$prof,$serv)"; // el ultimo value va a ser sin ,
+            } else {
+                $insert = $insert  . "('$array[$i]',1,null,$prof,$serv),"; // desde el primer a anteultimo value van con ,
+            }
+
+        }
+
+        $sql = "insert into turnos (tur_fecha,est_id,usu_id,prof_id,serv_id) values $insert;";
+
+        mysqli_query($con, $sql);
+
+        if (mysqli_affected_rows($con) > 0) {
+            $mensaje = 1; // Se guardo satisfactoriamente
+        } else {
+            $mensaje = 2; // No se pudo guardar
+        }
+
+        return $mensaje;
+
+}
+
+#endregion
 
 
 

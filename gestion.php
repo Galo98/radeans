@@ -1,9 +1,13 @@
 <?php
 
 require_once "./php/cone.php";
+require_once "./php/formularios.php";
 require_once "./php/sesiones.php";
 require_once "./php/sesvalia.php";
-require_once "./php/formularios.php";
+    
+    if(isset($_POST['generar'])){
+        $mensaje = guardarTurnos($_POST['horario'],$_POST['profs'], $_POST['serv']);
+    }
 
 ?>
 
@@ -31,6 +35,11 @@ require_once "./php/formularios.php";
         <section class="reservaciones">
             <h2 class="titulos">Reservaciones</h2>
             <?php generarTurnos(); ?>
+            <div><?php if(isset($mensaje) && $mensaje == 1){
+                echo "Se generaron los turnos correctamente";
+                } else if(isset($mensaje) && $mensaje == 2){
+                echo "No se generaron los turnos correctamente";
+                }?></div>
         </section>
         <section>
 
