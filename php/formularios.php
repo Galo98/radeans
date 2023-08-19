@@ -21,8 +21,10 @@ function categoria()
                                     echo "---";
                                 }
         echo "</option>";
-        while ($data = mysqli_fetch_assoc($query)) { 
-            echo "<option value='" .$data['serv_nombre'] ."'>" .$data['serv_nombre'] ."</option>";
+        while ($data = mysqli_fetch_assoc($query)) {
+            if ($data['serv_nombre'] != $_POST['cat']) {
+                echo "<option value='" . $data['serv_nombre'] . "'>" . $data['serv_nombre'] . "</option>";
+            }
         } 
     echo "</select>";
 
@@ -33,8 +35,11 @@ function categoria()
 #region Select Servicio
     function servicio($cat)
     {
-
+        $servicios = array();
         $query2 = mysqli_query(conectar(), 'select * from servicios where serv_nombre = "' . $cat . '" ');
+        while ($data2 = mysqli_fetch_assoc($query2)) {
+            array_push($servicios,$data2);
+        }
 
         echo "<p>Seleccione el servicio</p>";
         echo "<select required name='serv' id='SLTSRV'>";
@@ -46,7 +51,7 @@ function categoria()
                             }
             echo "'>";
                      if (isset($_POST['serv']) && $_POST['serv'] != "---") {
-                        while ($data2 = mysqli_fetch_assoc($query2)) {
+                        foreach($servicios as $data2) {
                             if ($data2['serv_id'] == $_POST['serv']) {
                                 echo $data2['serv_desc'];
                                 break;
@@ -56,10 +61,12 @@ function categoria()
                         echo "---";
                     }
             echo "</option>";
-            while ($data2 = mysqli_fetch_assoc($query2)) { 
-                echo "<option value='" .$data2['serv_id'] ."'>";
-                  echo $data2['serv_desc']; 
-                echo  "</option>";
+            foreach ($servicios as $data2){ 
+                if($data2['serv_id'] != $_POST['serv']){
+                    echo "<option value='" .$data2['serv_id'] ."'>";
+                    echo $data2['serv_desc']; 
+                    echo  "</option>";
+                }
             } 
         echo "</select>";
 
@@ -69,8 +76,11 @@ function categoria()
 #region Select Profesional
     function profesional()
     {
-
+        $profesionales = array();
         $query3 = mysqli_query(conectar(), 'select * from profesionales');
+        while ($data2 = mysqli_fetch_assoc($query3)) {
+            array_push($profesionales,$data2);
+        }
 
         echo "<p>Seleccione al profesional</p>";
         echo "<select required name='profs' id='SLTSRV'>";
@@ -82,7 +92,7 @@ function categoria()
                     }
             echo "'>";
                    if (isset($_POST['profs']) && $_POST['profs'] != "---") {
-                       while ($data3 = mysqli_fetch_assoc($query3)) {
+                       foreach ($profesionales as $data3) {
                            if ($data3['prof_id'] == $_POST['profs']) {
                                echo $data3['prof_nombre'] . " " . $data3['prof_apellido'];
                                break;
@@ -92,8 +102,10 @@ function categoria()
                        echo "---";
                    }
             echo "</option>";
-            while ($data3 = mysqli_fetch_assoc($query3)) { 
-                echo "<option value='".$data3['prof_id'] ."'>" .$data3['prof_nombre'] . " " . $data3['prof_apellido'] ."</option>";
+            foreach($profesionales as $data3) { 
+                if($data3['prof_id'] != $_POST['profs']){
+                    echo "<option value='".$data3['prof_id'] ."'>" .$data3['prof_nombre'] . " " . $data3['prof_apellido'] ."</option>";
+                }
             }
         echo "</select>";
 
@@ -187,7 +199,9 @@ function generarSemana($fecha)
                      }
             echo "</option>";
             foreach ($fechas as $semana) {
-                echo "<option value='" .$semana ."'>" .$semana ."</option>";
+                if ($semana != $_POST['semana']) {
+                    echo "<option value='" . $semana . "'>" . $semana . "</option>";
+                }
             }
         echo "</select>";
 
@@ -203,9 +217,8 @@ function horarios($fecha)
         $iSemana = $semana[0] . $horarios[0];
         $fSemana = $semana[count($semana) - 1]  .$horarios[5];
         $tebd = array();
-        $qserv = $_POST['serv'];
         $qprof = $_POST['profs'];
-        $sql = "select tur_fecha from turnos where prof_id = $qprof and serv_id = $qserv and tur_fecha BETWEEN '$iSemana' and '$fSemana';";
+        $sql = "select tur_fecha from turnos where prof_id = $qprof and tur_fecha BETWEEN '$iSemana' and '$fSemana';";
         $query = mysqli_query($conn,$sql);
         while($info = mysqli_fetch_assoc($query)){
             array_push($tebd,$info['tur_fecha']);
@@ -264,8 +277,8 @@ function horarios($fecha)
 #region generarTurnos
 function generarTurnos()
 {
-
-    echo "<form method='POST'>";
+    echo "<div class='gTurnos'>";
+    echo "<form method='POST' class='fTurnos'>";
 
     if (isset($_POST['limpiar'])) {
         $_POST['cat'] = "---";
@@ -274,35 +287,57 @@ function generarTurnos()
         $_POST['semana'] = "---";
         $_POST['horario'] = "---";
     }
-
+    echo "<div class='formCat'>";
     categoria();
+    echo "</div>";
 
     if (isset($_POST['cat']) && $_POST['cat'] != "---") {
-        servicio($_POST['cat']);
+        echo "<div class='formServ'>";
+            servicio($_POST['cat']);
+        echo "</div>";
     }
 
     if (isset($_POST['serv']) && $_POST['serv'] != "---") {
-        profesional();
+        echo "<div class='formProf'>";
+            profesional();
+        echo "</div>";
     }
 
     if (isset($_POST['profs']) && $_POST['profs'] != "---") {
-        semana();
+        echo "<div class='formSem'>";
+            semana();
+        echo "</div>";
     }
 
     if (isset($_POST['semana']) && $_POST['semana'] != "---") {
-        horarios($_POST['semana']);
+        echo "<div class='formHora'>";
+            horarios($_POST['semana']);
+        echo "</div>";
     }
-
+    echo "<div class='fCajaConf'>";
+    echo "<div class='fchecks'>";
     echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
-
-    if (isset($_POST['semana']) && $_POST['semana'] != "---") {
+    if (isset($_POST['semana']) && $_POST['semana'] != "---"){
         echo "<label><input type='checkbox' name='generar'>Generar turnos</label>";
+    }
+    echo "</div>";
+    echo "<div class='fBtn'>";
+    if (isset($_POST['semana']) && $_POST['semana'] != "---") {
         echo "<button type='submit'>Generar Turnos</button>";
     } else {
         echo "<button type='submit'>Siguiente</button>";
     }
-
+    echo "</div>";
+    echo "<div class='mensajes'>";
+        if (isset($mensaje) && $mensaje == 1) {
+            echo "Se generaron los turnos correctamente";
+        } else if (isset($mensaje) && $mensaje == 2) {
+            echo "No se generaron los turnos correctamente";
+        }
+    echo "</div>";
+    echo "</div>";
     echo "</form>";
+    echo "</div>";
 }
 
 #endregion
