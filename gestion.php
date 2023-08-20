@@ -5,8 +5,11 @@ require_once "./php/formularios.php";
 require_once "./php/sesiones.php";
 require_once "./php/sesvalia.php";
     
-    if(isset($_POST['generar'])){
-        $mensaje = guardarTurnos($_POST['horario'],$_POST['profs'], $_POST['serv']);
+    if(isset($_POST['generar']) && isset($_POST['limpiar'])){
+        $mensaje = 4; // Se ha seleccionado el campo limpiar
+        
+    }else if(isset($_POST['generar'])){
+        $mensaje = guardarTurnos($_POST['horario'], $_POST['profs'], $_POST['serv']);
     }
 
 ?>
@@ -32,17 +35,8 @@ require_once "./php/sesvalia.php";
 
     <main>
 
-        <section class="reservaciones">
-            <h2 class="titulos">Reservaciones</h2>
-            <?php generarTurnos(); ?>
-            <div><?php if(isset($mensaje) && $mensaje == 1){
-                echo "Se generaron los turnos correctamente";
-                } else if(isset($mensaje) && $mensaje == 2){
-                echo "No se generaron los turnos correctamente";
-                }?></div>
-        </section>
-        <section>
-
+        <section class="gestionTurnos">
+            <?php generarTurnos($mensaje); ?>
         </section>
 
     </main>

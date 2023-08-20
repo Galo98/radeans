@@ -3,12 +3,11 @@
 #region Select categoria
 function categoria()
 {
-
     $query = mysqli_query(conectar(), 'select DISTINCT serv_nombre from servicios;');
 
-    echo "<p>Seleccione la categoria</p>";
-    echo "<select required name='cat' id='SLTCAT'>";
-        echo "<option value='";
+    echo "<label class='tlabel'>Seleccione la categoria";
+    echo "<select class='fselect' required name='cat' id='SLTCAT'>";
+        echo "<option  value='";
             if (isset($_POST['cat']) && $_POST['cat'] != "---") {
                             echo $_POST['cat'];
                         } else {
@@ -23,10 +22,11 @@ function categoria()
         echo "</option>";
         while ($data = mysqli_fetch_assoc($query)) {
             if ($data['serv_nombre'] != $_POST['cat']) {
-                echo "<option value='" . $data['serv_nombre'] . "'>" . $data['serv_nombre'] . "</option>";
+                echo "<option  value='" . $data['serv_nombre'] . "'>" . $data['serv_nombre'] . "</option>";
             }
-        } 
-    echo "</select>";
+        }
+        echo "</select>";
+        echo "</label>";
 
 
 }
@@ -41,9 +41,9 @@ function categoria()
             array_push($servicios,$data2);
         }
 
-        echo "<p>Seleccione el servicio</p>";
-        echo "<select required name='serv' id='SLTSRV'>";
-            echo "<option value='";
+        echo "<label class='tlabel'>Seleccione el servicio";
+        echo "<select class='fselect' required name='serv' id='SLTSRV'>";
+            echo "<option  value='";
                             if (isset($_POST['serv']) && $_POST['serv'] != "---") {
                                 echo $_POST['serv'];
                             } else {
@@ -63,12 +63,13 @@ function categoria()
             echo "</option>";
             foreach ($servicios as $data2){ 
                 if($data2['serv_id'] != $_POST['serv']){
-                    echo "<option value='" .$data2['serv_id'] ."'>";
+                    echo "<option  value='" .$data2['serv_id'] ."'>";
                     echo $data2['serv_desc']; 
                     echo  "</option>";
                 }
             } 
-        echo "</select>";
+            echo "</select>";
+            echo "</label>";
 
     }
     #endregion
@@ -82,9 +83,9 @@ function categoria()
             array_push($profesionales,$data2);
         }
 
-        echo "<p>Seleccione al profesional</p>";
-        echo "<select required name='profs' id='SLTSRV'>";
-            echo "<option value='";
+        echo "<label class='tlabel'>Seleccione al profesional";
+        echo "<select class='fselect' required name='profs' id='SLTSRV'>";
+            echo "<option  value='";
                     if (isset($_POST['profs']) && $_POST['profs'] != "---") {
                         echo $_POST['profs'];
                     } else {
@@ -104,10 +105,11 @@ function categoria()
             echo "</option>";
             foreach($profesionales as $data3) { 
                 if($data3['prof_id'] != $_POST['profs']){
-                    echo "<option value='".$data3['prof_id'] ."'>" .$data3['prof_nombre'] . " " . $data3['prof_apellido'] ."</option>";
+                    echo "<option  value='".$data3['prof_id'] ."'>" .$data3['prof_nombre'] . " " . $data3['prof_apellido'] ."</option>";
                 }
             }
-        echo "</select>";
+            echo "</select>";
+            echo "</label>";
 
     }
     #endregion
@@ -183,9 +185,9 @@ function generarSemana($fecha)
 
         $fechas = generarSabados();
 
-        echo "<p>Seleccione una semana</p>";
-        echo "<select required name='semana' id='SLTSRV'>";
-            echo "<option value='";
+        echo "<label class='tlabel'>Seleccione una semana";
+        echo "<select class='fselect' required name='semana' id='SLTSRV'>";
+            echo "<option  value='";
                  if (isset($_POST['semana']) && $_POST['semana'] != "---") {
                      echo $_POST['semana'];
                  } else {
@@ -200,10 +202,11 @@ function generarSemana($fecha)
             echo "</option>";
             foreach ($fechas as $semana) {
                 if ($semana != $_POST['semana']) {
-                    echo "<option value='" . $semana . "'>" . $semana . "</option>";
+                    echo "<option  value='" . $semana . "'>" . $semana . "</option>";
                 }
             }
-        echo "</select>";
+            echo "</select>";
+            echo "</label>";
 
     }
     #endregion
@@ -211,6 +214,9 @@ function generarSemana($fecha)
 #region Horarios
 function horarios($fecha)
     {
+
+        echo "<p class='tlabel'>Seleccione los horarios correspondientes a cada turno</p>";
+
         $horarios = array(' 08:00:00', ' 10:00:00', ' 12:00:00', ' 14:00:00', ' 16:00:00', ' 18:00:00');
         $conn = conectar();
         $semana = generarSemana($fecha);
@@ -224,35 +230,35 @@ function horarios($fecha)
             array_push($tebd,$info['tur_fecha']);
         }
             
-        echo "<table>";
-        echo "<tr>";
-        echo "<th>Horario</th>";
+        echo "<table class='tabGes'>";
+        echo "<tr class='tabGesTr'>";
+        echo "<th class='tabGesTh'>Horario</th>";
         foreach ($semana as $dia) {
             $evaluar = $dia; // Fecha en formato 'Año-Mes-Día'
             $objEvaluar = new DateTime($evaluar);
             $diaSemana = $objEvaluar->format('N'); // Devuelve un número del 1 al 7, donde 1 es lunes y 7 es domingo
             switch ($diaSemana) {
                 case 2:
-                    echo '<th>Martes</th>';
+                    echo "<th class='tabGesTh'>Martes</th>";
                     break;
                 case 3:
-                    echo '<th>Miércoles</th>';
+                    echo "<th class='tabGesTh'>Miércoles</th>";
                     break;
                 case 4:
-                    echo '<th>Jueves</th>';
+                    echo "<th class='tabGesTh'>Jueves</th>";
                     break;
                 case 5:
-                    echo '<th>Viernes</th>';
+                    echo "<th class='tabGesTh'>Viernes</th>";
                     break;
                 case 6:
-                    echo '<th>Sábado</th>';
+                    echo "<th class='tabGesTh'>Sábado</th>";
                     break;
             }
         }
         echo "</tr>";
         foreach ($horarios as $hora) {
-            echo "<tr>";
-            echo "<td> $hora </td>";
+            echo "<tr class='tabGesTr'>";
+            echo "<td class='tabGesTd'> $hora </td>";
                 foreach ($semana as $dia) {
                     foreach($tebd as $datos){
                         if($datos == $dia . $hora){
@@ -263,9 +269,9 @@ function horarios($fecha)
                         }
                     }
                     if($hacer == 0){
-                        echo "<td><input type='checkbox' name='horario[]' value='$dia$hora'></td>";
+                        echo "<td class='tabGesTd'><input type='checkbox' name='horario[]' value='$dia$hora'></td>";
                     }else{
-                        echo "<td></td>";
+                        echo "<td class='tabGesTd'></td>";
                     }
                 } 
             echo "</tr>";
@@ -275,9 +281,10 @@ function horarios($fecha)
 #endregion
 
 #region generarTurnos
-function generarTurnos()
+function generarTurnos($mensaje)
 {
     echo "<div class='gTurnos'>";
+    echo " <h2 class='titulos'>Apertura de la grilla de turnos</h2>";
     echo "<form method='POST' class='fTurnos'>";
 
     if (isset($_POST['limpiar'])) {
@@ -287,6 +294,8 @@ function generarTurnos()
         $_POST['semana'] = "---";
         $_POST['horario'] = "---";
     }
+
+    echo "<div class='cajaSelects'>";
     echo "<div class='formCat'>";
     categoria();
     echo "</div>";
@@ -309,31 +318,52 @@ function generarTurnos()
         echo "</div>";
     }
 
+    echo "</div>";
+
     if (isset($_POST['semana']) && $_POST['semana'] != "---") {
         echo "<div class='formHora'>";
             horarios($_POST['semana']);
-        echo "</div>";
+        
     }
+
+    
+
     echo "<div class='fCajaConf'>";
+
     echo "<div class='fchecks'>";
     echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
     if (isset($_POST['semana']) && $_POST['semana'] != "---"){
         echo "<label><input type='checkbox' name='generar'>Generar turnos</label>";
     }
     echo "</div>";
+
     echo "<div class='fBtn'>";
     if (isset($_POST['semana']) && $_POST['semana'] != "---") {
-        echo "<button type='submit'>Generar Turnos</button>";
+        echo "<button class='fGesBTNg' type='submit'>Generar Turnos</button>";
     } else {
-        echo "<button type='submit'>Siguiente</button>";
+        echo "<button class='fGesBTNs' type='submit'>Siguiente</button>";
     }
     echo "</div>";
+
     echo "<div class='mensajes'>";
-        if (isset($mensaje) && $mensaje == 1) {
-            echo "Se generaron los turnos correctamente";
-        } else if (isset($mensaje) && $mensaje == 2) {
-            echo "No se generaron los turnos correctamente";
-        }
+        if (isset($mensaje)) {
+            switch ($mensaje) {
+                case '1':
+                    echo "<p class='menOk'>¡Genial! Se generaron los turnos correctamente</p>";
+                    break;
+                case '2':
+                    echo "<p class='menErr'>¡Error! No se generaron los turnos correctamente</p>";
+                    break;
+                case '3':
+                    echo "<p class='menErr'>¡Error! No se insertaron horarios para generar la grilla de turnos</p>";
+                    break;
+                case '4':
+                    echo "<p class='menErr'>¡Error! Se ha seleccionado el checkbox de limpiar campos a la vez de generar grilla. </p>";
+                    break;
+            }
+            
+        } 
+    echo "</div>";
     echo "</div>";
     echo "</div>";
     echo "</form>";
@@ -345,6 +375,7 @@ function generarTurnos()
 #region guardarTurnos
 
 function guardarTurnos($array,$prof,$serv){
+    if($array != null){
 
         $insert = "";
         $con = conectar();
@@ -368,6 +399,9 @@ function guardarTurnos($array,$prof,$serv){
         } else {
             $mensaje = 2; // No se pudo guardar
         }
+    } else{
+        $mensaje = 3; // No hay datos para guardar
+    }
 
         return $mensaje;
 

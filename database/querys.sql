@@ -6,7 +6,7 @@ insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id
 ('raul','lopez','raul@gmail.com','1112345678','1234',2);
 insert into profesionales (prof_nombre,prof_apellido,prof_foto,prof_correo,prof_cuit,prof_domicilio,prof_tel) values
 ('lautaro','hurigue','ruta/ruta','lauhu@gmail.com','20309089872','cuzco 116','1186789586'),
-('sasha','nuñez','ruta/ruta','sashez@gmail.com','20409089872','rivadavia 1546','11265895796'),
+('sasha','grey','ruta/ruta','sashez@gmail.com','20409089872','rivadavia 1546','11265895796'),
 ('fernando','torres','ruta/ruta','ferres@gmail.com','20329069772','vergara 2039','1176859685'),
 ('juan','lopez','ruta/ruta','jlo@gmail.com','20309089822','belgrano 1667','1586950684'),
 ('daiana','sosa','ruta/ruta','daiso@gmail.com','20309089572','brasil 789','1184037930'),
@@ -23,6 +23,7 @@ insert into estados (est_desc) values ('libre'), ('reservado'), ('cancelado'), (
 show tables;
 select * from profesionales;
 
+UPDATE profesionales set prof_apellido = "grey" where prof_id = 2;
 select DISTINCT serv_nombre from servicios;
 select ser_desc from servicios where serv_nombre = "peluqueria";
 select * from turnos;

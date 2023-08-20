@@ -11,6 +11,7 @@
     --border-raduis: 16px;
     --logo-redondo: url(../img/g12.png);
     --logo-cuadrado: url(../img/radeans.png);
+    --gradiente: linear-gradient(90deg, rgba(77, 81, 191, 1) 13%, rgba(255, 255, 255, 1) 49%, rgba(255, 93, 0, 1) 89%);
 }
 
 /* ---------------------------------------------Reset CSS--------------------------------------------- */
@@ -534,12 +535,60 @@ header .navLog{
 
 /* -------------------------------------------Generar Turnos------------------------------------------- */
 
-.gTurnos{
+.gestionTurnos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    max-width: 90vw;
+    min-height: 80vh;
+    padding: 110px 0 60px 0;
+}
 
+.gTurnos{
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
 }
 
 .fTurnos{
+    display: flex;
+    gap: 80px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.fselect{
+    outline: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--color-header);
+    max-width: 300px;
+    height: 28pxpx;
+    padding: 6px;
+    border: 2.3px solid var(--color-subTitulos);
+    border-radius: 6px;
+}
+
+.tlabel {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-header);
+    font-weight: 600;
+    font-size: 1.3rem;
+    gap: 13px;
+}
+
+.tlabel > select:nth-child(){
+border: 2.3px solid var(--color-titulos);
+}
+
+.cajaSelects{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .formCat{
@@ -559,28 +608,124 @@ header .navLog{
 }
 
 .formHora{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: 30px;
+}
 
+.tabGes{
+    border-collapse: collapse;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 40vw;
+    line-height: 1.5;
+}
+
+.tabGesTh{
+    width: 18%;
+    font-weight: 600;
+}
+
+.tabGesTr{
+    border-bottom: 2px solid var(--color-titulos);
+    
+}
+
+.tabGesTd{
+    font-weight: 600;
+}
+
+.tabGesTd > input{
+    width: 21px;
+    height: 21px;
 }
 
 .fCajaConf{
-
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 
 .fchecks{
-
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+.fchecks >label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.fchecks>label >input{
+    width: 21px;
+    height: 21px;
+}
 
 .fBtn{
-
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
+.fGesBTNg{
+    color: var(--color-fuentes);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 16px;
+    background-color: var(--color-titulos);
+    padding: 12px;
+    cursor: pointer;
+    transition: all 230ms ease-in;
+}
+
+.fGesBTNg:hover{
+    background-color: var(--color-subTitulos);
+}
+
+.fGesBTNs {
+    color: var(--color-fuentes);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: var(--color-subTitulos);
+    border: 3px solid var(--color-subTitulos);
+    border-radius: 16px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.fGesBTNs:hover {
+    border: 3px solid var(--color-titulos);
+    background-color: var(--color-titulos);
+}
 
 .mensajes{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.menOk, .menErr{
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-titulos);
+}
+
+.menErr{
+    color: var(--color-subTitulos);
+}
 
 /* --------------------------------------------Footer-------------------------------------------- */
 
