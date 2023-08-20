@@ -42,3 +42,26 @@ delete from turnos where tur_fecha = '2023-10-23 10:00:00';
 select * from turnos where est_id = 1;
 
 select tur_fecha from turnos where prof_id = 2 and serv_id = 6 and tur_fecha BETWEEN '2023-08-22 08:00:00 ' and '2023-08-26 18:00:00 ';
+
+select 
+turnos.tur_id, turnos.tur_fecha ,turnos.prof_id, turnos.serv_id, profesionales.prof_id ,profesionales.prof_nombre ,profesionales.prof_apellido ,servicios.serv_id ,servicios.serv_desc 
+from turnos inner join profesionales on 
+turnos.prof_id = profesionales.prof_id 
+inner join servicios on 
+turnos.serv_id = servicios.serv_id
+where turnos.est_id = 1 and turnos.serv_id = 6;
+
+select DISTINCT turnos.prof_id, profesionales.prof_nombre, profesionales.prof_apellido from turnos inner join profesionales on turnos.prof_id = profesionales.prof_id where est_id = 1 and serv_id = 6;
+
+SELECT
+tur_id, tur_fecha 
+from turnos
+where serv_id = 6 and prof_id = 2 and est_id = 1;
+
+select * from turnos;
+select * from usuarios;
+
+
+select tur_id, tur_fecha from turnos where serv_id = 1 and prof_id = 1 and est_id = 1;
+
+select * from turnos where serv_id = 1 and prof_id = 1;

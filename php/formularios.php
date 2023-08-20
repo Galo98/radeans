@@ -1,5 +1,7 @@
 <?php
 
+/* ----------------------- Admin ----------------------- */
+
 #region Select categoria
 function categoria()
 {
@@ -409,10 +411,204 @@ function guardarTurnos($array,$prof,$serv){
 
 #endregion
 
+/* ----------------------- Usuario ----------------------- */
+
+#region profxServ
+
+    function profxServ($idServ){
+        $profesionales = array();
+
+        $query3 = mysqli_query(conectar(), 'select DISTINCT turnos.prof_id,profesionales.prof_nombre, profesionales.prof_apellido from turnos inner join profesionales on turnos.prof_id = profesionales.prof_id where est_id = 1 and serv_id = ' .$idServ .';');
+        while ($data2 = mysqli_fetch_assoc($query3)) {
+            array_push($profesionales, $data2);
+        }
+
+        echo "<label class='tlabel'>Seleccione al profesional";
+        echo "<select class='fselect' required name='profs' id='SLTSRV'>";
+        echo "<option  value='";
+        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+            echo $_POST['profs'];
+        } else {
+            echo "---";
+        }
+        echo "'>";
+        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+            foreach ($profesionales as $data3) {
+                if ($data3['prof_id'] == $_POST['profs']) {
+                    echo $data3['prof_nombre'] . " " . $data3['prof_apellido'];
+                    break;
+                }
+            }
+        } else {
+            echo "---";
+        }
+        echo "</option>";
+        foreach ($profesionales as $data3) {
+            if ($data3['prof_id'] != $_POST['profs']) {
+                echo "<option  value='" . $data3['prof_id'] . "'>" . $data3['prof_nombre'] . " " . $data3['prof_apellido'] . "</option>";
+            }
+        }
+        echo "</select>";
+        echo "</label>";
+    }
+
+#endregion
+
+#region turnosxProfs
+
+    function turnosxProfs($serv, $prof){
+
+        $profesionales = array();
+
+        $query3 = mysqli_query(conectar(), "select tur_id, tur_fecha from turnos where serv_id = $serv and prof_id = $prof and est_id = 1;");
+        while ($data2 = mysqli_fetch_assoc($query3)) {
+            array_push($profesionales, $data2);
+        }
+
+        
+
+        echo "<label class='tlabel'>Seleccione el turno";
+        echo "<select class='fselect' name='turid' id='SLTSRV'>";
+        echo "<option  value='";
+        if (isset($_POST['turid']) && $_POST['turid'] != "---") {
+            echo $_POST['turid'];
+        } else {
+            echo "---";
+        }
+        echo "'>";
+        if (isset($_POST['turid']) && $_POST['turid'] != "---") {
+            foreach ($profesionales as $data3) {
+                if ($data3['tur_id'] == $_POST['turid']) {
+                    echo $data3['tur_fecha'];
+                    break;
+                }
+            }
+        } else {
+            echo "---";
+        }
+        echo "</option>";
+        foreach ($profesionales as $data3) {
+            if ($data3['tur_id'] != $_POST['turid']) {
+                echo "<option  value='" . $data3['tur_id'] . "'>" . $data3['tur_fecha']. "</option>";
+            }
+        }
+       
+        echo "</select>";
+        echo "</label>";
 
 
+    }
 
+#endregion
 
+#region formularioReservas
+    function formularioReservas($mensaje){
+        echo "<div class='rTurnos'>";
+        echo " <h2 class='titulos'>Reservación de turnos</h2>";
+        echo "<form method='POST' class='fTurnosRes'>";
+
+        if (isset($_POST['limpiar'])) {
+            $_POST['cat'] = "---";
+            $_POST['serv'] = "---";
+            $_POST['profs'] = "---";
+            $_POST['turid'] = "---";
+        }
+
+        echo "<div class='cajaSelects'>";
+        echo "<div class='formCat'>";
+        categoria();
+        echo "</div>";
+
+        if (isset($_POST['cat']) && $_POST['cat'] != "---") {
+            echo "<div class='formServ'>";
+            servicio($_POST['cat']);
+            echo "</div>";
+        }
+
+        if (isset($_POST['serv']) && $_POST['serv'] != "---") {
+            echo "<div class='formProf'>";
+            profxServ($_POST['serv']);
+            echo "</div>";
+        }
+
+        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+            echo "<div class='formSem'>";
+            turnosxProfs($_POST['serv'], $_POST['profs']);
+            echo "</div>";
+        }
+
+        echo "</div>";
+    
+        echo "<div class='formHora'>";
+        echo "<div class='fCajaConf'>";
+
+        echo "<div class='fchecks'>";
+/*         if(isset($_POST['profs'])){
+        echo "<p class='menOk'> Estas a punto de reservar el siguiente turno" ."</p>";
+        }  */
+
+        echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
+        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+            echo "<label><input type='checkbox' name='generar'>Confirmar Turno</label>";
+        }
+        echo "</div>";
+
+        echo "<div class='fBtnRes'>";
+        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+            echo "<button class='fGesBTNg' type='submit'>Reservar</button>";
+        } else {
+            echo "<button class='fGesBTNs' type='submit'>Siguiente</button>";
+        }
+        echo "</div>";
+
+        echo "<div class='mensajes'>";
+        if (isset($mensaje)) {
+            switch ($mensaje) {
+                case '5':
+                    echo "<p class='menOk'>Deberia redirigir a misturnos.php .</p>";
+                    break;
+                case '6':
+                    echo "<p class='menErr'>¡Error! No se pudo reservar el turno correctamente, intentalo nuevamente. </p>";
+                    break;
+                case '7':
+                    echo "<p class='menErr'>¡Error! No se ha seleccionado una fecha para la reservacion del turno, seleccione una fecha. </p>";
+                    break;
+                case '8':
+                    echo "<p class='menErr'>¡Error! Se ha seleccionado limpiar campos y reservar turnos a la vez. </p>";
+                    break;
+            }
+        }
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        echo "</form>";
+        echo "</div>";
+
+    }
+#endregion
+
+#region reservarTurno
+
+function reservarTurno($turid,$usu){
+    if ($turid != null) {
+
+        $con = conectar();
+
+        mysqli_query($con, "update turnos set est_id = 2, usu_id = $usu where tur_id = $turid");
+
+        if (mysqli_affected_rows($con) > 0) {
+            $mensaje = 5; // Turno reservado correctamente
+        } else {
+            $mensaje = 6; // No se pudo reservar el turno
+        }
+    } else {
+        $mensaje = 7; // No se ha seleccionado una fecha para poder generar el turno
+    }
+
+    return $mensaje;
+}
+
+#endregion
 
 
 

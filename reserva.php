@@ -3,7 +3,14 @@
 require_once "./php/cone.php";
 require_once "./php/sesiones.php";
 require_once "./php/sesvaliu.php";
-require_once "./php/objetos.php";
+require_once "./php/formularios.php";
+
+    if(isset($_POST['generar']) && isset($_POST['limpiar'])){
+        $mensaje = 8; // Se ha seleccionado el campo limpiar
+        
+    }else if(isset($_POST['generar'])){
+        $mensaje = reservarTurno($_POST['turid'], $_SESSION['id']);
+    }
 
 ?>
 
@@ -29,10 +36,7 @@ require_once "./php/objetos.php";
     <main>
 
         <section class="reservaciones">
-            <h2 class="titulos">Reservaciones</h2>
-        </section>
-        <section>
-            <?php Objetos::categoria();?>
+            <?php formularioReservas($mensaje); ?>
         </section>
 
     </main>
