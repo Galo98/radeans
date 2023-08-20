@@ -417,36 +417,40 @@ function guardarTurnos($array,$prof,$serv){
 
     function profxServ($idServ){
         $profesionales = array();
-
-        $query3 = mysqli_query(conectar(), 'select DISTINCT turnos.prof_id,profesionales.prof_nombre, profesionales.prof_apellido from turnos inner join profesionales on turnos.prof_id = profesionales.prof_id where est_id = 1 and serv_id = ' .$idServ .';');
+        $con = conectar();
+        $query3 = mysqli_query($con, 'select DISTINCT turnos.prof_id,profesionales.prof_nombre, profesionales.prof_apellido from turnos inner join profesionales on turnos.prof_id = profesionales.prof_id where est_id = 1 and serv_id = ' .$idServ .';');
         while ($data2 = mysqli_fetch_assoc($query3)) {
             array_push($profesionales, $data2);
         }
 
         echo "<label class='tlabel'>Seleccione al profesional";
         echo "<select class='fselect' required name='profs' id='SLTSRV'>";
-        echo "<option  value='";
-        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
-            echo $_POST['profs'];
-        } else {
-            echo "---";
-        }
-        echo "'>";
-        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+        if(mysqli_affected_rows($con) > 0){
+            echo "<option  value='";
+            if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+                echo $_POST['profs'];
+            } else {
+                echo "---";
+            }
+            echo "'>";
+            if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+                foreach ($profesionales as $data3) {
+                    if ($data3['prof_id'] == $_POST['profs']) {
+                        echo $data3['prof_nombre'] . " " . $data3['prof_apellido'];
+                        break;
+                    }
+                }
+            } else {
+                echo "---";
+            }
+            echo "</option>";
             foreach ($profesionales as $data3) {
-                if ($data3['prof_id'] == $_POST['profs']) {
-                    echo $data3['prof_nombre'] . " " . $data3['prof_apellido'];
-                    break;
+                if ($data3['prof_id'] != $_POST['profs']) {
+                    echo "<option  value='" . $data3['prof_id'] . "'>" . $data3['prof_nombre'] . " " . $data3['prof_apellido'] . "</option>";
                 }
             }
-        } else {
-            echo "---";
-        }
-        echo "</option>";
-        foreach ($profesionales as $data3) {
-            if ($data3['prof_id'] != $_POST['profs']) {
-                echo "<option  value='" . $data3['prof_id'] . "'>" . $data3['prof_nombre'] . " " . $data3['prof_apellido'] . "</option>";
-            }
+        }else{
+            echo " <option value='---'>No hay turnos disponibles</option> ";
         }
         echo "</select>";
         echo "</label>";
@@ -464,8 +468,6 @@ function guardarTurnos($array,$prof,$serv){
         while ($data2 = mysqli_fetch_assoc($query3)) {
             array_push($profesionales, $data2);
         }
-
-        
 
         echo "<label class='tlabel'>Seleccione el turno";
         echo "<select class='fselect' name='turid' id='SLTSRV'>";
@@ -498,6 +500,31 @@ function guardarTurnos($array,$prof,$serv){
 
 
     }
+
+#endregion
+
+#region verificarTurno
+
+function verificarTurno($usu,$turno){
+
+    $conn = conectar();
+    $datos = mysqli_query($conn, "select turnos.tur_fecha ,servicios.serv_desc, profesionales.prof_nombre, profesionales.prof_apellido  from turnos inner join servicios on  servicios.serv_id = turnos.serv_id inner join profesionales on profesionales.prof_id = turnos.prof_id where usu_id = $usu and est_id = 2 and tur_fecha = (select tur_fecha from turnos where tur_id = $turno);");
+    
+    if(mysqli_affected_rows($conn) > 0){
+        $error = [9];
+        $datosTurnos = mysqli_fetch_assoc($datos);
+        foreach ($datosTurnos as $dato) {
+            array_push($error,$dato);
+        }
+        return $error;       
+        // Posicion 0 codigo de error = 9
+        // Posicion 1 codigo de error = fecha
+        // Posicion 2 codigo de error = servicio
+        // Posicion 3 codigo de error = prof_nombre
+        // Posicion 4 codigo de error = prof_apellido
+    }
+
+}
 
 #endregion
 
@@ -541,20 +568,21 @@ function guardarTurnos($array,$prof,$serv){
     
         echo "<div class='formHora'>";
         echo "<div class='fCajaConf'>";
-
         echo "<div class='fchecks'>";
-/*         if(isset($_POST['profs'])){
-        echo "<p class='menOk'> Estas a punto de reservar el siguiente turno" ."</p>";
-        }  */
-
         echo "<label><input type='checkbox' name='limpiar'>Limpiar Campos</label>";
-        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+
+        if(isset($_POST['turid']) && $_POST['turid'] != "---"){
+            $err = verificarTurno($_SESSION['id'],$_POST['turid']);
+            $mensaje = $err[0];
+        }
+
+        if (!isset($err) && isset($_POST['turid']) && $_POST['turid'] != "---") {
             echo "<label><input type='checkbox' name='generar'>Confirmar Turno</label>";
         }
         echo "</div>";
 
         echo "<div class='fBtnRes'>";
-        if (isset($_POST['profs']) && $_POST['profs'] != "---") {
+        if (!isset($err) && isset($_POST['turid']) && $_POST['turid'] != "---") {
             echo "<button class='fGesBTNg' type='submit'>Reservar</button>";
         } else {
             echo "<button class='fGesBTNs' type='submit'>Siguiente</button>";
@@ -575,6 +603,13 @@ function guardarTurnos($array,$prof,$serv){
                     break;
                 case '8':
                     echo "<p class='menErr'>¡Error! Se ha seleccionado limpiar campos y reservar turnos a la vez. </p>";
+                    break;
+                case '9':
+                    echo "<p class='menErr'>¡Error! Se ha seleccionado una fecha y horario en la que ya has reservado un turno. </p>";
+                    echo "<p class='menOk'>Detalle del turno reservado</p>";
+                    echo "<p class='menOk'>Turno: ". $err[1] ."</p>";
+                    echo "<p class='menOk'>Servicio: ". $err[2] ."</p>";
+                    echo "<p class='menOk'>Profesional: ". $err[3] ." " .$err[4] ."</p>";                
                     break;
             }
         }

@@ -65,3 +65,16 @@ select * from usuarios;
 select tur_id, tur_fecha from turnos where serv_id = 1 and prof_id = 1 and est_id = 1;
 
 select * from turnos where serv_id = 1 and prof_id = 1;
+
+select * from profesionales;
+
+select turnos.tur_fecha ,servicios.serv_desc, profesionales.prof_nombre, profesionales.prof_apellido 
+from turnos inner join servicios on 
+servicios.serv_id = turnos.serv_id 
+inner join profesionales on
+profesionales.prof_id = turnos.prof_id
+where usu_id = 4 and est_id = 2 and tur_fecha = (select tur_fecha from turnos where tur_id = 1);
+
+select * from turnos;
+
+select * from usuarios where usu_id = 4;

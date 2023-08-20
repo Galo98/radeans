@@ -321,7 +321,7 @@ header .navLog{
     align-items: center;
 }
 
-.nombreP {
+/* .nombreP {
 
 }
 
@@ -331,7 +331,7 @@ header .navLog{
 
 .puntP{
 
-}
+} */
 
 .prev-slide,
 .next-slide {
@@ -583,7 +583,7 @@ border: 2.3px solid var(--color-titulos);
     gap: 20px;
 }
 
-.formCat{
+/* .formCat{
 
 }
 
@@ -598,7 +598,7 @@ border: 2.3px solid var(--color-titulos);
 .formSem{
 
 }
-
+ */
 .formHora{
     display: flex;
     flex-direction: column;
