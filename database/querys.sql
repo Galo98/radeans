@@ -75,6 +75,10 @@ inner join profesionales on
 profesionales.prof_id = turnos.prof_id
 where usu_id = 4 and est_id = 2 and tur_fecha = (select tur_fecha from turnos where tur_id = 1);
 
-select * from turnos;
+select * from turnos where prof_id = 7;
+
+select * from profesionales;
+
+select * from servicios where serv_id = 10;
 
 select * from usuarios where usu_id = 4;

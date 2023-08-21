@@ -47,7 +47,12 @@ function categoria()
         echo "<select class='fselect' required name='serv' id='SLTSRV'>";
             echo "<option  value='";
                             if (isset($_POST['serv']) && $_POST['serv'] != "---") {
-                                echo $_POST['serv'];
+                                foreach($servicios as $data2) {
+                                    if ($data2['serv_id'] == $_POST['serv']) {
+                                        echo $data2['serv_id'];
+                                        break;
+                                    }
+                                }
                             } else {
                                 echo "---";
                             }
