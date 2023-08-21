@@ -28,7 +28,7 @@
                 case 2: /* Cliente */ ?>
                     <!-- <a href="">Perfil</a> -->
                     <a href="./reserva.php">Reservar</a>
-                    <!-- <a href="">Calificar</a> -->
+                    <a href="./misturnos.php">Mis Turnos</a>
                     <a href="./index.php?cl=1">Cerrar Sesion</a>
             <?php break;
             } ?>

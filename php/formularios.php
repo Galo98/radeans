@@ -637,7 +637,8 @@ function reservarTurno($turid,$usu){
         mysqli_query($con, "update turnos set est_id = 2, usu_id = $usu where tur_id = $turid");
 
         if (mysqli_affected_rows($con) > 0) {
-            $mensaje = 5; // Turno reservado correctamente
+            /* $mensaje = 5; // Turno reservado correctamente */
+            header('Location: ../misturnos.php');
         } else {
             $mensaje = 6; // No se pudo reservar el turno
         }
@@ -650,9 +651,46 @@ function reservarTurno($turid,$usu){
 
 #endregion
 
+/* ----------------------- MisTurnos ----------------------- */
 
+#region slideTurnos
 
+function slideTurnos($usu){
+    $con = conectar();
+    $cont = 0;
+    $turnosReservados = mysqli_query($con, "select turnos.tur_id, turnos.tur_fecha, servicios.serv_nombre, servicios.serv_desc, profesionales.prof_nombre, profesionales.prof_apellido, profesionales.prof_foto from turnos inner join servicios on servicios.serv_id = turnos.serv_id inner join profesionales on profesionales.prof_id = turnos.prof_id where usu_id = $usu and est_id = 2;");
 
+    echo "<h2 class='titulos'>Turnos reservados</h2>";
+            echo "<div class='sliderCards'>";
+                echo "<div class='slider-containerCards'>";
+                    echo "<div class='cajaContenidosCard'> ";
+                        while($dato = mysqli_fetch_assoc($turnosReservados)){
+                            $fyh = explode(" ",$dato['tur_fecha']);
+                            $fecha = $fyh[0];
+                            $hora = $fyh[1];
+                            echo " <form method='GET'>";
+                                echo "<div class='card'>";
+                                    echo "<h2 class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</h2>";
+                                    /* echo "<div class='fotoP' style='background-image: url('/img/001.png');'> img </div>"; */
+                                    echo "<p class='servP'>" .$dato['serv_nombre'] ." " .$dato['serv_desc'] ."</p>";
+                                    echo "<p class='fecTur'>" .$fecha ."</p>";
+                                    echo "<p class='fecTur'>" .$hora ."</p>";
+                                    echo "<input type='hidden' name='idtur' value='" .$dato['tur_id'] ."'> ";
+                                    echo "<input type='submit' class='cancTurBTN' value='cancelar'> ";
+                                echo "</div>";
+                            echo "</form>";
+                            $cont ++;
+                        }
+                    echo "</div>";
+                echo "</div>";
+                if($cont > 1){
+                echo "<i class='prev-slide fa-solid fa-angle-left' style='display:flex;' onclick='prevSlide()'></i>";
+                echo "<i class='next-slide fa-solid fa-angle-right' style='display:flex;' onclick='nextSlide()'></i>";
+                }
+            echo "</div>";
+}
+
+#endregion
 
 
 

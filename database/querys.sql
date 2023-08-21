@@ -82,3 +82,23 @@ select * from profesionales;
 select * from servicios where serv_id = 10;
 
 select * from usuarios where usu_id = 4;
+
+select * from turnos where usu_id = 4 and est_id = 2;
+
+select * from usuarios;
+select * from servicios;
+select * from profesionales;
+select
+    turnos.tur_id,
+    turnos.tur_fecha,
+    servicios.serv_nombre,
+    servicios.serv_desc,
+    profesionales.prof_nombre,
+    profesionales.prof_apellido,
+    profesionales.prof_foto
+from turnos
+    inner join servicios on servicios.serv_id = turnos.serv_id
+    inner join profesionales on profesionales.prof_id = turnos.prof_id
+where
+    usu_id = 2
+    and est_id = 2;
