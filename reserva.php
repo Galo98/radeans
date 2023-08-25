@@ -10,6 +10,8 @@ require_once "./php/formularios.php";
         
     }else if(isset($_POST['generar'])){
         $mensaje = reservarTurno($_POST['turid'], $_SESSION['id']);
+    }else{
+        $mensaje = 0;
     }
 
 ?>

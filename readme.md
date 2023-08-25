@@ -25,6 +25,10 @@
 
 > 9 ==> Ya tienes un turno reservado para esa fecha y horario, intenta con otro.
 
+> 10 ==> Turno cancelado con exito!
+
+> 11 ==> No se pudo cancelar el turno, vuelva a intentarlo mas tarde.
+
 ---
 
 # Return de verificarTurnos()

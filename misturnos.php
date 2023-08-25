@@ -5,6 +5,10 @@ require_once "./php/sesiones.php";
 require_once "./php/sesvaliu.php";
 require_once "./php/formularios.php";
 
+if(isset($_POST['idtur'])){
+    $mensaje = cancelarTurno($_POST['idtur']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +30,10 @@ require_once "./php/formularios.php";
         <?php require_once "header.php"; ?>
     </header>
 
-    <main>e
+    <main>
 
         <section class="misTurnos">
-            <?php slideTurnos($_SESSION['id']);?>
+            <?php slideTurnos($_SESSION['id'],$mensaje);?>
         </section>
     </main>
 

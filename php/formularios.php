@@ -655,7 +655,10 @@ function reservarTurno($turid,$usu){
 
 #region slideTurnos
 
-function slideTurnos($usu){
+function slideTurnos($usu, $mensaje){
+    if(!isset($mensaje)){
+        $mensaje = 0;
+    }
     $con = conectar();
     $cont = 0;
     $turnosReservados = mysqli_query($con, "select turnos.tur_id, turnos.tur_fecha, servicios.serv_nombre, servicios.serv_desc, profesionales.prof_nombre, profesionales.prof_apellido, profesionales.prof_foto from turnos inner join servicios on servicios.serv_id = turnos.serv_id inner join profesionales on profesionales.prof_id = turnos.prof_id where usu_id = $usu and est_id = 2;");
@@ -668,7 +671,7 @@ function slideTurnos($usu){
                             $fyh = explode(" ",$dato['tur_fecha']);
                             $fecha = $fyh[0];
                             $hora = $fyh[1];
-                            echo " <form method='GET'>";
+                            echo " <form method='POST'>";
                                 echo "<div class='card'>";
                                     echo "<h2 class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</h2>";
                                     /* echo "<div class='fotoP' style='background-image: url('/img/001.png');'> img </div>"; */
@@ -688,11 +691,40 @@ function slideTurnos($usu){
                 echo "<i class='next-slide fa-solid fa-angle-right' style='display:flex;' onclick='nextSlide()'></i>";
                 }
             echo "</div>";
+            if(isset($mensaje)){
+            echo " <div class='mensajes'>";
+                switch($mensaje){
+                    case 10:
+                        echo "<p class='titulos'>Turno cancelado con exito!</p>";
+                        break;
+                    case 11:
+                        echo "<p class='subtitulos'>No se pudo cancelar el turno, vuelva a intentarlo mas tarde.</p>";
+                        break;
+                }
+                echo "</div>";
+            }
 }
 
 #endregion
 
+#region cancelarTurno
 
+function cancelarTurno($idTurno){
+
+    $con = conectar();
+
+    mysqli_query($con,"update turnos set est_id = 1, usu_id = null where tur_id = $idTurno");
+
+    if(mysqli_affected_rows($con) > 0){
+        $mensaje = 10;
+    }else{
+        $mensaje = 11;
+    }
+
+    return $mensaje;
+}
+
+#endregion
 
 
 
