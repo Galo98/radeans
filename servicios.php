@@ -30,78 +30,116 @@
                 <h2 class="titulos">Peluqueria</h2>
 
                 <div>
-                    <h3 class="subtitulos">titulos</h3>
-                    <p class="nosotrosTexto">texto</p>
+                    <h3 class="subtitulos">Balayage</h3>
+                    <p class="nosotrosTexto">
+Si quieres renovar tu melena con un resultado natural y favorecedor, las mechas balayage son la solución. Tengas el pelo corto, largo, media melena, seas rubia, castaña, morena o pelirroja... 
+</p>
                 </div>
 
-                <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
-                    molestias a
-                    iste neque
-                    aperiam nulla cupiditate saepe nostrum corrupti odio quidem minus quaerat quibusdam? Aliquam molestias
-                    quo vero.
-                    Laudantium nulla aspernatur quas, repudiandae earum facere eveniet laborum ex aut pariatur officiis in
-                    error cumque, id ipsum. Dolorum, praesentium voluptatibus! Facere reiciendis laborum dolorum non velit
-                    magni voluptatibus necessitatibus?
-                    Enim quisquam quae ipsa ex repellat. Ducimus quos omnis architecto amet adipisci deleniti illo,
-                    reprehenderit nam pariatur magni eligendi dolores fugiat placeat animi minus ut molestias quaerat odio
-                    libero aliquam.
-                    blanditiis voluptas incidunt.
+            <div>
+                <h3 class="subtitulos">Alisado Permanente</h3>
+
+                <p class="nosotrosTexto">Conseguir una melena lisa sin tener que usar a diario la planchita de pelo es un cumplido con el alisado permanente.
+El alisado permanente ofrece una serie de beneficios para aquellos que desean tener un cabello liso, manejar el encrespamiento y el frizz de manera segura.
+
                 </p>
             </div>
 
             <div>
-                <h2 class="titulos">Barberia</h2>
+                <h3 class="subtitulos">Tintura</h3>
 
-                <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
-                    molestias a
-                    iste neque
-                    aperiam nulla cupiditate saepe nostrum corrupti odio quidem minus quaerat quibusdam? Aliquam molestias
-                    quo vero.
-                    Laudantium nulla aspernatur quas, repudiandae earum facere eveniet laborum ex aut pariatur officiis in
-                    error cumque, id ipsum. Dolorum, praesentium voluptatibus! Facere reiciendis laborum dolorum non velit
-                    magni voluptatibus necessitatibus?
-                    Enim quisquam quae ipsa ex repellat. Ducimus quos omnis architecto amet adipisci deleniti illo,
-                    reprehenderit nam pariatur magni eligendi dolores fugiat placeat animi minus ut molestias quaerat odio
-                    libero aliquam.
-                    blanditiis voluptas incidunt.
+                <p class="nosotrosTexto">Contamos con un equipo de estilistas altamente capacitados y experimentados en el arte 
+de la coloración capilar. Están al tanto de las últimas tendencias en tintura y pueden crear
+resultados increíbles que complementen tu estilo y personalidad.
+Además trabajamos  con una amplia gama de colores  y   productos de calidad que están diseñados para proteger y cuidar tu cabello. Nuestros tintes contienen ingredientes nutritivos que minimizan el daño y mantienen la salud del cabello, incluso después de la tintura. Valoramos la salud de tu cabello y nos aseguramos de que tengas un resultado hermoso y saludable.
+
                 </p>
             </div>
 
             <div>
+                <h3 class="subtitulos">Corte Mujer</h3>
+
+                <p class="nosotrosTexto">Corte Mujer
+Nuestro equipo está al tanto de las últimas tendencias en cortes de pelo para mujeres. Desde los estilos clásicos y pulidos hasta los cortes más modernos y desestructurados, podemos brindarte una amplia gama de opciones para que elijas la que más te guste.
+
+                </p>
+            </div>
+
+            <div>
+
                 <h2 class="titulos">Manicura</h2>
 
-                <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
-                    molestias a
-                    iste neque
-                    aperiam nulla cupiditate saepe nostrum corrupti odio quidem minus quaerat quibusdam? Aliquam molestias
-                    quo vero.
-                    Laudantium nulla aspernatur quas, repudiandae earum facere eveniet laborum ex aut pariatur officiis in
-                    error cumque, id ipsum. Dolorum, praesentium voluptatibus! Facere reiciendis laborum dolorum non velit
-                    magni voluptatibus necessitatibus?
-                    Enim quisquam quae ipsa ex repellat. Ducimus quos omnis architecto amet adipisci deleniti illo,
-                    reprehenderit nam pariatur magni eligendi dolores fugiat placeat animi minus ut molestias quaerat odio
-                    libero aliquam.
-                    blanditiis voluptas incidunt.
-                </p>
-            </div>
+                
+                <h3 class="subtitulos">Kapping Gel o Acrílico </h3>
 
-            <div>
-                <h2 class="titulos">Pedicura</h2>
+                    <p class="nosotrosTexto">
+Si tienes las uñas frágiles o quebradizas existe un método hecho para ti.
+La manicura kapping consiste en aplicar una fina capa de acrílico o gel fortificador sobre la uña que actúa como una barrera protectora. Este baño en gel kapping no alarga la uña natural sino que acompaña el crecimiento de la misma y dura hasta unos 20 días.
 
-                <p class="nosotrosTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, maxime obcaecati
-                    molestias a
-                    iste neque
-                    aperiam nulla cupiditate saepe nostrum corrupti odio quidem minus quaerat quibusdam? Aliquam molestias
-                    quo vero.
-                    Laudantium nulla aspernatur quas, repudiandae earum facere eveniet laborum ex aut pariatur officiis in
-                    error cumque, id ipsum. Dolorum, praesentium voluptatibus! Facere reiciendis laborum dolorum non velit
-                    magni voluptatibus necessitatibus?
-                    Enim quisquam quae ipsa ex repellat. Ducimus quos omnis architecto amet adipisci deleniti illo,
-                    reprehenderit nam pariatur magni eligendi dolores fugiat placeat animi minus ut molestias quaerat odio
-                    libero aliquam.
-                    blanditiis voluptas incidunt.
-                </p>
-            </div>
+</p>
+                </div>
+                <div>
+                <h3 class="subtitulos">Manicura Semipermanente  </h3>
+
+<p class="nosotrosTexto">
+Si deseas tener las uñas impecables e embellecidas no podes perderte el procedimiento más usado.
+La manicura semipermanente dura por 15 días aportando dureza y brillo a tus uñas en todo momento.
+
+
+</p>
+</div>
+
+<div>
+                <h3 class="subtitulos"> Uñas Esculpidas  </h3>
+
+<p class="nosotrosTexto">
+¿Amas las uñas largas  pero sientes que tardan una eternidad en crecer naturalmente  o se rompen a mitad del proceso?
+Las uñas esculpidas son  ideales para aquellas personas que deseen tener uñas más largas, fuertes y bellezas.
+
+</p>
+</div>
+<div>
+                <h3 class="subtitulos"> Nails Art   </h3>
+
+<p class="nosotrosTexto">
+Nuestros profesionales están capacitados en las últimas tendencias para brindar los diseños  más hermosos, coloridos y llamativos para tus uñas.
+No dudes en dejar volar tu imaginación y personalizar tus uñas con diseños únicos y creativos.
+
+</p>
+</div>
+<div>
+<h2 class="titulos">Barberia</h2>
+                <h3 class="subtitulos"> Afeitado de Barba   </h3>
+
+<p class="nosotrosTexto">
+
+Un afeitado clásico con navaja, aplicación de productos de cuidado de la barba, recorte y alineación de barba, y masajes faciales para un tratamiento completo.
+
+</p>
+</div>
+<div>
+                <h3 class="subtitulos">Recorte de barba y bigote   </h3>
+
+<p class="nosotrosTexto">
+
+Dar forma a la barba y bigote, recortar los vellos sueltos, hacer líneas definidas y aplicar productos para mantenerlos limpios y suaves.
+</p>
+</div>
+<div>
+                <h3 class="subtitulos"> Diseños y Delineados   </h3>
+
+<p class="nosotrosTexto">
+
+Diseños y delineados en la barba para dar un aspecto más detallado y personalizado. Esto puede incluir líneas nítidas en los bordes, patrones geométricos o cualquier otro diseño creativo que desees.
+</p>
+</div>
+<div>
+                <h3 class="subtitulos"> Coloración   </h3>
+
+<p class="nosotrosTexto">
+Coloración de barba para hombres que desean cambiar su apariencia o cubrir las canas.
+</p>
+</div>
 
         </section>
 
