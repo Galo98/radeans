@@ -26,7 +26,7 @@ select * from profesionales;
 UPDATE profesionales set prof_apellido = "grey" where prof_id = 2;
 select DISTINCT serv_nombre from servicios;
 select ser_desc from servicios where serv_nombre = "peluqueria";
-select * from turnos;
+select * from servicios;
 update turnos set usu_id = null where tur_id = 1;
 select * from turnos where tur_fecha BETWEEN '2023-08-22 08:00:00' and '2023-08-26 18:00:00' order by tur_fecha;
 select * from turnos where tur_fecha BETWEEN '2023-08-29 08:00:00' and '2023-09-02 18:00:00' order by tur_fecha;

@@ -242,23 +242,25 @@ function horarios($fecha)
         echo "<th class='tabGesTh'>Horario</th>";
         foreach ($semana as $dia) {
             $evaluar = $dia; // Fecha en formato 'Año-Mes-Día'
+            $arrDias = explode('-',$evaluar);
+            $nDia = $arrDias['2'];
             $objEvaluar = new DateTime($evaluar);
             $diaSemana = $objEvaluar->format('N'); // Devuelve un número del 1 al 7, donde 1 es lunes y 7 es domingo
             switch ($diaSemana) {
                 case 2:
-                    echo "<th class='tabGesTh'>Martes</th>";
+                    echo "<th class='tabGesTh'>Martes " . $nDia ."</th>";
                     break;
                 case 3:
-                    echo "<th class='tabGesTh'>Miércoles</th>";
+                    echo "<th class='tabGesTh'>Miércoles " . $nDia ."</th>";
                     break;
                 case 4:
-                    echo "<th class='tabGesTh'>Jueves</th>";
+                    echo "<th class='tabGesTh'>Jueves " . $nDia ."</th>";
                     break;
                 case 5:
-                    echo "<th class='tabGesTh'>Viernes</th>";
+                    echo "<th class='tabGesTh'>Viernes " . $nDia ."</th>";
                     break;
                 case 6:
-                    echo "<th class='tabGesTh'>Sábado</th>";
+                    echo "<th class='tabGesTh'>Sábado " . $nDia ."</th>";
                     break;
             }
         }

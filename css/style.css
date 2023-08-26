@@ -446,7 +446,7 @@ header .navLog{
     flex-direction: column;
     align-items: center;
     align-content: center;
-    max-width: 90vw;
+    max-width: 100vw;
     min-height: 80vh;
     padding: 110px 0 60px 0;
 }
@@ -526,12 +526,11 @@ border: 2.3px solid var(--color-titulos);
     border-collapse: collapse;
     font-size: 1.3rem;
     text-align: center;
-    width: 40vw;
+    width: 60vw;
     line-height: 1.5;
 }
 
 .tabGesTh{
-    width: 18%;
     font-weight: 600;
 }
 
