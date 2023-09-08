@@ -273,6 +273,14 @@ header .navLog{
     gap: 10px;
 }
 
+.servicios > article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 /* ---------------------------------------------Login y Registro--------------------------------------------- */
 
 .log,
