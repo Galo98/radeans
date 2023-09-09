@@ -3,9 +3,13 @@
 :root {
     --color-header: #00020E;
     --color-fondo: rgba(115,134,204,0.4);
+    /* --color-fondo: rgb(226, 227, 228); */
     --color-footer: #091830;
     --color-titulos: #4D51BF;
+    --color-titOSC: #3f429c;
     --color-subTitulos: #FF5D00;
+    --color-subOsc: #c74c04;
+    --color-fondo-btns: #bec1ebf8;
     --color-fuentes: #fff;
     --color-ventanas: #1E2028;
     --border-raduis: 16px;
@@ -57,9 +61,16 @@ body{
 }
 
 main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 90vh;
 }
 
+.activo{
+    transform: scale(1.2);
+}
 /* ---------------------------------------------Header--------------------------------------------- */
 
 header {
@@ -245,19 +256,20 @@ header .navLog{
     margin: 30px 0;
     gap: 24px;
     color: var(--color-header);
+    max-width: 60vw;
 }
 
 .nosotrosTexto {
-    width: 70%;
     color: var(--color-footer);
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
 }
 
 /* ---------------------------------------------Servicios--------------------------------------------- */
 
 .servicios{
-    width: 100%;
+    max-width: 80vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,7 +277,7 @@ header .navLog{
     padding: 110px 0 60px 0;
     gap: 20px;
 }
-.servicios div{
+.servicios > article > div{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -279,6 +291,50 @@ header .navLog{
     align-items: center;
     justify-content: center;
     gap: 20px;
+}
+.serviciosMenu{
+    width: 460px;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--color-fondo-btns);
+    border-radius: 24px;
+}
+
+.btnMenuServ{
+    display: block;
+    cursor: pointer;
+    background-color: var(--color-subTitulos);
+    padding: 8px 6px;
+    border-radius: 8px;
+    border: 1px solid var(--color-subOsc);
+    transition: all 300ms ease-in-out;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position: center;
+    width: 60px;
+    height: 40px;
+}
+
+.btnMenuServ:hover{
+    background-color: var(--color-titulos);
+    border-color: var(--color-titOSC);
+}
+
+.pelu{
+    background-image: url(../img/pelu.png);
+}
+.barb{
+    background-image: url(../img/barb.png);
+}
+
+.mani{
+    background-image: url(../img/mani.png);
+}
+
+.pedi{
+    background-image: url(../img/pedi.png);
 }
 
 /* ---------------------------------------------Login y Registro--------------------------------------------- */
@@ -853,9 +909,7 @@ footer .ubicacion {
         display: none;
     }
 
-    .logo{
-        display: none;
-    }
+ 
 
     footer {
         flex-direction: column;
@@ -895,5 +949,14 @@ footer .ubicacion {
     .contLogin-Caja > div > label{
         flex-direction: column;
         gap: 12px;
+    }
+
+    .serviciosMenu{
+        height: 120px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 0;
+        width: 260px;
+        justify-items: center;
     }
 }
