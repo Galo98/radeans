@@ -884,7 +884,7 @@ border: 2.3px solid var(--color-titulos);
     background-color: var(--color-fuentes);
     font-size: 18px;
     border-collapse: collapse;
-    width: 1230px;
+    width: 1247px;
 }
 
 .tabla thead,.tabla tbody,.tabla td, .tabla th{
