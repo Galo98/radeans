@@ -22,7 +22,7 @@
                 case 1: /* Administrador */ ?>
                     <!-- <a href="">Gestionar Profesionales</a> -->
                     <a href="./gestion.php">Gestionar Turnos</a>
-                    <a href="">Lista de turnos</a>
+                    <a href="./listado.php">Lista de turnos</a>
                     <a href="./index.php?cl=1">Cerrar Sesion</a>
                 <?php break;
                 case 2: /* Cliente */ ?>

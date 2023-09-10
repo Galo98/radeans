@@ -418,6 +418,56 @@ function guardarTurnos($array,$prof,$serv){
 
 #endregion
 
+#region listadoDeTurnos
+    function listadoDeTurnos($orden){
+        if($orden == null) $orden = "turnos.est_id"; 
+
+        $con = conectar();
+
+        $turnos = mysqli_query($con,"select turnos.*,estados.est_desc,usuarios.usu_nombre,usuarios.usu_apellido,profesionales.prof_nombre,profesionales.prof_apellido,servicios.serv_nombre,servicios.serv_desc from turnos left join estados on estados.est_id = turnos.est_id left join usuarios on usuarios.usu_id = turnos.usu_id left join profesionales on profesionales.prof_id = turnos.prof_id left join servicios on servicios.serv_id = turnos.serv_id order by $orden;");
+
+        echo "<table class='tabla'>";
+            echo "<thead>";
+                echo "<tr style='width: 1230px'>";
+                    echo "<th class='columna' style='width: 70px'>Marca</th>";
+                    echo "<th class='columna' style='width: 200px' >Fecha</th>";
+                    echo "<th class='columna' style='width: 90px' >Estado</th>";
+                    echo "<th class='columna' style='width: 220px' >Usuario</th>";
+                    echo "<th class='columna' style='width: 220px' >Profesional</th>";
+                    echo "<th class='columna' style='width: 120px' >Categoria</th>";
+                    echo "<th class='columna' style='width: 220px' >Servicio</th>";
+                    echo "<th class='columna' style='width: 90px' >Acciones</th>";
+                echo "</tr>";
+            echo "</thead>";
+            echo "<tbody class='tabCuerpo'>";
+            while($turno = mysqli_fetch_assoc($turnos)){
+                if($turno['usu_nombre'] == null){
+                    $usua = "---";
+                }else{
+                    $usua = $turno['usu_nombre'] . " " . $turno['usu_apellido'];
+                }
+                echo "<tr style='width: 1230px'>";
+                    echo "<td style='width: 70px'> <input type='checkbox' class='checkLis' name='eliTur[]' value='" . $turno['tur_fecha'] ."' ></td>";
+                    echo "<td style='width: 200px'>" .$turno['tur_fecha'] ."</td>";
+                    echo "<td style='width: 90px'>" .$turno['est_desc'] ."</td>";
+                    echo "<td style='width: 220px'>" .$usua ."</td>";
+                    echo "<td style='width: 220px'>" .$turno['prof_nombre'] ." " . $turno['prof_apellido'] ."</td>";
+                    echo "<td style='width: 120px'>" .$turno['serv_nombre'] ."</td>";
+                    echo "<td style='width: 220px'>" .$turno['serv_desc'] ."</td>";
+                    echo "<td style='width: 90px'> 
+                            <div class='btnGroup'>
+                                <a class='btnLista act' href=''> <i class='fa-solid fa-pencil' style='color: #ffffff;'></i></a>
+                                <a class='btnLista del' href=''> <i class='fa-regular fa-trash-can' style='color: #ffffff;'></i> </a>
+                            </div> 
+                        </td>";
+                echo "</tr>";
+            }
+            echo "</tbody>";
+        echo "</table>";
+
+    }
+#endregion
+
 /* ----------------------- Usuario ----------------------- */
 
 #region profxServ

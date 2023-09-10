@@ -838,6 +838,98 @@ border: 2.3px solid var(--color-titulos);
     border: 2px solid var(--color-subTitulos);
 }
 
+/* ---------------------------------------Listado de Turnos--------------------------------------- */
+
+.listados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    max-width: 100vw;
+    min-height: 80vh;
+    padding: 110px 0 60px 0;
+    gap: 20px;
+}
+
+.MensajesLista{
+    background-color: var(--color-subTitulos);
+    border: 2px solid var(--color-subOsc);
+    color: var(--color-titulos);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px;
+}
+
+.botoneraLista{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 600px;
+    height: 60px;
+    background-color: var(--color-fuentes);
+}
+
+.btnBotonera{
+    text-decoration: none;
+    background-color: var(--color-subTitulos);
+    border: 2px solid var(--color-subOsc);
+    padding: 6px;
+    font-weight: 600;
+    color: var(--color-fuentes);
+}
+
+
+.tabla{
+    background-color: var(--color-fuentes);
+    font-size: 18px;
+    border-collapse: collapse;
+    width: 1230px;
+}
+
+.tabla thead,.tabla tbody,.tabla td, .tabla th{
+    display: block;
+}
+.tabla tbody td, .tabla thead > tr > th{
+    float: left;
+    border-bottom-width: 0;
+}
+.tabla td, .tabla th{
+    padding: 10px 0 10px 0;
+}
+.tabCuerpo{
+    text-align: center;
+    width: 100%;
+    height: 390px;
+    overflow: auto;
+}
+
+.tabCuerpo tr:nth-child(odd){
+    background-color: var(--color-fondo-btns);
+}
+
+.checkLis{
+    width: 18px;
+    height: 18px;
+}
+
+.btnLista{
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.btnLista:hover{
+    opacity: 60%;
+}
+
+.act{
+background-color: var(--color-titulos);
+}
+
+.del{
+background-color: var(--color-subTitulos);
+}
+
 /* --------------------------------------------Footer-------------------------------------------- */
 
 footer {

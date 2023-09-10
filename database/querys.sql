@@ -102,3 +102,19 @@ from turnos
 where
     usu_id = 2
     and est_id = 2;
+
+select * from turnos;
+select * from estados;
+6 = caducado;
+update turnos set est_id = case when est_id = 1 then 6 when est_id = 2 then 4 else est_id end where tur_fecha < CURRENT_DATE();
+
+update turnos set est_id = 5 where tur_id in (1,4);
+
+select * from roles;
+
+select * from usuarios;
+
+select turnos.*,estados.est_desc,usuarios.usu_nombre,usuarios.usu_apellido,profesionales.prof_nombre,profesionales.prof_apellido,servicios.serv_nombre,servicios.serv_desc from turnos left join estados on estados.est_id = turnos.est_id left join usuarios on usuarios.usu_id = turnos.usu_id left join profesionales on profesionales.prof_id = turnos.prof_id left join servicios on servicios.serv_id = turnos.serv_id order by usuarios.usu_nombre;
+
+update usuarios set usu_nombre=" ", usu_apellido=" ", usu_correo=" ",usu_tel=" ", usu_pass="15483153510", rol_id=2;
+insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id) values ("admin","admin","radeans.com.ar@gmail.com","111234567",1);
