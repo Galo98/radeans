@@ -104,7 +104,7 @@ where
     and est_id = 2;
 
 select * from turnos;
-select * from estados;
+select * from turnos;
 6 = caducado;
 update turnos set est_id = case when est_id = 1 then 6 when est_id = 2 then 4 else est_id end where tur_fecha < CURRENT_DATE();
 
@@ -118,3 +118,4 @@ select turnos.*,estados.est_desc,usuarios.usu_nombre,usuarios.usu_apellido,profe
 
 update usuarios set usu_nombre=" ", usu_apellido=" ", usu_correo=" ",usu_tel=" ", usu_pass="15483153510", rol_id=2;
 insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id) values ("admin","admin","radeans.com.ar@gmail.com","111234567",1);
+select * from turnos where tur_id = (select max(tur_id) from turnos);

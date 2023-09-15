@@ -442,12 +442,14 @@ function guardarTurnos($array,$prof,$serv){
             echo "<tbody class='tabCuerpo'>";
             while($turno = mysqli_fetch_assoc($turnos)){
                 if($turno['usu_nombre'] == null){
+                    $input = "<input type='checkbox' class='checkLis' name='eliTur[]' value='".$turno['tur_id']."'>";
                     $usua = "---";
                 }else{
+                    $input = "<i class='fa-solid fa-square-xmark' style='color: #f66151;'></i>";
                     $usua = $turno['usu_nombre'] . " " . $turno['usu_apellido'];
                 }
                 echo "<tr style='width: 1230px'>";
-                    echo "<td style='width: 70px'> <input type='checkbox' class='checkLis' name='eliTur[]' value='" . $turno['tur_fecha'] ."' ></td>";
+                    echo "<td style='width: 70px'> $input </td>";
                     echo "<td style='width: 200px'>" .$turno['tur_fecha'] ."</td>";
                     echo "<td style='width: 90px'>" .$turno['est_desc'] ."</td>";
                     echo "<td style='width: 220px'>" .$usua ."</td>";
@@ -457,7 +459,7 @@ function guardarTurnos($array,$prof,$serv){
                     echo "<td style='width: 90px'> 
                             <div class='btnGroup'>
                                 <a class='btnLista act' href=''> <i class='fa-solid fa-pencil' style='color: #ffffff;'></i></a>
-                                <a class='btnLista del' href=''> <i class='fa-regular fa-trash-can' style='color: #ffffff;'></i> </a>
+                                <a class='btnLista del' href='listado.php?eliFor=".$turno['tur_id']."'> <i class='fa-regular fa-trash-can' style='color: #ffffff;'></i> </a>
                             </div> 
                         </td>";
                 echo "</tr>";

@@ -7,7 +7,15 @@ require_once "./php/cierreTurnos.php";
 require_once "./php/formularios.php";
 
 if(isset($_POST['eliTur'])){
-    echo '<pre>'; print_r($_POST['eliTur']); echo '</pre>';
+    
+    $codSelEli = eliTurSelec($_POST['eliTur']);
+    var_dump("RETORNO " .$codSelEli);
+}
+
+if (isset($_GET['eliFor'])) {
+
+    $codSelEli = eliTurSelec($_GET['eliFor']);
+    var_dump("RETORNO " . $codSelEli);
 }
 
 if(isset($_GET['opc'])){
@@ -86,6 +94,25 @@ if(isset($_GET['opc'])){
                   </script>';
                 echo "</div>";
             }
+
+            if (isset($codSelEli)) {
+                echo "<div class='MensajesLista'>";
+                if ($codSelEli == 3) {
+                    echo "No se pudo ejecutar la Eliminacion de Turnos Seleccionados correctamente";
+                } else if ($codSelEli == 1) {
+                    echo "Eliminacion de Turnos Seleccionados ejecutado con exito";
+                } else if ($codSelEli == 2) {
+                    echo "Eliminacion de Turnos Seleccionados ejecutado. No hubo cambios ya que no se selecciono ningun turno";
+                }
+                $_GET = array();
+                $_POST = array();
+                echo '<script>
+                    setTimeout(function() {
+                        window.location.href = "listado.php";
+                    }, 3000); 
+                  </script>';
+                echo "</div>";
+            }
             
             ?>
 
@@ -94,7 +121,7 @@ if(isset($_GET['opc'])){
             <div class="botoneraLista">
                 <a class="btnBotonera" href="listado.php?opc=ct">Cierre de Turnos</a>
                 <a class="btnBotonera" href="listado.php?opc=vt">Vaciado de Turnos</a>
-                <button class='btnBotonera'>Eliminar Turnos Seleccionados</button>
+                <button type="submit" class='btnBotonera'>Eliminar Turnos Seleccionados</button>
             </div>
 
             <?php listadoDeTurnos(null); ?>
