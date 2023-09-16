@@ -2,6 +2,26 @@
 
 /* ----------------------- Admin ----------------------- */
 
+#region Select Estados
+
+function traerEstados($id,$desc){
+    $con = conectar();
+
+    $estados = mysqli_query($con,"select * from estados;");
+    echo " <select name='ediEst'class='fselect' >"; 
+    if(isset($id)){
+        echo " <option value='" . $id . "'>" . $desc . "</option> ";
+    }
+    while($estado = mysqli_fetch_assoc($estados)){
+        if($estado['est_id'] != $id){
+            echo " <option value='". $estado['est_id']."'>" .$estado['est_desc'] ."</option> ";
+        }
+    }
+    echo "</select> ";
+}
+
+#endregion
+
 #region Select categoria
 function categoria()
 {
@@ -420,18 +440,18 @@ function guardarTurnos($array,$prof,$serv){
 
 #region listadoDeTurnos
     function listadoDeTurnos($orden){
-        if($orden == null) $orden = "turnos.est_id"; 
+        if($orden == null) $orden = "turnos.tur_fecha DESC"; 
 
         $con = conectar();
 
         $turnos = mysqli_query($con,"select turnos.*,estados.est_desc,usuarios.usu_nombre,usuarios.usu_apellido,profesionales.prof_nombre,profesionales.prof_apellido,servicios.serv_nombre,servicios.serv_desc from turnos left join estados on estados.est_id = turnos.est_id left join usuarios on usuarios.usu_id = turnos.usu_id left join profesionales on profesionales.prof_id = turnos.prof_id left join servicios on servicios.serv_id = turnos.serv_id order by $orden;");
 
-        echo "<table class='tabla'>";
+        echo "<table class='tabla' id='tabla'>";
             echo "<thead>";
-                echo "<tr style='width: 1230px'>";
+                echo "<tr style='width: 1250px'>";
                     echo "<th class='columna' style='width: 70px'>Marca</th>";
                     echo "<th class='columna' style='width: 200px' >Fecha</th>";
-                    echo "<th class='columna' style='width: 90px' >Estado</th>";
+                    echo "<th class='columna' style='width: 110px' >Estado</th>";
                     echo "<th class='columna' style='width: 220px' >Usuario</th>";
                     echo "<th class='columna' style='width: 220px' >Profesional</th>";
                     echo "<th class='columna' style='width: 120px' >Categoria</th>";
@@ -448,26 +468,97 @@ function guardarTurnos($array,$prof,$serv){
                     $input = "<i class='fa-solid fa-square-xmark' style='color: #f66151;'></i>";
                     $usua = $turno['usu_nombre'] . " " . $turno['usu_apellido'];
                 }
-                echo "<tr style='width: 1230px'>";
+                if(isset($_GET['edi']) && $_GET['edi'] === $turno['tur_id']){
+                    echo "<tr id='edi' style='width: 1250px'>";
+                }else{
+                    echo "<tr style='width: 1250px'>";
+                }
                     echo "<td style='width: 70px'> $input </td>";
                     echo "<td style='width: 200px'>" .$turno['tur_fecha'] ."</td>";
-                    echo "<td style='width: 90px'>" .$turno['est_desc'] ."</td>";
+                    if(isset($_GET['edi']) && $_GET['edi'] === $turno['tur_id']){
+                            echo "<td style='width: 110px'>";
+                                traerEstados($turno['est_id'],$turno['est_desc']);
+                            echo "</td>";
+                            echo " <input type='hidden' name='ediID' value='" .$_GET['edi'] ."' > ";
+                    }else{
+                        echo "<td style='width: 110px'>" .$turno['est_desc'] ."</td>";
+                    }
                     echo "<td style='width: 220px'>" .$usua ."</td>";
                     echo "<td style='width: 220px'>" .$turno['prof_nombre'] ." " . $turno['prof_apellido'] ."</td>";
                     echo "<td style='width: 120px'>" .$turno['serv_nombre'] ."</td>";
                     echo "<td style='width: 220px'>" .$turno['serv_desc'] ."</td>";
-                    echo "<td style='width: 90px'> 
-                            <div class='btnGroup'>
-                                <a class='btnLista act' href=''> <i class='fa-solid fa-pencil' style='color: #ffffff;'></i></a>
-                                <a class='btnLista del' href='listado.php?eliFor=".$turno['tur_id']."'> <i class='fa-regular fa-trash-can' style='color: #ffffff;'></i> </a>
-                            </div> 
-                        </td>";
+                     
+                        if(isset($_GET['edi']) && $_GET['edi'] === $turno['tur_id']){
+                            echo "<td style='width: 90px'>
+                                <div class='btnGroup'>
+                                    <button class='btnListaEdi' type='submit'><i class='fa-regular fa-floppy-disk' style='color: #ffffff;'></i></button>
+                                    <a class='btnLista del' href='listado.php'> <i class='fa-solid fa-ban' style='color: #ffffff;'></i> </a>
+                                </div> 
+                            </td>";
+                        }else{
+                            echo "<td style='width: 90px'>
+                                <div class='btnGroup'>
+                                    <a class='btnLista act' href='listado.php?edi=".$turno['tur_id'] ."'> <i class='fa-solid fa-pencil' style='color: #ffffff;'></i></a>
+                                    <a class='btnLista del' href='listado.php?eliFor=".$turno['tur_id']."'> <i class='fa-regular fa-trash-can' style='color: #ffffff;'></i> </a>
+                                </div> 
+                            </td>";
+                        }
+                    
                 echo "</tr>";
             }
             echo "</tbody>";
         echo "</table>";
 
     }
+#endregion
+
+#region eliTurSelec
+function eliTurSelec($turnos)
+{
+    $con = conectar();
+
+    if (is_array($turnos)) {
+
+        $idEliTur = implode(",", $turnos);
+        $result = mysqli_query($con, "delete from turnos where tur_id in ($idEliTur)");
+    } else {
+        $result = mysqli_query($con, "delete from turnos where tur_id = $turnos");
+    }
+
+
+
+    if (mysqli_affected_rows($con) > 0) {
+        $err = 1;
+    } else {
+        if ($result) {
+            $err = 2;
+        } else {
+            $err = 3;
+        }
+    }
+
+    return $err;
+}
+#endregion
+
+#region actualizarEstado
+function actEstado($id,$estado){
+    $con = conectar();
+
+    $result = mysqli_query($con,"update turnos set est_id = $estado where tur_id = $id");
+
+    if (mysqli_affected_rows($con) > 0) {
+        $err = 1;
+    } else {
+        if ($result) {
+            $err = 2;
+        } else {
+            $err = 3;
+        }
+    }
+
+    return $err;
+}
 #endregion
 
 /* ----------------------- Usuario ----------------------- */

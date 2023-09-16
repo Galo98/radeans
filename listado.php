@@ -6,7 +6,11 @@ require_once "./php/sesvalia.php";
 require_once "./php/cierreTurnos.php";
 require_once "./php/formularios.php";
 
-if(isset($_POST['eliTur'])){
+if (isset($_POST['ediEst']) && isset($_POST['ediID'])) {
+    $codEdiEst = actEstado($_POST['ediID'], $_POST['ediEst']);
+}
+
+if (isset($_POST['eliTur'])) {
     $codSelEli = eliTurSelec($_POST['eliTur']);
 }
 
@@ -14,8 +18,8 @@ if (isset($_GET['eliFor'])) {
     $codSelEli = eliTurSelec($_GET['eliFor']);
 }
 
-if(isset($_GET['opc'])){
-    switch($_GET['opc']){
+if (isset($_GET['opc'])) {
+    switch ($_GET['opc']) {
         case "ct":
             $cod = CierreTurnos(1);
             break;
@@ -50,18 +54,19 @@ if(isset($_GET['opc'])){
 
         <form method="POST" class="listados">
 
-        
 
-            <?php 
-                if(isset($cod)){
-                    echo "<div class='MensajesLista'>";
-                    if($cod == 3){
-                        echo "No se pudo ejecutar el Cierre de Turnos correctamente";
-                    }else if($cod==1){
-                        echo "Cierre de turnos ejecutado con exito";
-                    }else if($cod==2){
-                        echo "Cierre de Turnos ejecutado. No hubo cambios ya que no hay turnos para cerrar";
-                    }
+
+            <?php
+            #region Cod
+            if (isset($cod)) {
+                echo "<div class='MensajesLista'>";
+                if ($cod == 3) {
+                    echo "No se pudo ejecutar el Cierre de Turnos correctamente";
+                } else if ($cod == 1) {
+                    echo "Cierre de turnos ejecutado con exito";
+                } else if ($cod == 2) {
+                    echo "Cierre de Turnos ejecutado. No hubo cambios ya que no hay turnos para cerrar";
+                }
                 $_GET = array();
                 $_POST = array();
                 echo '<script>
@@ -69,9 +74,11 @@ if(isset($_GET['opc'])){
                             window.location.href = "listado.php";
                             }, 3000);
                       </script>';
-                    echo "</div>";
-                }
+                echo "</div>";
+            }
+            #endregion
 
+            #region ColDel
             if (isset($codDel)) {
                 echo "<div class='MensajesLista'>";
                 if ($codDel == 3) {
@@ -90,7 +97,9 @@ if(isset($_GET['opc'])){
                   </script>';
                 echo "</div>";
             }
+            #endregion
 
+            #region CodSelEli
             if (isset($codSelEli)) {
                 echo "<div class='MensajesLista'>";
                 if ($codSelEli == 3) {
@@ -109,10 +118,31 @@ if(isset($_GET['opc'])){
                   </script>';
                 echo "</div>";
             }
-            
+            #endregion
+
+            #region CodEdiEst
+            if (isset($codEdiEst)) {
+                echo "<div class='MensajesLista'>";
+                if ($codEdiEst == 3) {
+                    echo "No se pudo ejecutar la Actualizacion de Estados correctamente";
+                } else if ($codEdiEst == 1) {
+                    echo "Actualizacion de Estados ejecutado con exito";
+                } else if ($codEdiEst == 2) {
+                    echo "Actualizacion de Estados ejecutado. No hubo cambios ya que no se selecciono ningun turno";
+                }
+                $_GET = array();
+                $_POST = array();
+                echo '<script>
+                    setTimeout(function() {
+                        window.location.href = "listado.php";
+                    }, 3000); 
+                  </script>';
+                echo "</div>";
+            }
+            #endregion
             ?>
 
-        </div>
+            </div>
 
             <div class="botoneraLista">
                 <a class="btnBotonera" href="listado.php?opc=ct">Cierre de Turnos</a>
@@ -120,8 +150,7 @@ if(isset($_GET['opc'])){
                 <button type="submit" class='btnBotonera'>Eliminar Turnos Seleccionados</button>
             </div>
 
-            <?php listadoDeTurnos(null); ?>
-
+                <?php listadoDeTurnos(null); ?>
         </form>
 
     </main>
@@ -129,6 +158,8 @@ if(isset($_GET['opc'])){
     <footer>
         <?php require_once "footer.php"; ?>
     </footer>
+    <script src=" ./js/autoScrollListado.js">
+                </script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <?php 
 
+#region cierreTurnos
     function CierreTurnos($op){
         $con = conectar();
 
@@ -15,11 +16,13 @@
                     $err = 3;
                 }
             }
-        return $err;
+            return $err;
         }
         
     }
+#endregion
 
+#region vaciadoTurnos
     function vaciadoTurnos($op){
         $con = conectar();
 
@@ -37,38 +40,9 @@
                 }
                 return $err;
             }
-
+            
     }
-
-
-    function eliTurSelec($turnos){
-        $con = conectar();
-
-        if(is_array($turnos)){
-
-            $idEliTur = implode(",", $turnos);
-            $result = mysqli_query($con, "delete from turnos where tur_id in ($idEliTur)");
-
-        }else{
-            $result = mysqli_query($con, "delete from turnos where tur_id = $turnos");
-        }
-
-            
-
-        if (mysqli_affected_rows($con) > 0) {
-                $err = 1;
-            } else {
-                if ($result) {
-                    $err = 2;
-                } else {
-                    $err = 3;
-                }
-            
-            }
-            
-            return $err;
-    }
-
+#endregion
 
 
 ?>

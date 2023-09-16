@@ -884,7 +884,7 @@ border: 2.3px solid var(--color-titulos);
     background-color: var(--color-fuentes);
     font-size: 18px;
     border-collapse: collapse;
-    width: 1247px;
+    width: 1250px;
 }
 
 .tabla thead,.tabla tbody,.tabla td, .tabla th{
@@ -908,9 +908,21 @@ border: 2.3px solid var(--color-titulos);
     background-color: var(--color-fondo-btns);
 }
 
+.tabCuerpo >tr > td > .fselect{
+    font-size: 1rem;
+    padding: 2px;
+}
+
 .checkLis{
     width: 18px;
     height: 18px;
+}
+
+.btnGroup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .btnLista{
@@ -930,6 +942,16 @@ background-color: var(--color-titulos);
 background-color: var(--color-subTitulos);
 }
 
+.btnListaEdi{
+    border: none;
+    background-color: var(--color-titulos);
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 20px;
+}
+.btnListaEdi:hover{
+    cursor: pointer;
+}
 /* --------------------------------------------Footer-------------------------------------------- */
 
 footer {
