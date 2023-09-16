@@ -43,14 +43,14 @@
 
     function eliTurSelec($turnos){
         $con = conectar();
+
         if(is_array($turnos)){
-        $idEliTur = implode(",", $turnos);
-        $result = mysqli_query($con, "delete from turnos where tur_id in ($idEliTur)");
-        var_dump("IDS " . $idEliTur);
-        var_dump($result);
+
+            $idEliTur = implode(",", $turnos);
+            $result = mysqli_query($con, "delete from turnos where tur_id in ($idEliTur)");
+
         }else{
             $result = mysqli_query($con, "delete from turnos where tur_id = $turnos");
-            var_dump($turnos);
         }
 
             
@@ -64,8 +64,9 @@
                     $err = 3;
                 }
             
+            }
+            
             return $err;
-        }
     }
 
 

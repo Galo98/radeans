@@ -119,3 +119,5 @@ select turnos.*,estados.est_desc,usuarios.usu_nombre,usuarios.usu_apellido,profe
 update usuarios set usu_nombre=" ", usu_apellido=" ", usu_correo=" ",usu_tel=" ", usu_pass="15483153510", rol_id=2;
 insert into usuarios (usu_nombre,usu_apellido,usu_correo,usu_tel,usu_pass,rol_id) values ("admin","admin","radeans.com.ar@gmail.com","111234567",1);
 select * from turnos where tur_id = (select max(tur_id) from turnos);
+
+select count(tur_id) from turnos;

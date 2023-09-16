@@ -7,15 +7,11 @@ require_once "./php/cierreTurnos.php";
 require_once "./php/formularios.php";
 
 if(isset($_POST['eliTur'])){
-    
     $codSelEli = eliTurSelec($_POST['eliTur']);
-    var_dump("RETORNO " .$codSelEli);
 }
 
 if (isset($_GET['eliFor'])) {
-
     $codSelEli = eliTurSelec($_GET['eliFor']);
-    var_dump("RETORNO " . $codSelEli);
 }
 
 if(isset($_GET['opc'])){
