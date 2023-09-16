@@ -847,7 +847,7 @@ border: 2.3px solid var(--color-titulos);
     align-content: center;
     max-width: 100vw;
     min-height: 80vh;
-    padding: 110px 0 60px 0;
+    padding: 60px 0 60px 0;
     gap: 20px;
 }
 
@@ -875,10 +875,16 @@ border: 2.3px solid var(--color-titulos);
     background-color: var(--color-subTitulos);
     border: 2px solid var(--color-subOsc);
     padding: 6px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-fuentes);
+    border-radius: 6px;
 }
 
+.btnBotonera:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
 
 .tabla{
     background-color: var(--color-fuentes);
@@ -941,7 +947,10 @@ background-color: var(--color-titulos);
 .del{
 background-color: var(--color-subTitulos);
 }
-
+.ate{
+    font-size: 1.2rem;
+    background-color: rgb(98, 177, 105);
+}
 .btnListaEdi{
     border: none;
     background-color: var(--color-titulos);

@@ -17,6 +17,9 @@ if (isset($_POST['eliTur'])) {
 if (isset($_GET['eliFor'])) {
     $codSelEli = eliTurSelec($_GET['eliFor']);
 }
+if(isset($_GET['ate'])){
+    $codAten = turnoAtendido($_GET['ate']);
+}
 
 if (isset($_GET['opc'])) {
     switch ($_GET['opc']) {
@@ -140,6 +143,28 @@ if (isset($_GET['opc'])) {
                 echo "</div>";
             }
             #endregion
+
+            #region codAten
+            if (isset($codAten)) {
+                echo "<div class='MensajesLista'>";
+                if ($codAten == 3) {
+                    echo "Error al intentar marcar el turno como atendido";
+                } else if ($codAten == 1) {
+                    echo "Turno Atendido";
+                } else if ($codAten == 2) {
+                    echo "No se detecto el turno para marcalo como atendido";
+                }
+                $_GET = array();
+                $_POST = array();
+                echo '<script>
+                    setTimeout(function() {
+                        window.location.href = "listado.php";
+                    }, 3000); 
+                  </script>';
+                echo "</div>";
+            }
+            #endregion
+            
             ?>
 
             </div>
@@ -155,11 +180,7 @@ if (isset($_GET['opc'])) {
 
     </main>
 
-    <footer>
-        <?php require_once "footer.php"; ?>
-    </footer>
-    <script src=" ./js/autoScrollListado.js">
-                </script>
+    <script src=" ./js/autoScrollListado.js"></script>
 </body>
 
 </html>

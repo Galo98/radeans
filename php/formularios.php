@@ -440,8 +440,8 @@ function guardarTurnos($array,$prof,$serv){
 
 #region listadoDeTurnos
     function listadoDeTurnos($orden){
-        if($orden == null) $orden = "turnos.tur_fecha DESC"; 
-
+        $fechaActual = date('Y-m-d');
+        if($orden == null) $orden = "turnos.tur_fecha like '$fechaActual%' and turnos.usu_id != null ASC";
         $con = conectar();
 
         $turnos = mysqli_query($con,"select turnos.*,estados.est_desc,usuarios.usu_nombre,usuarios.usu_apellido,profesionales.prof_nombre,profesionales.prof_apellido,servicios.serv_nombre,servicios.serv_desc from turnos left join estados on estados.est_id = turnos.est_id left join usuarios on usuarios.usu_id = turnos.usu_id left join profesionales on profesionales.prof_id = turnos.prof_id left join servicios on servicios.serv_id = turnos.serv_id order by $orden;");
@@ -455,12 +455,15 @@ function guardarTurnos($array,$prof,$serv){
                     echo "<th class='columna' style='width: 220px' >Usuario</th>";
                     echo "<th class='columna' style='width: 220px' >Profesional</th>";
                     echo "<th class='columna' style='width: 120px' >Categoria</th>";
-                    echo "<th class='columna' style='width: 220px' >Servicio</th>";
-                    echo "<th class='columna' style='width: 90px' >Acciones</th>";
+                    echo "<th class='columna' style='width: 200px' >Servicio</th>";
+                    echo "<th class='columna' style='width: 110px' >Acciones</th>";
                 echo "</tr>";
             echo "</thead>";
             echo "<tbody class='tabCuerpo'>";
+            
             while($turno = mysqli_fetch_assoc($turnos)){
+                $fecTur = explode(" ",$turno['tur_fecha']);
+                $fecTur = $fecTur[0];
                 if($turno['usu_nombre'] == null){
                     $input = "<input type='checkbox' class='checkLis' name='eliTur[]' value='".$turno['tur_id']."'>";
                     $usua = "---";
@@ -486,19 +489,22 @@ function guardarTurnos($array,$prof,$serv){
                     echo "<td style='width: 220px'>" .$usua ."</td>";
                     echo "<td style='width: 220px'>" .$turno['prof_nombre'] ." " . $turno['prof_apellido'] ."</td>";
                     echo "<td style='width: 120px'>" .$turno['serv_nombre'] ."</td>";
-                    echo "<td style='width: 220px'>" .$turno['serv_desc'] ."</td>";
+                    echo "<td style='width: 200px'>" .$turno['serv_desc'] ."</td>";
                      
                         if(isset($_GET['edi']) && $_GET['edi'] === $turno['tur_id']){
-                            echo "<td style='width: 90px'>
+                            echo "<td style='width: 110px'>
                                 <div class='btnGroup'>
                                     <button class='btnListaEdi' type='submit'><i class='fa-regular fa-floppy-disk' style='color: #ffffff;'></i></button>
                                     <a class='btnLista del' href='listado.php'> <i class='fa-solid fa-ban' style='color: #ffffff;'></i> </a>
                                 </div> 
                             </td>";
                         }else{
-                            echo "<td style='width: 90px'>
-                                <div class='btnGroup'>
-                                    <a class='btnLista act' href='listado.php?edi=".$turno['tur_id'] ."'> <i class='fa-solid fa-pencil' style='color: #ffffff;'></i></a>
+                            echo "<td style='width: 110px'>
+                                <div class='btnGroup'>";
+                            if($fechaActual === $fecTur && $turno['est_id'] == 2){
+                                echo "<a class='btnLista ate' href='listado.php?ate=" . $turno['tur_id'] . "'> <i class='fa-solid fa-clipboard-user' style='color: #ffffff;'></i></i></a>";
+                            }
+                            echo "<a class='btnLista act' href='listado.php?edi=".$turno['tur_id'] ."'> <i class='fa-solid fa-pencil' style='color: #ffffff;'></i></a>
                                     <a class='btnLista del' href='listado.php?eliFor=".$turno['tur_id']."'> <i class='fa-regular fa-trash-can' style='color: #ffffff;'></i> </a>
                                 </div> 
                             </td>";
@@ -546,6 +552,26 @@ function actEstado($id,$estado){
     $con = conectar();
 
     $result = mysqli_query($con,"update turnos set est_id = $estado where tur_id = $id");
+
+    if (mysqli_affected_rows($con) > 0) {
+        $err = 1;
+    } else {
+        if ($result) {
+            $err = 2;
+        } else {
+            $err = 3;
+        }
+    }
+
+    return $err;
+}
+#endregion
+
+#region turnoAtendido
+function turnoAtendido($id){
+    $con = conectar();
+
+    $result = mysqli_query($con,"update turnos set est_id = 5 where tur_id = $id");
 
     if (mysqli_affected_rows($con) > 0) {
         $err = 1;

@@ -124,3 +124,7 @@ select count(tur_id) from turnos;
 
 select * from turnos;
 select * from turnos where tur_fecha like "2023-09-15%" ;
+
+update turnos set est_id = 2 where tur_id =293;
+
+select * from estados;
