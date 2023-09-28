@@ -3,7 +3,7 @@
 function conectar(){
 $servername="localhost";
 $username="root";
-$password=""; /* Cambiar antes de comitear */
+$password="1234"; /* Cambiar antes de comitear */
 $dbname="radeans";
 
 $conn=mysqli_connect($servername,$username,$password,$dbname)or die ("No se pudo conectar a la $dbname");

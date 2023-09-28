@@ -845,7 +845,7 @@ function slideTurnos($usu, $mensaje){
                             echo " <form method='POST'>";
                                 echo "<div class='card'>";
                                     echo "<h2 class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</h2>";
-                                    /* echo "<div class='fotoP' style='background-image: url('/img/001.png');'> img </div>"; */
+                                    echo "<div class='fotoP' style='background-image: url(/img/001.png);'></div>";
                                     echo "<p class='servP'>" .$dato['serv_nombre'] ." " .$dato['serv_desc'] ."</p>";
                                     echo "<p class='fecTur'>" .$fecha ."</p>";
                                     echo "<p class='fecTur'>" .$hora ."</p>";

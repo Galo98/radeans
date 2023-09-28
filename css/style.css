@@ -760,7 +760,7 @@ border: 2.3px solid var(--color-titulos);
     justify-content: center;
     gap: 22px;
     width: 260px;
-    height: 330px;
+    height: 370px;
     border: 2px solid var(--color-titulos);
     border-radius: 12px;
     background-color: var(--color-fuentes);
@@ -791,6 +791,7 @@ border: 2.3px solid var(--color-titulos);
     height: 60px;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 50%;
 }
 
 .prev-slide,
@@ -847,7 +848,7 @@ border: 2.3px solid var(--color-titulos);
     align-content: center;
     max-width: 100vw;
     min-height: 80vh;
-    padding: 60px 0 60px 0;
+    padding: 100px 0 60px 0;
     gap: 20px;
 }
 
