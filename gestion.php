@@ -44,8 +44,6 @@ require_once "./php/sesvalia.php";
     <footer>
         <?php require_once "footer.php"; ?>
     </footer>
-    <script src="./js/slider.js"></script>
-    <script src="./js/slidecards.js"></script>
 </body>
 
 </html>

@@ -40,7 +40,7 @@ if(isset($_POST['idtur'])){
     <footer>
         <?php require_once "footer.php"; ?>
     </footer>
-    <script src="./js/slidecards.js"></script>
+    <script src="./js/sliderTurnos.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-    require_once "./php/sesiones.php";
+require_once "./php/sesiones.php";
 
 ?>
 
@@ -29,9 +29,12 @@
                 <div class="contenedorSlider">
                     <i id="left" class="fa-solid fa-angle-left"></i>
                     <div class="slider">
-                        <img src="./img/001.png" alt="" draggable="false" />
-                        <img src="./img/002.png" alt="" draggable="false" />
-                        <img src="./img/003.png" alt="" draggable="false" />
+                        <img src="./img/inicio/ini1.jpg" alt="" draggable="false" />
+                        <img src="./img/inicio/ini2.png" alt="" draggable="false" />
+                        <img src="./img/inicio/ini3.jpg" alt="" draggable="false" />
+                        <img src="./img/004.png" alt="" draggable="false" />
+                        <img src="./img/005.png" alt="" draggable="false" />
+                        <img src="./img/006.png" alt="" draggable="false" />
                     </div>
                     <i id="right" class="fa-solid fa-angle-right"></i>
                 </div>
@@ -43,22 +46,22 @@
             <h2 class="titulos">Nosotros</h2>
 
             <p class="nosotrosTexto">
-                Somos un Salón de Belleza con 10 años de experiencia que cuenta con un selecto grupo de profesionales altamente capacitados para ofrecer el mejor servicio a nuestros Clientes. Contamos con un lugar mágico donde obtienes la atención, asesoría y calidad que garantizan nuestros expertos en peluqueria, manicura y pedicura,  peinados y barbería.
-                Además Trabajamos con productos de máxima calidad y con equipos de última generación. 
+                Somos un Salón de Belleza con 10 años de experiencia que cuenta con un selecto grupo de profesionales altamente capacitados para ofrecer el mejor servicio a nuestros Clientes. Contamos con un lugar mágico donde obtienes la atención, asesoría y calidad que garantizan nuestros expertos en peluqueria, manicura y pedicura, peinados y barbería.
+                Además Trabajamos con productos de máxima calidad y con equipos de última generación.
 
             </p>
             <h3 class="titulos">Misión</h3>
             <p class="nosotrosTexto">
-            Satisfacer las necesidades de belleza de nuestros clientes mediante servicios de la mejor calidad, brindado por nuestro personal altamente calificado que inspira confianza y seriedad, permitiéndonos superar las expectativas de nuestros clientes.
+                Satisfacer las necesidades de belleza de nuestros clientes mediante servicios de la mejor calidad, brindado por nuestro personal altamente calificado que inspira confianza y seriedad, permitiéndonos superar las expectativas de nuestros clientes.
             </p>
             <h4 class="titulos">Visión</h4>
             <p class="nosotrosTexto">
-            Convertirnos en una cadena de salones caracterizados por brindar un excelente servicio personalizado en un ambiente cálido y acogedor.
+                Convertirnos en una cadena de salones caracterizados por brindar un excelente servicio personalizado en un ambiente cálido y acogedor.
             </p>
 
         </section>
 
-<!--         <section class="punt" id="puntuaciones">
+        <!--         <section class="punt" id="puntuaciones">
             <div class="punt-tit">
                 <h2 class="titulos">conoce a nuestros profesionales</h2>
             </div>
@@ -101,8 +104,7 @@
     <footer>
         <?php require_once "footer.php"; ?>
     </footer>
-    <script src="./js/slider.js"></script>
-    <script src="./js/slidecards.js"></script>
+    <script src="./js/sliderInicio.js"></script>
 </body>
 
 </html>
