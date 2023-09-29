@@ -134,7 +134,15 @@ class Usuarios
         $header .= "X-Mailer: PHP/" . phpversion() . "\r\n";
         $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-        mail($mail, $asunto, $mensaje, $header);
+        $envio = mail($mail, $asunto, $mensaje, $header);
+
+        if($envio){
+            $msj = 1;
+        }else{
+            $msj = 2;
+        }
+
+        return $msj;
     }
     #endregion
 

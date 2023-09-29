@@ -35,7 +35,7 @@ if (isset($_POST['mail'])) {
     <main>
         <?php if (!isset($_GET['RC'])) : ?>
             <section>
-                <form action="" method="POST" class="contLogin">
+                <form method="POST" class="contLogin">
                     <div>
                         <h1 class="subtitulos">Ingrese su correo electronico</h1>
                     </div>
@@ -62,9 +62,9 @@ if (isset($_POST['mail'])) {
                     </div>
                 </form>
             </section>
-        <?php else : ?>
+        <?php elseif (isset($_GET['RC']) && $_GET['RC'] == $_SERVER['codVali']) : ?>
             <section>
-                <form action="" method="POST" class="contLogin">
+                <form method="POST" class="contLogin">
                     <div>
                         <h1 class="subtitulos">Recuperación de contraseña</h1>
                     </div>
