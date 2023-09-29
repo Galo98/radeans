@@ -116,8 +116,8 @@ class Usuarios
 
     #endregion
 
-    #region emailRecupero
-    public static function emailRecupero($mail){
+    #region envioMailRecupero
+    public static function envioMailRecupero($mail){
         $numeroAleatorio = mt_rand(100000, 999999);
         $_SERVER['codVali'] = $numeroAleatorio;
         $asunto = "Recuperación de contraseña";

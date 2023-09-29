@@ -7,6 +7,7 @@ require_once "./php/usuario.php";
 if (isset($_POST['mail'])) {
     $veri = Usuarios::verificarEmail($_POST['mail']);
     if ($veri[0] == 1) {
+        Usuarios::envioMailRecupero($veri[1]);
     }
 }
 
