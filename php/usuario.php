@@ -119,8 +119,9 @@ class Usuarios
     #region emailRecupero
     public static function emailRecupero($mail){
         $numeroAleatorio = mt_rand(100000, 999999);
+        $_SERVER['codVali'] = $numeroAleatorio;
         $asunto = "Recuperación de contraseña";
-        $mensaje = "<div style='width:400px;height:100%;border:1px solid #3f429c;min-height:50px;background-color:rgba(115,134,204,0.4);color:white;display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px;font-family: Exo 2 , sans-serif; padding:10px'>
+        $mensaje = "<div style='width:400px;height:100%;border:1px solid #3f429c;min-height:50px;background-color:rgba(115,134,204,0.4);color:white;display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px;font-family: "."'Exo 2' , sans-serif; padding:10px'>
                             <img src='../img/g12.png' style='width:60px;height:30%;'>
                             <h1 style='font-weight: 600;'>Gracias por confiar en radeans.</h1>
                             <p style='font-weight: 400;'>Se ha solicitado la recuperacion de contraseña.</p>
