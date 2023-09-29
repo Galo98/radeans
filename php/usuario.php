@@ -146,4 +146,27 @@ class Usuarios
     }
     #endregion
 
+    #region cambiarContraseña
+
+    public static function cambiarContraseña($mail,$pass,$confPass){
+        
+        if($pass == $confPass){
+            $con = conectar();
+
+            mysqli_query($con,"update usarios set usu_pass = '$pass' where usu_correo = '$mail';");
+
+            if(mysqli_affected_rows($con) > 0){
+                $msj = 1;
+            }else{
+                $msj = 2;
+            }
+            $msj = 3;
+        }
+
+        return $msj;
+
+    }
+
+    #endregion
+
 }

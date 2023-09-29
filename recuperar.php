@@ -17,20 +17,16 @@ if (isset($_POST['autenticador'])) {
     $original = trim($_POST['codigoOrig']);
     if ($_POST['autenticador'] == $original) {
         $recuperar = true;
-        echo '<pre>'; print_r("SON IGUALES"); echo '</pre>';
-        echo '<pre>'; print_r("original"); echo '</pre>';
-        var_dump($_POST['codigoOrig']);
-        echo '<pre>'; print_r("ingresado"); echo '</pre>';
-        var_dump($_POST['autenticador']);
     }else{
         $recuperar = false;
-        echo '<pre>'; print_r("NO SON IGUALES"); echo '</pre>';
-        echo '<pre>'; print_r("original"); echo '</pre>';
-        var_dump($_POST['codigoOrig']);
-        echo '<pre>'; print_r("ingresado"); echo '</pre>';
-        var_dump($_POST['autenticador']);
     } 
 }
+
+if(isset($_POST['newPass'])){
+    $ret = Usuarios::cambiarContraseña($_POST['mail'],$_POST['newPass'],$_POST['valiPass']);
+}
+
+
 
 ?>
 
@@ -83,7 +79,7 @@ if (isset($_POST['autenticador'])) {
                             </div>
                         <?php endif ?>
                         <div class="contLogin-Botonera">
-                            <button class="accederBTN recBtn" type="submit">Enviar codigo</button>
+                            <button class="accederBTN recBtn" type="submit">Generar codigo</button>
                         </div>
                     </div>
                 </form>
@@ -117,13 +113,13 @@ if (isset($_POST['autenticador'])) {
                         </p>
                         </div>
                         <div class="contLogin-Botonera">
-                            <button class="accederBTN recBtn" type="submit">Cambiar Contraseña</button>
+                            <button class="accederBTN recBtn" type="submit">Enviar</button>
                         </div>
                     </div>
                 </form>
             </section>
         <?php endif;
-        if (isset($_POST['autenticador'])) : ?>
+        if ($recuperar) : ?>
             <section>
                 <form method="POST" class="contLogin">
                     <div>
