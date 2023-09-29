@@ -118,18 +118,18 @@ class Usuarios
 
     #region envioMailRecupero
     public static function envioMailRecupero($mail){
-        $numeroAleatorio = mt_rand(100000, 999999);
-        $_SERVER['codVali'] = $numeroAleatorio;
+        $numeroAleatorio = mt_rand(100000,999999);
         $asunto = "Recuperación de contraseña";
         $mensaje = "<div style='width:400px;height:100%;border:1px solid #3f429c;min-height:50px;background-color:rgba(115,134,204,0.4);color:white;display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px;font-family: "."'Exo 2' , sans-serif; padding:10px'>
-                            <img src='../img/g12.png' style='width:60px;height:30%;'>
-                            <h1 style='font-weight: 600;'>Gracias por confiar en radeans.</h1>
-                            <p style='font-weight: 400;'>Se ha solicitado la recuperacion de contraseña.</p>
-                            <p style='font-weight: 400;'>Si has sido tu haz click en el siguiente boton, si no has sido tu ignora este mensaje.</p>
-                            <a href=' http://radeans.com.ar/recuperar.php?RC=$numeroAleatorio' style='color: #fff;font-size: 1.3rem;font-weight: 600;border: none;outline: none;background-color: #FF5D00;border: 3px solid #c74c04;border-radius: 16px;padding: 12px;cursor: pointer;text-decoration: none;'>RECUPERAR CONTRASEÑA</a>
-                            <p style='font-weight: 600;'>Gracias por elegirnos.</p>
-                        </div>";
-        $header = "From: radeans.com.ar@gmail.com" . "\r\n";
+            <img src='http://radeans.com.ar/img/g12.png' style='width:120px;'>
+            <h1 style='font-weight: 600;'>Gracias por confiar en radeans.</h1>
+            <p style='font-weight: 400;'>Se ha solicitado la recuperacion de contraseña.</p>
+            <p style='font-weight: 400;'>Si has sido tu, copia el siguiente codigo, si no has sido tu ignora este mensaje.</p>
+            <p style='font-size: 2rem; '>$numeroAleatorio</p> 
+            <p style='font-weight: 600;'>Gracias por elegirnos.</p>
+        </div>"; 
+                
+        $header = "From: radeans.com.ar@example.com" . "\r\n";
         $header .= "Reply-To: noreply@example.com" . "\r\n";
         $header .= "X-Mailer: PHP/" . phpversion() . "\r\n";
         $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -137,9 +137,9 @@ class Usuarios
         $envio = mail($mail, $asunto, $mensaje, $header);
 
         if($envio){
-            $msj = 1;
+            $msj = [1,$numeroAleatorio];
         }else{
-            $msj = 2;
+            $msj = [2,""];
         }
 
         return $msj;

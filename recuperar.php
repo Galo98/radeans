@@ -11,6 +11,27 @@ if (isset($_POST['mail'])) {
     }
 }
 
+if (isset($_POST['autenticador'])) {
+    echo '<pre>'; print_r("codigo mail = " .$_POST['codigoOrig']); echo '</pre>';
+    echo '<pre>'; print_r("codigo escrito = " .$_POST['autenticador']); echo '</pre>';
+    $original = trim($_POST['codigoOrig']);
+    if ($_POST['autenticador'] == $original) {
+        $recuperar = true;
+        echo '<pre>'; print_r("SON IGUALES"); echo '</pre>';
+        echo '<pre>'; print_r("original"); echo '</pre>';
+        var_dump($_POST['codigoOrig']);
+        echo '<pre>'; print_r("ingresado"); echo '</pre>';
+        var_dump($_POST['autenticador']);
+    }else{
+        $recuperar = false;
+        echo '<pre>'; print_r("NO SON IGUALES"); echo '</pre>';
+        echo '<pre>'; print_r("original"); echo '</pre>';
+        var_dump($_POST['codigoOrig']);
+        echo '<pre>'; print_r("ingresado"); echo '</pre>';
+        var_dump($_POST['autenticador']);
+    } 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +54,7 @@ if (isset($_POST['mail'])) {
     </header>
 
     <main>
-        <?php if (!isset($_GET['RC'])) : ?>
+        <?php if (!isset($_POST['mail']) && !isset($_POST['autenticador'])) : ?>
             <section>
                 <form method="POST" class="contLogin">
                     <div>
@@ -46,7 +67,7 @@ if (isset($_POST['mail'])) {
                                 <input class="input" type="email" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo">
                             </label>
                         </div>
-                        
+
                         <?php if (isset($veri) && $veri[0] == 2) : ?>
                             <div>
                                 <?php echo $veri[1]; ?>
@@ -54,10 +75,8 @@ if (isset($_POST['mail'])) {
                         <?php elseif ($veri[0] == 1) : ?>
                             <div>
                                 <p>
-                                    <?php 
-                                    if(isset($cod) && $cod == 1){
-                                        echo "Se ha enviado un email a $veri[1].";
-                                    } else if ($cod == 2){
+                                    <?php
+                                    if (isset($cod) && $cod[0] == 2) {
                                         echo "No se ha enviado el mail";
                                     } ?>
                                 </p>
@@ -69,12 +88,48 @@ if (isset($_POST['mail'])) {
                     </div>
                 </form>
             </section>
-        <?php elseif (isset($_GET['RC']) && $_GET['RC'] == $_SERVER['codVali']) : ?>
+        <?php endif;
+
+        if (isset($cod) && $cod[0] == 1) : ?>
             <section>
                 <form method="POST" class="contLogin">
                     <div>
                         <h1 class="subtitulos">Recuperación de contraseña</h1>
                     </div>
+                    <input type="hidden" name="mailIden" value=" <?php echo $_POST['mail']; ?> ">
+                    <input type="hidden" name="codigoOrig" value=" <?php echo $cod[1]?> ">
+                    <div class="contLogin-Caja">
+                        <div>
+                            <label for="codigo">
+                                Codigo
+                                <input type="text" name="autenticador" minlength="6" maxlength="6" pattern="[0-9]+" id="codigo">
+                            </label>
+                        </div>
+                        <div>
+                            <p><?php 
+                            if(!isset($recuperar)){
+                                echo "Se ha enviado un codigo al siguiente correo ". $veri[1]; 
+                            }elseif(isset($recuperar) && $recuperar == false){
+                            
+                                 echo "Codigo verificador erroneo";
+                            }
+                                ?>
+                        </p>
+                        </div>
+                        <div class="contLogin-Botonera">
+                            <button class="accederBTN recBtn" type="submit">Cambiar Contraseña</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        <?php endif;
+        if (isset($_POST['autenticador'])) : ?>
+            <section>
+                <form method="POST" class="contLogin">
+                    <div>
+                        <h1 class="subtitulos">Recuperación de contraseña</h1>
+                    </div>
+                    <input type="hidden" name="mailIden" value=" <?php echo $_POST['mail']; ?> ">
                     <div class="contLogin-Caja">
                         <div>
                             <label for="nContra">
@@ -94,9 +149,7 @@ if (isset($_POST['mail'])) {
                     </div>
                 </form>
             </section>
-        <?php endif ?>
-
-
+        <?php endif; ?>
     </main>
 
     <footer>
