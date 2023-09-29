@@ -38,7 +38,7 @@ if (isset($_POST['mail'])) {
             <div class="divVacio"></div>
             <form method="POST" action="#" class="contLogin">
                 <div class="logT">
-                    <h2 class="subtitulos">Iniciar Sesion</h2>
+                    <h1 class="subtitulos">Iniciar Sesion</h1>
                 </div>
                 <section class="contLogin-Caja">
                     <div>
@@ -56,7 +56,7 @@ if (isset($_POST['mail'])) {
                 </section>
                 <div>
                     <div class="contLogin-Botonera">
-                        <p><a class="contLogin-Contra" href="">¿Has olvidado la contraseña?</a></p>
+                        <p><a class="contLogin-Contra" href="recuperar.php">¿Has olvidado la contraseña?</a></p>
                         <div>
                             <button class="accederBTN" type="submit">Acceder</button>
                         </div>

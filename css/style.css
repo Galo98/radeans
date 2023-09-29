@@ -337,7 +337,7 @@ header .navLog{
     background-image: url(../img/pedi.png);
 }
 
-/* ---------------------------------------------Login y Registro--------------------------------------------- */
+/* ---------------------------------------------Login, Registro y Recuperacion de contraseña --------------------------------------------- */
 
 .log,
 .reg {
@@ -501,6 +501,10 @@ header .navLog{
     height: 22px;
     margin-right: 8px;
 
+}
+
+.recBtn{
+    width: 260px;
 }
 
 /* -------------------------------------------Generar Turnos------------------------------------------- */
