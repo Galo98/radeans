@@ -7,7 +7,7 @@ require_once "./php/usuario.php";
 if (isset($_POST['mail'])) {
     $veri = Usuarios::verificarEmail($_POST['mail']);
     if ($veri[0] == 1) {
-        Usuarios::envioMailRecupero($veri[1]);
+        $cod = Usuarios::envioMailRecupero($veri[1]);
     }
 }
 
@@ -53,7 +53,14 @@ if (isset($_POST['mail'])) {
                             </div>
                         <?php elseif ($veri[0] == 1) : ?>
                             <div>
-                                <p><?php echo "Se ha enviado un email a $veri[1]." ?></p>
+                                <p>
+                                    <?php 
+                                    if(isset($cod) && $cod == 1){
+                                        echo "Se ha enviado un email a $veri[1].";
+                                    } else if ($cod == 2){
+                                        echo "No se ha enviado el mail";
+                                    } ?>
+                                </p>
                             </div>
                         <?php endif ?>
                         <div class="contLogin-Botonera">
