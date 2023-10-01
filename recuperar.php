@@ -21,7 +21,7 @@ if (isset($_POST['autenticador'])) {
 }
 
 if (isset($_POST['newPass'])) {
-    $ret = Usuarios::cambiarContraseña($_POST['mailIden'],$_POST['newPass'],$_POST['valiPass']);
+    $ret = Usuarios::cambiarContraseña($_POST['mailIden'], $_POST['newPass'], $_POST['valiPass']);
     switch ($ret) {
         case 1:
             $envi = 1;
@@ -67,7 +67,7 @@ if (isset($_POST['newPass'])) {
             <section>
                 <form method="POST" class="contLogin">
                     <div>
-                        <h1 class="subtitulos">Ingrese su correo electronico</h1>
+                        <h1 class="titulos">Ingrese su correo electronico</h1>
                     </div>
                     <div class="contLogin-Caja">
                         <div>
@@ -105,7 +105,7 @@ if (isset($_POST['newPass'])) {
             <section>
                 <form method="POST" class="contLogin">
                     <div>
-                        <h1 class="subtitulos">Recuperación de contraseña</h1>
+                        <h1 class="titulos">Recuperación de contraseña</h1>
                     </div>
                     <?php $mailAux = $_POST['mail']; ?>
                     <input type="hidden" name="mailIden" value="<?php echo $mailAux; ?>">
@@ -117,15 +117,15 @@ if (isset($_POST['newPass'])) {
                                 <input type="text" name="autenticador" minlength="6" maxlength="6" pattern="[0-9]+" id="codigo">
                             </label>
                         </div>
-                        <div>
-                            <p><?php
-                                if (!isset($recuperar)) {
-                                    echo "Se ha enviado un codigo al siguiente correo " . $veri[1];
-                                } elseif (isset($recuperar) && $recuperar == false) {
+                        <div class="cajaMensaje">
+                            <p class="subtitulos"><?php
+                                                    if (!isset($recuperar)) {
+                                                        echo "Se ha enviado un codigo al siguiente correo " . $veri[1];
+                                                    } elseif (isset($recuperar) && $recuperar == false) {
 
-                                    echo "Codigo verificador erroneo";
-                                }
-                                ?>
+                                                        echo "Codigo verificador erroneo";
+                                                    }
+                                                    ?>
                             </p>
                         </div>
                         <div class="contLogin-Botonera">
@@ -142,7 +142,7 @@ if (isset($_POST['newPass'])) {
             <section>
                 <form method="POST" class="contLogin">
                     <div>
-                        <h1 class="subtitulos">Recuperación de contraseña</h1>
+                        <h1 class="titulos">Recuperación de contraseña</h1>
                     </div>
                     <?php $mailAux = $_POST['mailIden']; ?>
                     <input type="hidden" name="mailIden" value="<?php echo $mailAux; ?>">
@@ -163,8 +163,8 @@ if (isset($_POST['newPass'])) {
                             <button class="accederBTN recBtn" type="submit">Cambiar Contraseña</button>
                         </div>
                         <?php if (isset($msjRec)) : ?>
-                            <div class="mensaje">
-                                <p>Las contraseñas no coinciden, vuelva a ingresarlas</p>
+                            <div class="cajaMensaje">
+                                <p class="subtitulos">Las contraseñas no coinciden, vuelva a ingresarlas</p>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -178,8 +178,8 @@ if (isset($_POST['newPass'])) {
         if (isset($envi)) :
         ?>
             <section>
-                <div class="mensaje">
-                    <p>
+                <div class="cajaMensaje">
+                    <p class="subtitulos">
                         <?php switch ($envi) {
                             case 1:
                                 echo "Cambio de contraseñas realizado, ya puede iniciar sesion.";
