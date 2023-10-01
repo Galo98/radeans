@@ -21,18 +21,6 @@ if (isset($_POST['autenticador'])) {
 }
 
 if (isset($_POST['newPass'])) {
-    echo '<pre>';
-    print_r("Mail");
-    echo '</pre>';
-    var_dump($_POST['mailIden']);
-    echo '<pre>';
-    print_r("newpass");
-    echo '</pre>';
-    var_dump($_POST['newPass']);
-    echo '<pre>';
-    print_r("valiPass");
-    echo '</pre>';
-    var_dump($_POST['valiPass']);
     $ret = Usuarios::cambiarContraseña($_POST['mailIden'],$_POST['newPass'],$_POST['valiPass']);
     switch ($ret) {
         case 1:

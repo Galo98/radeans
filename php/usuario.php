@@ -149,9 +149,6 @@ class Usuarios
     #region cambiarContraseña
 
     public static function cambiarContraseña($mail,$pass,$confPass){
-        echo '<pre>'; print_r("mail dentro de funcion cambiar contraseña"); echo '</pre>';
-        var_dump($mail);
-        
         if($pass == $confPass){
             $con = conectar();
 
