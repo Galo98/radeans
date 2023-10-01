@@ -448,14 +448,14 @@ function guardarTurnos($array,$prof,$serv){
 
         echo "<table class='tabla' id='tabla'>";
             echo "<thead>";
-                echo "<tr style='width: 1250px'>";
+                echo "<tr style='width: 1297px'>";
                     echo "<th class='columna' style='width: 70px'>Marca</th>";
                     echo "<th class='columna' style='width: 200px' >Fecha</th>";
                     echo "<th class='columna' style='width: 110px' >Estado</th>";
                     echo "<th class='columna' style='width: 220px' >Usuario</th>";
                     echo "<th class='columna' style='width: 220px' >Profesional</th>";
                     echo "<th class='columna' style='width: 120px' >Categoria</th>";
-                    echo "<th class='columna' style='width: 200px' >Servicio</th>";
+                    echo "<th class='columna' style='width: 230px' >Servicio</th>";
                     echo "<th class='columna' style='width: 110px' >Acciones</th>";
                 echo "</tr>";
             echo "</thead>";
@@ -472,9 +472,9 @@ function guardarTurnos($array,$prof,$serv){
                     $usua = $turno['usu_nombre'] . " " . $turno['usu_apellido'];
                 }
                 if(isset($_GET['edi']) && $_GET['edi'] === $turno['tur_id']){
-                    echo "<tr id='edi' style='width: 1250px'>";
+                    echo "<tr id='edi' style='width: 1297px'>";
                 }else{
-                    echo "<tr style='width: 1250px'>";
+                    echo "<tr style='width: 1297px'>";
                 }
                     echo "<td style='width: 70px'> $input </td>";
                     echo "<td style='width: 200px'>" .$turno['tur_fecha'] ."</td>";
@@ -489,7 +489,7 @@ function guardarTurnos($array,$prof,$serv){
                     echo "<td style='width: 220px'>" .$usua ."</td>";
                     echo "<td style='width: 220px'>" .$turno['prof_nombre'] ." " . $turno['prof_apellido'] ."</td>";
                     echo "<td style='width: 120px'>" .$turno['serv_nombre'] ."</td>";
-                    echo "<td style='width: 200px'>" .$turno['serv_desc'] ."</td>";
+                    echo "<td style='width: 230px'>" .$turno['serv_desc'] ."</td>";
                      
                         if(isset($_GET['edi']) && $_GET['edi'] === $turno['tur_id']){
                             echo "<td style='width: 110px'>
@@ -849,6 +849,7 @@ function slideTurnos($usu, $mensaje){
                                 echo "<div class='card'>";
                                     echo "<p class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</p>";
                                     echo "<div class='fotoP' style='background-image: url($foto);'></div>";
+                                    echo "<p class='servP'> Categoria: " .$dato['serv_nombre'] ."</p>";
                                     echo "<p class='servP'> Servicio: " .$dato['serv_desc'] ."</p>";
                                     echo "<p class='fecTur'> Día: " .$fCom[2] ."/" .$fCom[1] ."</p>";
                                     echo "<p class='fecTur'> Hora: " .$hCom[0] .":" .$hCom[1] ." hs" ."</p>";

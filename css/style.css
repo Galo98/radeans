@@ -868,8 +868,8 @@ border: 2.3px solid var(--color-titulos);
     align-items: center;
     justify-content: center;
     gap: 16px;
-    width: 230px;
-    height: 370px;
+    width: 250px;
+    height: 400px;
     border: 2px solid var(--color-titulos);
     border-radius: 12px;
     background-color: var(--color-fuentes);
@@ -901,6 +901,7 @@ border: 2.3px solid var(--color-titulos);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
+    border: 2px solid var(--color-subTitulos);
 }
 
 .prev-slide,
@@ -1005,7 +1006,7 @@ border: 2.3px solid var(--color-titulos);
     background-color: var(--color-fuentes);
     font-size: 18px;
     border-collapse: collapse;
-    width: 1250px;
+    width: 1297px;
 }
 
 .tabla thead,.tabla tbody,.tabla td, .tabla th{

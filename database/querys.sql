@@ -163,3 +163,46 @@ update profesionales set prof_foto = "/img/profs/6.png" where prof_id = 6;
 update profesionales set prof_foto = "/img/profs/7.png" where prof_id = 7;
 update profesionales set prof_foto = "/img/profs/8.png" where prof_id = 8;
 update profesionales set prof_foto = "/img/profs/9.png" where prof_id = 9;
+
+select * from turnos where tur_fecha > "2023-10-03" and tur_fecha < "2023-10-07";
+
+localhost:3306/id20650963_radeans/turnos/		https://databases-auth.000webhost.com/index.php?route=/sql&pos=0&db=id20650963_radeans&table=servicios
+
+   Mostrando filas 0 - 24 (total de 216, La consulta tardó 0.0007 segundos.)
+
+
+select * from turnos where tur_fecha > "2023-10-03" and tur_fecha < "2023-10-07";
+
+insert into turnos (tur_fecha,est_id,usu_id,prof_id,serv_id) values
+("2023-10-31 08:00:00",1,NULL,1,1),	
+("2023-11-01 08:00:00",1,NULL,1,1),	
+("2023-11-02 08:00:00",1,NULL,1,1),	
+("2023-11-03 08:00:00",1,NULL,1,1),	
+("2023-11-04 08:00:00",1,NULL,1,1), 
+("2023-10-31 10:00:00",1,NULL,1,1),	
+("2023-11-01 10:00:00",1,NULL,1,1),	
+("2023-11-02 10:00:00",1,NULL,1,1),	
+("2023-11-03 10:00:00",1,NULL,1,1),	
+("2023-11-04 10:00:00",1,NULL,1,1), 
+("2023-10-31 12:00:00",1,NULL,1,2),	
+("2023-11-01 12:00:00",1,NULL,1,2),	
+("2023-11-02 12:00:00",1,NULL,1,2),	
+("2023-11-03 12:00:00",1,NULL,1,2),	
+("2023-11-04 12:00:00",1,NULL,1,2), 
+("2023-10-31 14:00:00",1,NULL,1,2),	
+("2023-11-01 14:00:00",1,NULL,1,2),	
+("2023-11-02 14:00:00",1,NULL,1,2),	
+("2023-11-03 14:00:00",1,NULL,1,2),	
+("2023-11-04 14:00:00",1,NULL,1,2), 
+("2023-10-31 16:00:00",1,NULL,1,3),	
+("2023-11-01 16:00:00",1,NULL,1,3),	
+("2023-11-02 16:00:00",1,NULL,1,3),	
+("2023-11-03 16:00:00",1,NULL,1,3),	
+("2023-11-04 16:00:00",1,NULL,1,3), 
+("2023-10-31 18:00:00",1,NULL,1,3),	
+("2023-11-01 18:00:00",1,NULL,1,3),	
+("2023-11-02 18:00:00",1,NULL,1,3),	
+("2023-11-03 18:00:00",1,NULL,1,3),
+("2023-11-04 18:00:00",1,NULL,1,3);
+
+select * from servicios;
