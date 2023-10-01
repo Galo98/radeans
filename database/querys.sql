@@ -134,3 +134,21 @@ select * from usuarios;
 update usuarios set usu_pass = 'galo1234' where usu_correo = 'galon@gmail.com';
 
 -- 4,galo,olguin,galon@gmail.com,1525412541,12345678,2 
+
+select * from servicios;
+
+update servicios set serv_desc = "Balayage" where serv_id = 1;
+update servicios set serv_desc = "Tintura" where serv_id = 2;
+update servicios set serv_desc = "Alisado Permanente" where serv_id = 3;
+update servicios set serv_desc = "Corte Mujer" where serv_id = 4;
+update servicios set serv_desc = "Corte Hombre" where serv_id = 5;
+update servicios set serv_desc = "Afeitado" where serv_id = 6;
+update servicios set serv_desc = "Recorte" where serv_id = 7;
+update servicios set serv_desc = "Diseños" where serv_id = 8;
+update servicios set serv_desc = "Coloracion" where serv_id = 9;
+update servicios set serv_desc = "Perfil" where serv_id = 10;
+update servicios set serv_desc = "Kapping Gel" where serv_id = 11;
+update servicios set serv_desc = "Kapping Acrílico" where serv_id = 12;
+update servicios set serv_desc = "Semipermanente" where serv_id = 13;
+update servicios set serv_desc = "Uñas Esculpidas" where serv_id = 14;
+update servicios set serv_desc = "Nails Art" where serv_id = 15;
