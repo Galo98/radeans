@@ -360,14 +360,15 @@ header .navLog{
     margin: 30px 0;
     gap: 24px;
     color: var(--color-header);
-    max-width: 60vw;
+    max-width: 70vw;
 }
 
 .nosotrosTexto {
     color: var(--color-footer);
     font-size: 20px;
     font-weight: 400;
-    text-align: center;
+    line-height: 1.5;
+    text-align:left;
 }
 
 /* ---------------------------------------------Servicios--------------------------------------------- */
@@ -522,8 +523,8 @@ header .navLog{
 .contLogin-Contra,
 .contLogin-Contra2 {
     text-decoration: none;
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 400;
+    font-size: 20px;
     color: var(--color-header);
 }
 
@@ -1200,5 +1201,14 @@ footer .ubicacion {
         gap: 0;
         width: 260px;
         justify-items: center;
+    }
+    .rTurnos{
+        text-align: center;
+    }
+    .cond{
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

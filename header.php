@@ -4,18 +4,18 @@
     </a>
     <nav>
         <ul>
-            <li><a href="./index.php">inicio</a></li>
-            <li><a href="./index.php#nosotros">nosotros</a></li>
-            <li><a href="./servicios.php">servicios</a></li>
+            <li><a href="./index.php">Inicio</a></li>
+            <li><a href="./index.php#nosotros">Nosotros</a></li>
+            <li><a href="./servicios.php">Servicios</a></li>
             <!-- <li><a href="index.php#puntuaciones">puntuacion</a></li> -->
-            <li><a href="#contacto">contacto</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
     <?php if (isset($_SESSION['rol'])) { ?>
         <div class="dropmenu">
             <div class="menuBTN">
                 <p class="pmenuBTN">
-                    menu <i class="fa-solid fa-chevron-down"></i>
+                    Menu <i class="fa-solid fa-chevron-down"></i>
                 </p>
             </div>
             <div class="cajaMenu">
@@ -37,8 +37,8 @@
         </div>
     <?php } else { ?>
         <div class="navLog">
-            <a href="./login.php" class="logAcc">iniciar sesion</a>
-            <a href="./registro.php" class="logReg">registrarse</a>
+            <a href="./login.php" class="logAcc">Iniciar Sesion</a>
+            <a href="./registro.php" class="logReg">Registrarse</a>
         </div>
     <?php } ?>
 </div>
@@ -49,14 +49,14 @@
     </a>
     <div class="mobMenu">
         <div class="mobMenuBTN">
-            <p class="mobPmenuBTN">menu <i class="fa-solid fa-chevron-down"></i></p>
+            <p class="mobPmenuBTN">Menu <i class="fa-solid fa-chevron-down"></i></p>
         </div>
         <div class="mobCajaMenu">
-            <a class="mobA" href="./index.php">inicio</a>
-            <a class="mobA" href="./index.php#nosotros">nosotros</a>
-            <a class="mobA" href="./servicios.php">servicios</a>
+            <a class="mobA" href="./index.php">Inicio</a>
+            <a class="mobA" href="./index.php#nosotros">Nosotros</a>
+            <a class="mobA" href="./servicios.php">Servicios</a>
             <!-- <a class="mobA" href="index.php#puntuaciones">puntuacion</a> -->
-            <a class="mobA" href="#contacto">contacto</a>
+            <a class="mobA" href="#contacto">Contacto</a>
             <?php if (isset($_SESSION['rol'])) { ?>
                 <?php switch ($_SESSION['rol']) {
                     case 1: /* Administrador */ ?>
@@ -73,8 +73,8 @@
                 <?php break;
                 } ?>
             <?php } else { ?>
-                <a class="mobA mlog" href="./login.php">iniciar sesion</a>
-                <a class="mobA mreg" href="./registro.php">registrarse</a>
+                <a class="mobA mlog" href="./login.php">Iniciar Sesion</a>
+                <a class="mobA mreg" href="./registro.php">Registrarse</a>
             <?php } ?>
         </div>
     </div>

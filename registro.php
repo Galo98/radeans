@@ -43,7 +43,7 @@ if (isset($_POST['confirmacion'])) {
                     <div>
                         <label for="nombre">
                             Nombre
-                            <input class="input" type="text" name="nombre" id="nombre" placeholder="Nombre" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
+                            <input class="input" type="text" name="nombre" id="nombre" placeholder="" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
                                                                                                                                                                                                         echo $_POST['nombre'];
                                                                                                                                                                                                     } ?>">
                         </label>
@@ -51,7 +51,7 @@ if (isset($_POST['confirmacion'])) {
                     <div>
                         <label for="apellido">
                             Apellido
-                            <input class="input" type="text" name="apellido" id="apellido" placeholder="Apellido" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
+                            <input class="input" type="text" name="apellido" id="apellido" placeholder="" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
                                                                                                                                                                                                             echo $_POST['apellido'];
                                                                                                                                                                                                         } ?>">
                         </label>
@@ -98,7 +98,7 @@ if (isset($_POST['confirmacion'])) {
                         </label>
                     </div>
                 </section>
-                <div>
+                <div class="cond">
                     <input type="checkbox" name="confirmacion" class="checkReg" required>
                     <a class="contLogin-Contra" href="">He leido y acepto los términos y condiciones</a>
                 </div>
