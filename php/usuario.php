@@ -149,17 +149,20 @@ class Usuarios
     #region cambiarContraseña
 
     public static function cambiarContraseña($mail,$pass,$confPass){
+        echo '<pre>'; print_r("mail dentro de funcion cambiar contraseña"); echo '</pre>';
+        var_dump($mail);
         
         if($pass == $confPass){
             $con = conectar();
 
-            mysqli_query($con,"update usarios set usu_pass = '$pass' where usu_correo = '$mail';");
+            mysqli_query($con,"update usuarios set usu_pass = '$pass' where usu_correo = '$mail';");
 
             if(mysqli_affected_rows($con) > 0){
                 $msj = 1;
             }else{
                 $msj = 2;
             }
+        }else{
             $msj = 3;
         }
 

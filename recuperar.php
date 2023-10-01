@@ -12,18 +12,40 @@ if (isset($_POST['mail'])) {
 }
 
 if (isset($_POST['autenticador'])) {
-    echo '<pre>'; print_r("codigo mail = " .$_POST['codigoOrig']); echo '</pre>';
-    echo '<pre>'; print_r("codigo escrito = " .$_POST['autenticador']); echo '</pre>';
     $original = trim($_POST['codigoOrig']);
     if ($_POST['autenticador'] == $original) {
         $recuperar = true;
-    }else{
+    } else {
         $recuperar = false;
-    } 
+    }
 }
 
-if(isset($_POST['newPass'])){
-    $ret = Usuarios::cambiarContraseña($_POST['mail'],$_POST['newPass'],$_POST['valiPass']);
+if (isset($_POST['newPass'])) {
+    echo '<pre>';
+    print_r("Mail");
+    echo '</pre>';
+    var_dump($_POST['mailIden']);
+    echo '<pre>';
+    print_r("newpass");
+    echo '</pre>';
+    var_dump($_POST['newPass']);
+    echo '<pre>';
+    print_r("valiPass");
+    echo '</pre>';
+    var_dump($_POST['valiPass']);
+    $ret = Usuarios::cambiarContraseña($_POST['mailIden'],$_POST['newPass'],$_POST['valiPass']);
+    switch ($ret) {
+        case 1:
+            $envi = 1;
+            break;
+        case 2:
+            $envi = 2;
+            break;
+        case 3:
+            $recuperar = true;
+            $msjRec = 0;
+            break;
+    }
 }
 
 
@@ -50,7 +72,10 @@ if(isset($_POST['newPass'])){
     </header>
 
     <main>
-        <?php if (!isset($_POST['mail']) && !isset($_POST['autenticador'])) : ?>
+        <?php
+        #region IngresoDeEmailParaRecupero
+
+        if (!isset($_POST['mail']) && !isset($_POST['autenticador']) && !isset($recuperar) && !isset($envi)) : ?>
             <section>
                 <form method="POST" class="contLogin">
                     <div>
@@ -68,7 +93,7 @@ if(isset($_POST['newPass'])){
                             <div>
                                 <?php echo $veri[1]; ?>
                             </div>
-                        <?php elseif ($veri[0] == 1) : ?>
+                        <?php elseif (isset($veri) && $veri[0] == 1) : ?>
                             <div>
                                 <p>
                                     <?php
@@ -85,15 +110,18 @@ if(isset($_POST['newPass'])){
                 </form>
             </section>
         <?php endif;
+        #endregion
 
+        #region IngresoDeCodigoAutenticador
         if (isset($cod) && $cod[0] == 1) : ?>
             <section>
                 <form method="POST" class="contLogin">
                     <div>
                         <h1 class="subtitulos">Recuperación de contraseña</h1>
                     </div>
-                    <input type="hidden" name="mailIden" value=" <?php echo $_POST['mail']; ?> ">
-                    <input type="hidden" name="codigoOrig" value=" <?php echo $cod[1]?> ">
+                    <?php $mailAux = $_POST['mail']; ?>
+                    <input type="hidden" name="mailIden" value="<?php echo $mailAux; ?>">
+                    <input type="hidden" name="codigoOrig" value=" <?php echo $cod[1] ?> ">
                     <div class="contLogin-Caja">
                         <div>
                             <label for="codigo">
@@ -102,15 +130,15 @@ if(isset($_POST['newPass'])){
                             </label>
                         </div>
                         <div>
-                            <p><?php 
-                            if(!isset($recuperar)){
-                                echo "Se ha enviado un codigo al siguiente correo ". $veri[1]; 
-                            }elseif(isset($recuperar) && $recuperar == false){
-                            
-                                 echo "Codigo verificador erroneo";
-                            }
+                            <p><?php
+                                if (!isset($recuperar)) {
+                                    echo "Se ha enviado un codigo al siguiente correo " . $veri[1];
+                                } elseif (isset($recuperar) && $recuperar == false) {
+
+                                    echo "Codigo verificador erroneo";
+                                }
                                 ?>
-                        </p>
+                            </p>
                         </div>
                         <div class="contLogin-Botonera">
                             <button class="accederBTN recBtn" type="submit">Enviar</button>
@@ -119,33 +147,68 @@ if(isset($_POST['newPass'])){
                 </form>
             </section>
         <?php endif;
-        if ($recuperar) : ?>
+        #endregion
+
+        #region IngresoDeNuevaContraseña
+        if (isset($recuperar) && $recuperar) : ?>
             <section>
                 <form method="POST" class="contLogin">
                     <div>
                         <h1 class="subtitulos">Recuperación de contraseña</h1>
                     </div>
-                    <input type="hidden" name="mailIden" value=" <?php echo $_POST['mail']; ?> ">
+                    <?php $mailAux = $_POST['mailIden']; ?>
+                    <input type="hidden" name="mailIden" value="<?php echo $mailAux; ?>">
                     <div class="contLogin-Caja">
                         <div>
                             <label for="nContra">
                                 Nueva contraseña
-                                <input type="password" name="newPass" id="nContra">
+                                <input id="nContra" type="password" name="newPass" required title="Verifique que sus contraseñas coincidan" minlength="8" maxlength="30">
                             </label>
                         </div>
                         <div>
                             <label for="cContra">
                                 Confirmar contraseña
-                                <input type="password" name="valiPass" id="cContra">
+                                <input id="cContra" type="password" name="valiPass" required title="Verifique que sus contraseñas coincidan" minlength="8" maxlength="30">
                             </label>
                         </div>
                         <div class="contLogin-Botonera">
                             <button class="accederBTN recBtn" type="submit">Cambiar Contraseña</button>
                         </div>
+                        <?php if (isset($msjRec)) : ?>
+                            <div class="mensaje">
+                                <p>Las contraseñas no coinciden, vuelva a ingresarlas</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </form>
             </section>
-        <?php endif; ?>
+        <?php endif;
+
+        #endregion 
+
+        #region Mensajes
+        if (isset($envi)) :
+        ?>
+            <section>
+                <div class="mensaje">
+                    <p>
+                        <?php switch ($envi) {
+                            case 1:
+                                echo "Cambio de contraseñas realizado, ya puede iniciar sesion.";
+                                break;
+
+                            case 2:
+                                echo "No se ha podido realizar el cambio de contraseñas intentelo nuevamente mas tarde.";
+                                break;
+                        } ?>
+                    </p>
+                </div>
+            </section>
+        <?php endif;
+        #endregion
+        ?>
+
+
     </main>
 
     <footer>

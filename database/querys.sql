@@ -130,3 +130,7 @@ update turnos set est_id = 2 where tur_id =293;
 select * from estados;
 
 select * from usuarios;
+
+update usuarios set usu_pass = 'galo1234' where usu_correo = 'galon@gmail.com';
+
+-- 4,galo,olguin,galon@gmail.com,1525412541,12345678,2 
