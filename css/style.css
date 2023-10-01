@@ -182,6 +182,7 @@ header .navLog{
 /* ---------------------------------------------Slides index--------------------------------------------- */
 
 .cajaSlider{
+    margin-top: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
