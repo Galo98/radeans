@@ -844,10 +844,11 @@ function slideTurnos($usu, $mensaje){
                             $fCom = explode("-",$fyh[0]);
                             $hora = $fyh[1];
                             $hCom = explode(":",$fyh[1]);
+                            $foto = $dato['prof_foto'];
                             echo " <form method='POST'>";
                                 echo "<div class='card'>";
                                     echo "<p class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</p>";
-                                    echo "<div class='fotoP' style='background-image: url(/img/001.png);'></div>";
+                                    echo "<div class='fotoP' style='background-image: url($foto);'></div>";
                                     echo "<p class='servP'> Servicio: " .$dato['serv_desc'] ."</p>";
                                     echo "<p class='fecTur'> Día: " .$fCom[2] ."/" .$fCom[1] ."</p>";
                                     echo "<p class='fecTur'> Hora: " .$hCom[0] .":" .$hCom[1] ." hs" ."</p>";

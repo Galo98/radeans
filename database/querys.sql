@@ -152,3 +152,14 @@ update servicios set serv_desc = "Kapping Acrílico" where serv_id = 12;
 update servicios set serv_desc = "Semipermanente" where serv_id = 13;
 update servicios set serv_desc = "Uñas Esculpidas" where serv_id = 14;
 update servicios set serv_desc = "Nails Art" where serv_id = 15;
+select * from profesionales;
+
+update profesionales set prof_foto = "/img/profs/1.png" where prof_id = 1;
+update profesionales set prof_foto = "/img/profs/2.png" where prof_id = 2;
+update profesionales set prof_foto = "/img/profs/3.png" where prof_id = 3;
+update profesionales set prof_foto = "/img/profs/4.png" where prof_id = 4;
+update profesionales set prof_foto = "/img/profs/5.png" where prof_id = 5;
+update profesionales set prof_foto = "/img/profs/6.png" where prof_id = 6;
+update profesionales set prof_foto = "/img/profs/7.png" where prof_id = 7;
+update profesionales set prof_foto = "/img/profs/8.png" where prof_id = 8;
+update profesionales set prof_foto = "/img/profs/9.png" where prof_id = 9;
