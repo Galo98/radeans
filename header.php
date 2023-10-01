@@ -69,12 +69,12 @@
                         <!-- <a class="mobA" href="">Perfil</a> -->
                         <a class="mobA" href="./reserva.php">Reservar</a>
                         <a class="mobA" href="./misturnos.php">Mis Turnos</a>
-                        <a class="mobA" href="./index.php?cl=1">Cerrar Sesion</a>
+                        <a class="mobA mreg" href="./index.php?cl=1">Cerrar Sesion</a>
                 <?php break;
                 } ?>
             <?php } else { ?>
-                <a class="mobA" href="./login.php" class="logAcc">iniciar sesion</a>
-                <a class="mobA" href="./registro.php" class="logReg">registrarse</a>
+                <a class="mobA mlog" href="./login.php">iniciar sesion</a>
+                <a class="mobA mreg" href="./registro.php">registrarse</a>
             <?php } ?>
         </div>
     </div>

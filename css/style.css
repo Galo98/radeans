@@ -260,6 +260,28 @@ header .navLog{
     display: flex;
 }
 
+.mlog, .mreg{
+    background-color: var(--color-titulos);
+    color: var(--color-fuentes);
+    width: 140px;
+    border-radius: 12px;
+    height: 30px;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.mreg{
+    background-color: var(--color-subTitulos);
+}
+
+.mlog:hover, .mreg:hover{
+    color: var(--color-fuentes);
+    opacity: 80%;
+}
+
+
 /* ---------------------------------------------Slides index--------------------------------------------- */
 
 .cajaSlider{
@@ -844,8 +866,8 @@ border: 2.3px solid var(--color-titulos);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 22px;
-    width: 260px;
+    gap: 16px;
+    width: 230px;
     height: 370px;
     border: 2px solid var(--color-titulos);
     border-radius: 12px;
@@ -873,8 +895,8 @@ border: 2.3px solid var(--color-titulos);
 }
 
 .fotoP {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
@@ -895,6 +917,11 @@ border: 2.3px solid var(--color-titulos);
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.prev-slide:hover,
+.next-slide:hover{
+    opacity: 80%;
 }
 
 .prev-slide {

@@ -834,21 +834,23 @@ function slideTurnos($usu, $mensaje){
     $cont = 0;
     $turnosReservados = mysqli_query($con, "select turnos.tur_id, turnos.tur_fecha, servicios.serv_nombre, servicios.serv_desc, profesionales.prof_nombre, profesionales.prof_apellido, profesionales.prof_foto from turnos inner join servicios on servicios.serv_id = turnos.serv_id inner join profesionales on profesionales.prof_id = turnos.prof_id where usu_id = $usu and est_id = 2;");
 
-    echo "<h2 class='titulos'>Turnos reservados</h2>";
+    echo "<h1 class='titulos'>Turnos reservados</h1>";
             echo "<div class='sliderCards'>";
                 echo "<div class='slider-containerCards'>";
                     echo "<div class='cajaContenidosCard'> ";
                         while($dato = mysqli_fetch_assoc($turnosReservados)){
                             $fyh = explode(" ",$dato['tur_fecha']);
                             $fecha = $fyh[0];
+                            $fCom = explode("-",$fyh[0]);
                             $hora = $fyh[1];
+                            $hCom = explode(":",$fyh[1]);
                             echo " <form method='POST'>";
                                 echo "<div class='card'>";
-                                    echo "<h2 class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</h2>";
+                                    echo "<p class='nombreP'>". $dato['prof_nombre']." " .$dato['prof_apellido'] ."</p>";
                                     echo "<div class='fotoP' style='background-image: url(/img/001.png);'></div>";
-                                    echo "<p class='servP'>" .$dato['serv_nombre'] ." " .$dato['serv_desc'] ."</p>";
-                                    echo "<p class='fecTur'>" .$fecha ."</p>";
-                                    echo "<p class='fecTur'>" .$hora ."</p>";
+                                    echo "<p class='servP'> Servicio: " .$dato['serv_desc'] ."</p>";
+                                    echo "<p class='fecTur'> Día: " .$fCom[2] ."/" .$fCom[1] ."</p>";
+                                    echo "<p class='fecTur'> Hora: " .$hCom[0] .":" .$hCom[1] ." hs" ."</p>";
                                     echo "<input type='hidden' name='idtur' value='" .$dato['tur_id'] ."'> ";
                                     echo "<input type='submit' class='cancTurBTN' value='cancelar'> ";
                                 echo "</div>";
