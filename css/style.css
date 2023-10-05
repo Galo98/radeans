@@ -79,7 +79,7 @@ main{
     opacity: 80%;
     padding: 10px 32px;
     display: grid;
-    grid-template-columns: 10% 68% 20% ;
+    grid-template-columns: 10% 60% 30% ;
     grid-gap: 10px;
     position: fixed;
     z-index: 1;
