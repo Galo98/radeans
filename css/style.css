@@ -943,7 +943,7 @@ border: 2.3px solid var(--color-titulos);
 }
 
 .nombreP ,.servP, .fecTur{
-    font-size: 1.3em;
+    font-size: 1rem;
     font-weight: 600;
 }
 
