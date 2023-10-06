@@ -44,16 +44,16 @@ if (isset($_POST['confirmacion'])) {
                         <label for="nombre">
                             Nombre
                             <input class="input" type="text" name="nombre" id="nombre" placeholder="" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                        echo $_POST['nombre'];
-                                                                                                                                                                                                    } ?>">
+                                                                                                                                                                                                echo $_POST['nombre'];
+                                                                                                                                                                                            } ?>">
                         </label>
                     </div>
                     <div>
                         <label for="apellido">
                             Apellido
                             <input class="input" type="text" name="apellido" id="apellido" placeholder="" required minlength="3" maxlength="20" pattern="[a-zA-Z ]+" title="solo letras" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                            echo $_POST['apellido'];
-                                                                                                                                                                                                        } ?>">
+                                                                                                                                                                                                    echo $_POST['apellido'];
+                                                                                                                                                                                                } ?>">
                         </label>
                     </div>
                     <div>
@@ -68,8 +68,8 @@ if (isset($_POST['confirmacion'])) {
                         <label for="mail">
                             Email
                             <input class="input" type="email" name="mail" id="mail" placeholder="correo@correo.com" required pattern="[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" title="Complete correctamente su correo" value="<?php if (isset($_POST['confirmacion'])) {
-                                                                                                                                                                                                                                                                                                                                echo $_POST['mail'];
-                                                                                                                                                                                                                                                                                                                            } ?>">
+                                                                                                                                                                                                                                                                                                                                    echo $_POST['mail'];
+                                                                                                                                                                                                                                                                                                                                } ?>">
                         </label>
                     </div>
                     <div>
@@ -100,7 +100,7 @@ if (isset($_POST['confirmacion'])) {
                 </section>
                 <div class="cond">
                     <input type="checkbox" name="confirmacion" class="checkReg" required>
-                    <a class="contLogin-Contra" href="">He leido y acepto los términos y condiciones</a>
+                    <a class="contLogin-Contra" id="condiciones">He leido y acepto los términos y condiciones</a>
                 </div>
                 <div>
                     <button class="accederBTN regbtn" type="submit">Registrarse</button>
@@ -129,10 +129,77 @@ if (isset($_POST['confirmacion'])) {
         </section>
         </section>
 
+        <section class="tyc off" id="secTYC">
+            <div class="tycDivCie">
+                <p class="tycTit">Terminos y Condiciones</p>
+                <a class="tycCierre" id="btnCierre"><i class="fa-regular fa-circle-xmark"></i></a>
+            </div>
+            <div class="tycDivT">
+                <p class="tycParrafo">
+                    1- Los turnos agendados son un compromiso, solicitamos responsabilidad al tomar el mismo.Deberás confirmar tu asistencia por medio de WhatsApp pagando una seña de $1500 al alias: salonDeBellezaradeans dicha seña es descontada del total de los servicios al asistir a su turno
+                </p>
+                <p class="tycParrafo">
+                    2- Si tuvieras algún inconveniente para abonar informarnos sobre ello. Si ya la realizaste te solicitamos que nos envíes por WhatsApp al 11- 555-1234 una captura del comprobante o bien el número de operación para adjuntarlo a tu turno, si no recibimos el comprobante, ni dicho número de operación el turno será cancelado. Si no recibimos respuesta alguna al mensaje de confirmación del turno será cancelado automáticamente.
+                </p>
+                <p class="tycParrafo">
+                    3- Las cancelaciones de los turnos, se permitirán hasta 24hs de anticipación al mismo.
+                </p>
+                <p class="tycParrafo">
+                    4-Leer siempre la descripción de los diferentes servicios que ofrecemos. Podes obtenerla en nuestra web www.radeans.com.ar sección servicios.
+                </p>
+                <p class="tycParrafo">
+                    5- Ante cualquier consulta, sugerencia o cancelación de turnos, nuestros medios de comunicación son: WhatsApp 11- 555-1234 o al email: radeans.com.ar@gmail.com ||
+                </p>
+                <p class="tycParrafo">
+                    6- Trabajamos con una tolerancia máxima de 15 minutos, a partir de la hora estipulada del turno. Caso contrario se cancela el turno y deberá obtener otro turno.
+                </p>
+                <p class="tycParrafo">
+                    7- Menores de 18 años sin excepción deberán presentarse al salón con el acompañamiento de un adulto responsable y se firmará un consentimiento, caso contrario no serán atendidos.
+                </p>
+                <p class="tycParrafo">
+                    8- Los tratamientos anti frizz tiene una durabilidad de hasta 3 meses.
+                </p>
+                <p class="tycParrafo">
+                    9- Los colores fantasía según el cabello, el color, y las variadas condiciones: pueden durar entre 1 y 10 lavados.
+                </p>
+                <p class="tycParrafo">
+                    10- Si vas a realizarte un trabajo de coloración (tintura: tono sobre tono o tinte tradicional) podes venir con el cabello lavado o sin lavar.
+                </p>
+                <p class="tycParrafo">
+                    11- Si vas a realizarte un trabajo técnico con decoloración (Hightlights, Babylights y o cualquier trabajo que requiera decoloración que no sea global es ideal traer el cabello limpio y sin restos de producto) de ser necesario tendremos que lavar el cabello previamente y secarlo para comenzar con el servicio, éstos serán servicios que se cobrarán como adicionales.
+                </p>
+                <p class="tycParrafo">
+                    12- Si vas a realizarte una decoloración global (desde la raíz a las puntas) es ideal que estés al menos un día sin lavarte el cabello antes de visitarnos.
+                </p>
+                <p class="tycParrafo">
+                    13- Para cualquier servicio de decoloración es muy importante que sepas qué tipos de tratamientos tienes en tu pelo. Todos los productos con derivados para controlar el frizz influyen directamente en todos los trabajos técnicos de color y por ende en su resultado.
+                </p>
+                <p class="tycParrafo">
+                    14- Es muy importante saber que: si te realizaste un alisado, un anti-frizz o una keratina recientemente o en los últimos 3 años, debés consultarnos sobre las posibilidades de realizar cualquier tipo de servicio de color ya que no será responsabilidad de los resultados no esperados sobre lo mencionado.
+                </p>
+                <p class="tycParrafo">
+                    15- Es muy importante que sepas que si tu frecuencia de cualquier servicio de color es regular y ha sido interrumpida y dejaste más tiempo pasar es muy probable que no quede de la misma forma que siempre. Consulta con nuestros profesionales.
+                </p>
+                <p class="tycParrafo">
+                    16- Los valores de referencia de S, M, L y XL no solo hacen alusión al largo sino a la cantidad de producto que usemos y la cantidad de cabello que tengas, ante cualquier duda sobre este tema te sugerimos siempre pedir un presupuesto antes de realizarte el trabajo requerido
+                </p>
+                <p class="tycParrafo">
+                    17- El profesional puede solicitar a la usuaria la firma de un consentimiento para avanzar con el trabajo técnico según corresponda.
+                </p>
+                <p class="tycParrafo">
+                    18- Para mejor entendimiento y posterior labor del profesional, es importante llegar al salón con fotos referentes al servicio que será solicitado.
+                </p>
+                <p class="tycParrafo">
+                    19- Para brindar una óptima atención y mejorar nuestro servicio al momento de ser reservado un turno el usuario/a acepta de manera consciente y tácita dichos términos y condiciones. Más información en y en nuestro WhatsApp 11- 555-1234.
+                </p>
+            </div>
+        </section>
+
     </main>
     <footer>
         <?php require_once "footer.php"; ?>
     </footer>
+    <script src="js/termycondi.js"></script>
 </body>
 
 </html>

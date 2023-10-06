@@ -612,6 +612,58 @@ header .navLog{
     width: 260px;
 }
 
+.tyc{
+    background-color: var(--color-fuentes);
+    border-radius: 12px;
+    padding: 16px;
+    width: 390px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1;
+    position: absolute;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.off{
+ display: none;
+}
+
+.tycDivCie{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.tycCierre{
+    font-size: 1.6rem;
+    color: var(--color-subTitulos);
+}
+
+.tycCierre:hover{
+    color: var(--color-subOsc);
+}
+
+.tycTit{
+    color: var(--color-titulos);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.tycDivT{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+}
+
+.tycParrafo{
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
 /* -------------------------------------------Generar Turnos------------------------------------------- */
 
 .gestionTurnos,.reservaciones{
