@@ -34,7 +34,9 @@ if (!isset($_GET['s'])) {
                 <div>
                     <a class="btnMenuServ pelu <?php if (isset($_GET['s']) && $_GET['s'] == "p") {
                                                     echo "activo";
-                                                }else if (!isset($_GET['s'])){echo "activo";} ?>" href="servicios.php?s=p"><!-- <img src="./img/corte-de-pelo.png" alt="peluqueria"> --> </a>
+                                                } else if (!isset($_GET['s'])) {
+                                                    echo "activo";
+                                                } ?>" href="servicios.php?s=p"><!-- <img src="./img/corte-de-pelo.png" alt="peluqueria"> --> </a>
                 </div>
                 <div>
                     <a class="btnMenuServ barb <?php if (isset($_GET['s']) && $_GET['s'] == "b") {
@@ -142,8 +144,35 @@ if (!isset($_GET['s'])) {
                         </div>
                     </article>
                 <?php break;
-                case "ped":
-                ?>
+                case "ped": ?>
+                    <article>
+                        <h2 class="titulos">Pedicura</h2>
+                        <div>
+                            <h3 class="subtitulos"> Pedicura Simple </h3>
+                            <p class="nosotrosTexto">Deseas lucir unos bellos pies este verano? Que estas esperando para hacerte una pedicura simple que consta del limado, cortado y pintado de uñas del color que más te guste para tener unos pies encantadores.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="subtitulos"> Pedicura Clásica </h3>
+                            <p class="nosotrosTexto">Dale más que belleza a tus pies, cuidado con la Pedicura clásica.
+                                La pedicura clásica incluye limpieza de pies ( con remojo en una bañerita de agua tibia para pies), eliminación de durezas de talones y pulgares el torno (que no hace ningún daño), limado y cortado de uñas (prestando atención a futuros problemas como el encarnamiento de uñas) y esmaltado de uñas.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="subtitulos"> Pedicura Completa </h3>
+                            <p class="nosotrosTexto">La pedicura spa es la más avanzada y sofisticadas de las pedicuras.
+                                La pedicura spa incluye la pedicura de piedras, un tipo de pedicura que se sofistica al incluir un agradable masaje con piedras calientes. Además de incluir la limpieza, eliminación de durezas e imperfecciones, retirada de cutículas, limado, cortado y esmaltado de uñas.
+                                Es un tratamiento de bienestar antes que estético: no solo se centra en la apariencia, sino que consigue mejorar la salud del pie, activar la circulación y reducir las tensiones.
+
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="subtitulos"> Pedicura Simple Francesa </h3>
+                            <p class="nosotrosTexto">La pedicura francesa finaliza con un acabado a la francesa.Es decir consiste en pintar las uñas de los pies con una base clarita (tipo rosa palo, nude, etc.) y aplicar al final de la uña un reborde blanco.
+                            Quedan muy bellas y delicadas para cualquier ocasión.
+                            </p>
+                        </div>
+                    </article>
             <?php break;
             }
             ?>

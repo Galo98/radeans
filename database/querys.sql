@@ -206,3 +206,9 @@ insert into turnos (tur_fecha,est_id,usu_id,prof_id,serv_id) values
 ("2023-11-04 18:00:00",1,NULL,1,3);
 
 select * from servicios;
+
+update servicios set serv_desc = "Simple" where serv_id = 16;
+update servicios set serv_desc = "Clásica" where serv_id = 17;
+update servicios set serv_desc = "Completa" where serv_id = 18;
+update servicios set serv_desc = "SPA" where serv_id = 19;
+update servicios set serv_desc = "Simple Francesa" where serv_id = 17;
